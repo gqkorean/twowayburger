@@ -1,0 +1,2805 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TWOWAY BURGER | 투웨이버거 공식 웹사이트</title>
+
+  <!-- 폰트 깜빡임(FOUT) 방지 최적화 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    /* ==========================================
+       1. GLOBAL RESET & VARIABLES
+       ========================================== */
+    :root {
+      --font-display: 'Oswald', 'Impact', sans-serif;
+      --font-kr: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --color-black: #111111;
+      --color-white: #ffffff;
+      --color-gray-bg: #f8f8f9;
+      --color-border: #E2E2E5; /* 1px 소프트 그레이 선 */
+      --color-chipotle-red: #e41e26; /* 투웨이 레드 */
+      --color-naver: #03C75A;
+      --color-badge-dark: #3E2723;
+      --color-kakao: #FEE500;
+      --color-table-header: #F4EDE7;
+      --color-table-total: #4A3528;
+
+      --radius-subtle: 2px;
+      --radius-card: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-kr);
+      background: var(--color-white);
+      color: var(--color-black);
+      line-height: 1.5;
+      overflow-x: hidden;
+      word-break: keep-all;
+      padding-top: 80px;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+
+    .comm-video {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      display: block;
+    }
+
+    /* 공통 타이틀 */
+    .section-header-center { text-align: center; margin-bottom: 50px; }
+    .section-tag {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--color-chipotle-red);
+    }
+    .section-main-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .section-sub-desc { font-size: 1.1rem; color: #666; max-width: 750px; margin: 0 auto; }
+
+    /* ==========================================
+       2. STICKY HEADER
+       ========================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    /* --------------------------------------------------
+       1. 상단 고정 헤더 로고 (HEADER LOGO)
+       -------------------------------------------------- */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      max-width: 220px;       /* 헤더 로고 전체 영역 최대 폭 */
+    }
+
+    .logo-img {
+      height: 38px;           /* [PC] 헤더 로고 높이 */
+      max-height: 44px;       /* 헤더 바(80px)를 넘치지 않게 제한 */
+      max-width: 180px;       /* ★ [PC] 메뉴를 침범하지 못하도록 가로 최대폭 제한 */
+      width: auto;            /* 가로세로 비율 자동 유지 */
+      object-fit: contain;
+      display: block;
+    }
+
+
+    /* --------------------------------------------------
+       2. CONCEPT 01 (오리지널) 메뉴 로고 크기 & 폭 제한
+       -------------------------------------------------- */
+    .concept-logo-img.orig-logo {
+      height: 60px;           /* [PC] 오리지널 로고 높이 (원하는 크기로 조절: 40px ~ 80px) */
+      max-height: 75px;       /* 최대 높이 한계치 */
+      max-width: 420px;       /* ★ [PC] 오리지널 로고 가로 최대폭 제한 */
+      width: auto;            /* 비율 찌그러짐 방지 */
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0)); /* 그림자 */
+    }
+
+
+    /* --------------------------------------------------
+       3. CONCEPT 02 (치폴레) 메뉴 로고 크기 & 폭 제한
+       -------------------------------------------------- */
+    .concept-logo-img.chip-logo {
+      height: 60px;           /* [PC] 치폴레 로고 높이 (원하는 크기로 조절: 40px ~ 80px) */
+      max-height: 75px;       /* 최대 높이 한계치 */
+      max-width: 480px;       /* ★ [PC] 치폴레 로고 가로 최대폭 제한 */
+      width: auto;            /* 비율 찌그러짐 방지 */
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0));
+    }
+
+
+    /* --------------------------------------------------
+       4. [모바일 스마트폰 전용] 로고 크기 및 폭 제한
+       -------------------------------------------------- */
+    @media (max-width: 768px) {
+      /* 모바일 상단 헤더 로고 */
+      .logo-img {
+        height: 30px;
+        max-width: 130px;     /* 모바일 화면에 맞춘 가로폭 축소 */
+      }
+
+      /* 모바일 오리지널 메뉴 로고 */
+      .concept-logo-img.orig-logo {
+        height: 42px;
+        max-width: 260px;     /* 모바일 화면 밖으로 튀어나가지 않게 폭 제한 */
+      }
+
+      /* 모바일 치폴레 메뉴 로고 */
+      .concept-logo-img.chip-logo {
+        height: 42px;
+        max-width: 280px;     /* 모바일 화면 밖으로 튀어나가지 않게 폭 제한 */
+      }
+    }
+    .logo-text { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; text-transform: uppercase; color: var(--color-black); }
+
+    .nav-list { display: flex; gap: 24px; }  /* 메뉴들 간격 조절32px - 24px */
+    .nav-link {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      position: relative;
+      padding: 6px 0;
+      transition: var(--transition);
+    }
+    .nav-link.active, .nav-link:hover { color: var(--color-chipotle-red); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--color-chipotle-red);
+      transition: var(--transition);
+    }
+    .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+    .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; }
+    .menu-toggle span { width: 30px; height: 2px; background: var(--color-black); }
+
+    /* ==========================================
+       3. HERO VISUAL
+       ========================================== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 80px);
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: -10%;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+                  url('images/main_bg.jpg') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-content { position: relative; z-index: 2; text-align: center; color: var(--color-white); padding: 0 20px; max-width: 1000px; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--color-chipotle-red);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 6px 16px;
+      border-radius: var(--radius-subtle);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-desc { font-size: clamp(1.05rem, 1.6vw, 1.35rem); font-weight: 500; color: #E0E0E0; margin-bottom: 40px; }
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 42px;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--color-black);
+      border-radius: var(--radius-subtle);
+      transition: var(--transition);
+    }
+    .btn-hero:hover {
+      background: var(--color-chipotle-red);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(228, 30, 38, 0.4);
+    }
+
+    /* ==========================================
+       4. STORY (조리영상 -> 인테리어 마키 -> SNS 패럴랙스 -> 상권)
+       ========================================== */
+    .story-video-section {
+      position: relative;
+      width: 100%;
+      min-height: 800px;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      background: #000;
+      overflow: hidden;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .video-bg-media {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100vw; height: 100vh;
+      min-width: 100%; min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .video-overlay-layer {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.75) 100%);
+      z-index: 2;
+    }
+    .video-inner-grid {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+      gap: 15px;
+      color: #fff;
+      padding: 80px 0;
+    }
+    .video-huge-heading { font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+    .video-highlight-yellow { color: #FFC000; }
+    .video-info-card {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-subtle);
+      padding: 35px 40px;
+      backdrop-filter: blur(4px);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* 인테리어 3단 롤링 */
+    .section-marquee-gallery { padding: 100px 0; background: #111111; color: #ffffff; overflow: hidden; border-bottom: 1px solid #282828; }
+    .marquee-container { display: flex; flex-direction: column; gap: 10px; width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; }
+    .marquee-row { display: flex; gap: 10px; width: max-content; user-select: none; }
+    .marquee-item { width: 320px; height: 200px; border-radius: 4px; overflow: hidden; flex-shrink: 0; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .marquee-item img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1); transition: transform 0.4s ease; }
+    .marquee-item:hover img { transform: scale(1.08); filter: brightness(1.05); }
+
+    @keyframes scrollLTR { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes scrollRTL { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+    .row-speed-1 { animation: scrollLTR 24s linear infinite; }
+    .row-speed-2 { animation: scrollRTL 32s linear infinite; }
+    .row-speed-3 { animation: scrollLTR 28s linear infinite; }
+    .marquee-container:hover .marquee-row { animation-play-state: paused; }
+
+    /* SNS 3열 스크롤 패럴랙스 */
+    .section-sns { padding: 120px 0; background: #FAFAFB; border-bottom: 1px solid var(--color-border); overflow: hidden; }
+    .sns-collage-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .sns-col { display: flex; flex-direction: column; gap: 20px; will-change: transform; transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1); }
+    .sns-photo-card { position: relative; border-radius: var(--radius-card); overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.06); background: #e8e8e8; }
+    .sns-photo-card img { width: 100%; height: 100%; object-fit: cover; }
+    .sns-id-overlay {
+      position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+      color: #ffffff; font-family: var(--font-kr); font-size: 1rem; font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
+      white-space: nowrap; pointer-events: none; z-index: 2;
+    }
+    .h-medium { height: 260px; }
+    .h-tall   { height: 380px; }
+
+    /* 상권 검증 */
+    .section-commercial { padding: 120px 0; background: var(--color-gray-bg); border-bottom: 1px solid var(--color-border); }
+    .commercial-cards { display: flex; flex-direction: column; gap: 36px; max-width: 1100px; margin: 0 auto; }
+    .commercial-row {
+      display: grid; grid-template-columns: 1fr 1fr; background: var(--color-white);
+      border: 1px solid var(--color-border); border-radius: var(--radius-subtle);
+      overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: var(--transition);
+    }
+    .commercial-row:hover { border-color: var(--color-chipotle-red); transform: translateY(-4px); }
+    .commercial-row.reverse { direction: rtl; }
+    .commercial-row.reverse .comm-text { direction: ltr; }
+    .comm-img { height: 360px; overflow: hidden; }
+    .comm-img img { width: 100%; height: 100%; object-fit: cover; }
+    .comm-text { padding: 50px 45px; display: flex; flex-direction: column; justify-content: center; }
+    .comm-badge {
+      display: inline-block; background: var(--color-black); color: #fff;
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+      padding: 4px 12px; border-radius: var(--radius-subtle); margin-bottom: 12px; align-self: flex-start;
+    }
+    .comm-title { font-size: 1.85rem; font-weight: 800; margin-bottom: 12px; }
+    .comm-desc { font-size: 1.05rem; color: #555; line-height: 1.75; }
+
+    /* ==========================================================================
+       5. MENU SECTION & 사선 배경 콜라주
+       ========================================================================== */
+    .section-carousel-menu { padding: 0; overflow: hidden; border-bottom: 1px solid var(--color-border); }
+    .menu-row-original { background: var(--color-white); padding: 100px 0; border-bottom: 1px solid var(--color-border); position: relative; }
+    .menu-row-chipotle { position: relative; color: #ffffff; padding: 110px 0 120px; overflow: hidden; background: #111111; }
+
+    .diagonal-bg-collage {
+      position: absolute; top: -30%; left: -20%; width: 140%; height: 160%;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      transform: rotate(-12deg); z-index: 1; pointer-events: none; opacity: 0.28;
+    }
+    .diag-col { display: flex; flex-direction: column; gap: 20px; }
+    .diag-col img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; }
+    .diagonal-overlay-dark {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(228,30,38,0) 50%, rgba(17,17,17,0) 100%);
+      z-index: 2;
+    }
+
+    .menu-row-chipotle .container, .menu-row-chipotle .carousel-stage-wrapper { position: relative; z-index: 3; }
+    .menu-row-chipotle .section-tag { color: #FEE500; }
+    .menu-row-chipotle .section-main-title { color: #ffffff; }
+    .menu-row-chipotle .section-sub-desc { color: rgba(255, 255, 255, 0.9); }
+
+    .carousel-stage-wrapper { position: relative; max-width: 1400px; margin: 0 auto; padding: 40px 0 20px; }
+    .carousel-arrow-btn {
+      position: absolute; top: 45%; transform: translateY(-50%); width: 56px; height: 56px; border-radius: 50%;
+      background: var(--color-white); color: var(--color-black); border: 1px solid var(--color-border);
+      font-size: 1.5rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 30; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); transition: var(--transition);
+    }
+    .carousel-arrow-btn:hover { background: var(--color-black); color: #fff; transform: translateY(-50%) scale(1.1); }
+    .carousel-arrow-btn.left-btn { left: 10px; }
+    .carousel-arrow-btn.right-btn { right: 10px; }
+
+    .carousel-track-container {
+      display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory;
+      padding: 30px 20px 40px; scrollbar-width: none; -ms-overflow-style: none; user-select: none; cursor: grab;
+    }
+    .carousel-track-container:active { cursor: grabbing; }
+    .carousel-track-container::-webkit-scrollbar { display: none; }
+
+    .carousel-burger-item {
+      flex: 0 0 260px; scroll-snap-align: center; display: flex; flex-direction: column; align-items: center;
+      text-align: center; position: relative; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer;
+    }
+    .burger-badge {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 2;
+    }
+    .badge-signature { background: var(--color-black); color: #fff; }
+    .badge-bestseller { background: var(--color-chipotle-red); color: #fff; }
+    .badge-spicy { background: #FFC000; color: #000; }
+    .badge-popular { background: #282828; color: #fff; }
+
+    .burger-cutout-img-box { width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; }
+    .burger-cutout-img-box img {
+      max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0)); /* 버거png이미지박스 그림자 마지막꺼를 0으로 변경*/
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .carousel-burger-item:hover .burger-cutout-img-box img { transform: scale(1.12) translateY(-8px); filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0)); }  /* 버거png이미지박스 롤오버 그림자 마지막꺼를 0으로 변경*/
+
+    .burger-info-block { width: 100%; }
+    .burger-name-en { font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px; line-height: 1.2; }
+    .burger-name-ko { font-size: 0.92rem; color: #666; margin-bottom: 10px; font-weight: 500; }
+    .menu-row-chipotle .burger-name-ko { color: rgba(255, 255, 255, 0.85); }
+    .burger-price-val { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: 0.02em; }
+    .menu-row-chipotle .burger-price-val { color: #FEE500; }
+
+    /* ==========================================================================
+       6. [업그레이드] COMMUNITY (링크 클릭 연동 & 1줄/2줄 자동 조절 & 탭 필터)
+       ========================================================================== */
+    .section-community {
+      padding: 120px 0;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* 탭 버튼 */
+    .community-tab-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 50px;
+    }
+    .comm-tab-btn {
+      padding: 12px 36px;
+      font-family: var(--font-kr);
+      font-size: 1.15rem;
+      font-weight: 700;
+      border: 1px solid var(--color-black);
+      border-radius: var(--radius-subtle);
+      cursor: pointer;
+      background: #fff;
+      color: var(--color-black);
+      transition: var(--transition);
+    }
+    .comm-tab-btn.active.tab-dark { background: var(--color-black); color: #fff; }
+    .comm-tab-btn.active.tab-red { background: var(--color-chipotle-red); color: #fff; border-color: var(--color-chipotle-red); }
+    .comm-tab-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+
+    /* ★ 소식 카드 컨테이너 (1~3개면 1줄, 4~6개면 2줄 유연 자동 반응형) ★ */
+    .community-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+      min-height: 380px; /* 로딩/전환 시 레이아웃 흔들림 방지 */
+    }
+
+    /* 클릭 가능한 링크형 카드 */
+    .comm-post-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-subtle);
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .comm-post-card:hover {
+      border-color: var(--color-chipotle-red);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(228, 30, 38, 0.12);
+    }
+    .comm-post-thumb {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      background: #f0f0f0;
+      position: relative;
+    }
+    .comm-post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .comm-post-card:hover .comm-post-thumb img { transform: scale(1.06); }
+
+    .comm-post-content {
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .comm-post-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .comm-post-meta span:first-child {
+      color: var(--color-chipotle-red);
+    }
+    .comm-post-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-black);
+      line-height: 1.5;
+    }
+    .comm-post-card:hover .comm-post-title {
+      color: var(--color-chipotle-red);
+    }
+
+    /* 하단 페이지네이션 번호 */
+    .community-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #aaa;
+    }
+    .comm-page-num {
+      cursor: pointer;
+      padding: 4px 10px;
+      position: relative;
+      transition: var(--transition);
+    }
+    .comm-page-num:hover { color: var(--color-black); }
+    .comm-page-num.active {
+      color: var(--color-black);
+      border-bottom: 2px solid var(--color-black);
+    }
+
+    /* ==========================================
+       7. STORE SECTION
+       ========================================== */
+    .section-store { padding: 120px 0; background: var(--color-gray-bg); border-bottom: 1px solid var(--color-border); }
+    .store-grid-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
+    .store-left-flagship {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-subtle);
+      padding: 50px 40px;
+      position: sticky;
+      top: 110px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+    .btn-naver-direct {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 18px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: var(--color-naver);
+      color: #fff;
+      border-radius: var(--radius-subtle);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 30px;
+    }
+    .btn-naver-direct:hover { background: #02a048; transform: translateY(-3px); }
+    .btn-naver-direct svg { width: 20px; height: 20px; fill: #fff; }
+
+    .store-right-container {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-subtle);
+      background: var(--color-white);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+    .store-header-bar {
+      padding: 20px 24px;
+      background: var(--color-gray-bg);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .store-search-box { padding: 8px 14px; border: 1px solid var(--color-border); border-radius: var(--radius-subtle); font-size: 0.9rem; outline: none; width: 180px; }
+    .store-item-row { padding: 26px 24px; border-bottom: 1px solid var(--color-border); transition: var(--transition); }
+    .store-item-row:last-child { border-bottom: none; }
+    .store-item-row:hover { background-color: #fafafa; }
+    .store-tag-pill { display: inline-block; background: var(--color-badge-dark); color: #fff; font-size: 0.8rem; font-weight: 600; padding: 4px 14px; border-radius: var(--radius-subtle); }
+
+    /* ==========================================
+       8. FRANCHISE SECTION
+       ========================================== */
+    .section-franchise-all { padding: 120px 0; background: var(--color-white); }
+    .franchise-power-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 100px; }
+    .f-box-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-subtle);
+      padding: 45px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: var(--transition);
+    }
+    .f-box-card:hover { transform: translateY(-8px); border-color: var(--color-chipotle-red); }
+    .f-num-large { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--color-chipotle-red); line-height: 1; margin-bottom: 16px; }
+
+    /* 슬라이더 */
+    .slider-wrap-box { position: relative; max-width: 1360px; margin: 0 auto 120px; }
+    .slider-nav {
+      position: absolute; top: 45%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%;
+      background: var(--color-chipotle-red); color: #fff; border: none; font-size: 1.3rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; z-index: 20; box-shadow: 0 4px 15px rgba(228, 30, 38, 0.35);
+    }
+    .slider-nav.prev { left: -20px; }
+    .slider-nav.next { right: -20px; }
+    .process-scroll-container { display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; padding: 25px 10px 35px; scrollbar-width: none; }
+    .process-scroll-container::-webkit-scrollbar { display: none; }
+    .p-step-card {
+      flex: 0 0 280px; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-subtle);
+      padding: 45px 24px 35px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    }
+    .p-step-badge {
+      position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 38px; height: 38px; border-radius: 50%;
+      background: var(--color-chipotle-red); color: #fff; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* 창업비용 표 */
+    .cost-box-wrap { max-width: 960px; margin: 0 auto 120px; }
+    .cost-tbl { width: 100%; border-collapse: collapse; border: 1px solid var(--color-border); border-radius: var(--radius-subtle); overflow: hidden; margin-bottom: 10px; }
+    .cost-tbl th, .cost-tbl td { padding: 18px 24px; border: 1px solid var(--color-border); }
+    .cost-tbl th { background: var(--color-table-header); font-weight: 700; text-align: center; }
+
+    .pos-red-line-item { border-top: 2px solid var(--color-chipotle-red) !important; border-bottom: 2px solid var(--color-chipotle-red) !important; border-left: 2px solid var(--color-chipotle-red) !important; background: #fff !important; }
+    .pos-red-line-price { border-top: 2px solid var(--color-chipotle-red) !important; border-bottom: 2px solid var(--color-chipotle-red) !important; border-right: 2px solid var(--color-chipotle-red) !important; background: #fff !important; }
+
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(228, 30, 38, 0.4); }
+      50% { transform: scale(1.08); box-shadow: 0 4px 14px rgba(228, 30, 38, 0.45); }
+    }
+    .anim-price { display: inline-block; transition: all 0.6s ease; }
+    .anim-price.active { color: #aaa; text-decoration: line-through; opacity: 0.45; }
+    .anim-badge {
+      display: inline-block; background: var(--color-chipotle-red); color: #fff; font-size: 0.78rem; font-weight: 700;
+      padding: 4px 10px; border-radius: var(--radius-subtle); margin-left: 8px; opacity: 0; transform: scale(0.4);
+      transition: all 0.5s ease;
+    }
+    .anim-badge.active { opacity: 1; transform: scale(1); animation: badgePulse 2.2s ease-in-out infinite; }
+    .anim-badge.delay-2 { animation-delay: 0.3s; }
+
+    .rental-callout {
+      border: 1px solid var(--color-chipotle-red); border-radius: var(--radius-subtle); background: #fff;
+      display: grid; grid-template-columns: 2fr 2.2fr 2.8fr 3fr; align-items: center; padding: 0; overflow: hidden;
+    }
+    /* 창업 비용 하단 유의사항 안내문 스타일 */
+        .cost-disclaimer-box {
+          margin-top: 10px;
+          text-align: right;
+          font-size: 0.86rem;
+          line-height: 1.2;
+          color: #666666;
+        }
+        .cost-disclaimer-box p {
+          margin: 0;
+        }
+        /* 빨간색 강조 문구 */
+        .cost-disclaimer-box .point-red {
+          color: var(--color-chipotle-red);
+          font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+          .cost-disclaimer-box {
+            text-align: left; /* 모바일에서는 읽기 편하게 좌측 정렬 */
+            font-size: 0.8rem;
+            margin-top: 10px;
+          }
+        }
+
+    /* 가맹 신청 폼 */
+    .form-box-container {
+      max-width: 840px; margin: 0 auto; background: var(--color-white); border: 1px solid var(--color-border);
+      border-radius: var(--radius-subtle); padding: 60px 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .form-grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .f-input { width: 100%; padding: 14px 16px; border: 1px solid var(--color-border); border-radius: var(--radius-subtle); font-family: var(--font-kr); font-size: 1rem; outline: none; }
+    .f-input:focus { border-color: var(--color-black); }
+    .privacy-scroll-text { border: 1px solid var(--color-border); border-radius: var(--radius-subtle); background: #fafafa; padding: 16px; height: 140px; overflow-y: scroll; font-size: 0.85rem; color: #666; line-height: 1.6; margin-bottom: 16px; }
+    .btn-submit-main {
+      width: 100%; padding: 20px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; background: var(--color-black); color: #fff; border: none; border-radius: var(--radius-subtle); cursor: pointer; transition: var(--transition);
+    }
+    .btn-submit-main:hover { background: var(--color-chipotle-red); transform: translateY(-2px); }
+
+    /* ==========================================================================
+           ★ [푸터 & WATCH & 팝업 모달 & 하단 로고 스타일] ★
+           ========================================================================== */
+        .footer-brand-section {
+          background: var(--color-chipotle-red);
+          color: #ffffff;
+          padding: 90px 0 50px;
+          position: relative;
+        }
+        .footer-brand-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 60px;
+          align-items: start;
+          margin-bottom: 50px;
+        }
+
+        /* 좌측 약관 팝업 링크 버튼 */
+        .footer-links-row {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 24px;
+          font-size: 0.95rem;
+          font-weight: 700;
+        }
+        .footer-popup-btn {
+          background: none;
+          border: none;
+          color: #fff;
+          font-family: var(--font-kr);
+          font-size: 0.95rem;
+          font-weight: 700;
+          cursor: pointer;
+          padding: 0;
+          text-decoration: none;
+          transition: var(--transition);
+        }
+        .footer-popup-btn:hover {
+          text-decoration: underline;
+          opacity: 0.85;
+        }
+
+        .footer-nice-info {
+          font-size: 0.9rem;
+          line-height: 1.8;
+          color: rgba(255, 255, 255, 0.9);
+          margin-bottom: 30px;
+        }
+
+        /* ★ 2. 유튜브/인스타 아이콘 크기 조절 ★ */
+        .footer-sns-icons {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+        }
+        .sns-btn-icon {
+          width: 44px;         /* [크기조절] 아이콘 원형 버튼 지름 (36px ~ 55px) */
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(0, 0, 0, 0.35);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+        }
+        .sns-btn-icon:hover {
+          background: #000;
+          border-color: #000;
+          transform: translateY(-3px);
+        }
+        .sns-btn-icon svg {
+          width: 22px;         /* [크기조절] 아이콘 자체 크기 (18px ~ 28px) */
+          height: 22px;
+          fill: #fff;
+        }
+
+        /* ★ 3. WATCH 숏폼 무한 롤링 슬라이더 ★ */
+        .watch-section {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }
+        .watch-heading {
+          font-family: var(--font-display);
+          font-size: 2.2rem;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          margin-bottom: 18px;
+        }
+        .watch-marquee-frame {
+          width: 100%;
+          max-width: 300px;    /* 정해진 틀 너비 (벗어나면 자동 짤림) */
+          overflow: hidden;
+          position: relative;
+          border-radius: 12px;
+        }
+        .watch-marquee-track {
+          display: flex;
+          gap: 10px;
+          width: max-content;
+          /* 25초 주기로 자연스럽고 부드럽게 무한 이동 (더 느리게: 30s / 더 빠르게: 18s) */
+          animation: watchScrollLTR 30s linear infinite;
+        }
+        .watch-marquee-track:hover {
+          animation-play-state: paused; /* 마우스 올리면 일시정지 (클릭 편의) */
+        }
+
+        @keyframes watchScrollLTR {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* 숏폼 카드 디자인 */
+        .watch-card {
+          position: relative;
+          width: 165px;
+          height: 250px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+          display: block;
+          flex-shrink: 0;
+          transition: transform 0.3s ease;
+        }
+        .watch-card:hover { transform: scale(1.04); }
+        .watch-card img { width: 100%; height: 100%; object-fit: cover; }
+        .watch-play-btn {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: var(--color-chipotle-red);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .watch-play-btn svg { width: 22px; height: 22px; fill: #fff; margin-left: 2px; }
+
+        /* ★ 4. 최하단 로고 이미지 박스 ★ */
+        .footer-huge-logo-box {
+          text-align: center;
+          margin-top: 40px;
+          padding-top: 40px;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .footer-bottom-logo {
+          max-height: 100px;
+          max-width: 600px;
+          width: auto;
+          margin: 0 auto;
+          object-fit: contain;
+          /* filter 줄을 완전히 삭제하거나 아래처럼 none으로 두세요 */
+          filter: none;
+        }
+        .footer-huge-logo-text {
+          font-family: var(--font-display);
+          font-size: clamp(3.5rem, 12vw, 11rem);
+          font-weight: 700;
+          line-height: 0.85;
+          text-transform: uppercase;
+          letter-spacing: -0.03em;
+          color: #ffffff;
+          text-align: center;
+        }
+
+        /* ==========================================================================
+           ★ 1. 약관 팝업 모달창 (2번 이미지 스타일) ★
+           ========================================================================== */
+        .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          z-index: 10000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+        .modal-window {
+          background: #ffffff;
+          color: #111111;
+          width: 100%;
+          max-width: 780px;
+          max-height: 82vh;
+          border-radius: 8px;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          animation: modalPop 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        @keyframes modalPop {
+          0% { opacity: 0; transform: scale(0.92) translateY(20px); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .modal-header {
+          padding: 28px 32px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid var(--color-border);
+        }
+        .modal-title {
+          font-size: 1.45rem;
+          font-weight: 800;
+          color: var(--color-black);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .modal-title::before {
+          content: '';
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--color-chipotle-red);
+          display: inline-block;
+        }
+        .modal-close-btn {
+          width: 38px;
+          height: 38px;
+          background: #f0f0f0;
+          border: none;
+          border-radius: 4px;
+          font-size: 1.6rem;
+          line-height: 1;
+          cursor: pointer;
+          color: #666;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: var(--transition);
+        }
+        .modal-close-btn:hover {
+          background: var(--color-black);
+          color: #fff;
+        }
+        .modal-body {
+          padding: 28px 32px;
+          overflow-y: auto;
+          font-size: 0.95rem;
+          line-height: 1.8;
+          color: #444;
+        }
+    /* ==========================================
+       10. RESPONSIVE
+       ========================================== */
+    @media (max-width: 1024px) {
+      .video-inner-grid, .store-grid-layout, .footer-brand-grid { grid-template-columns: 1fr; }
+      .carousel-burger-item { flex: 0 0 220px; }
+      .burger-cutout-img-box { width: 180px; height: 180px; }
+      .sns-collage-container { grid-template-columns: repeat(2, 1fr); }
+      .community-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .franchise-power-4 { grid-template-columns: repeat(2, 1fr); }
+      .commercial-row, .commercial-row.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .rental-callout { grid-template-columns: 1fr 1fr; }
+      .slider-nav.prev { left: 5px; }
+      .slider-nav.next { right: 5px; }
+      .store-left-flagship { position: static; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .menu-toggle { display: flex; }
+      .nav-list {
+        position: fixed; top: 80px; left: 0; width: 100%; background: #fff; flex-direction: column; align-items: center;
+        padding: 40px 0; gap: 20px; border-bottom: 1px solid var(--color-border); transform: translateY(-150%); transition: transform 0.4s ease;
+      }
+      .nav-list.active { transform: translateY(0); }
+
+      .carousel-burger-item { flex: 0 0 160px; }
+      .burger-cutout-img-box { width: 130px; height: 130px; margin-bottom: 12px; }
+      .burger-name-en { font-size: 1.15rem; }
+      .burger-name-ko { font-size: 0.8rem; }
+      .burger-price-val { font-size: 1.1rem; }
+      .carousel-arrow-btn { width: 42px; height: 42px; font-size: 1.1rem; }
+
+      .sns-collage-container { grid-template-columns: 1fr; }
+      .community-cards-grid { grid-template-columns: 1fr; }
+      .franchise-power-4, .form-grid-2col { grid-template-columns: 1fr; }
+      .rental-callout { grid-template-columns: 1fr; }
+      .form-box-container { padding: 35px 20px; }
+      .footer-top { flex-direction: column; gap: 24px; }
+    }
+
+    /* ==========================================================================
+           ★ [카카오톡 우측 하단 노란색 플로팅 버튼 고정 스타일] ★
+           ========================================================================== */
+        .floating-kakao {
+          position: fixed !important;
+          bottom: 35px !important;
+          right: 35px !important;
+          z-index: 99999 !important; /* 항상 화면 맨 위에 노출 */
+          background: var(--color-kakao) !important;
+          color: #381E1F !important;
+          width: 68px !important;
+          height: 68px !important;
+          border-radius: 50% !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          font-weight: 700 !important;
+          font-size: 0.75rem !important;
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+          text-decoration: none !important;
+          transition: var(--transition) !important;
+        }
+        .floating-kakao:hover {
+          transform: scale(1.1) rotate(5deg) !important;
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35) !important;
+        }
+        .floating-kakao svg {
+          width: 24px !important;
+          height: 24px !important;
+          max-width: 24px !important;
+          max-height: 24px !important;
+          fill: #381E1F !important;
+          margin-bottom: 2px !important;
+        }
+
+        @media (max-width: 768px) {
+          .floating-kakao {
+            bottom: 20px !important;
+            right: 20px !important;
+            width: 60px !important;
+            height: 60px !important;
+            font-size: 0.7rem !important;
+          }
+          .floating-kakao svg {
+            width: 20px !important;
+            height: 20px !important;
+          }
+        }
+
+  </style>
+</head>
+<body>
+
+  <!-- [HEADER] HOME - STORY - MENU - COMMUNITY - STORE - FRANCHISE -->
+  <header class="header">
+    <div class="container header-inner">
+      <!-- ★ 로고 영역 (이미지가 있으면 이미지 우선, 없으면 텍스트 노출) ★ -->
+      <a href="#home" class="logo-container">
+        <img src="images/logo.png" alt="TWOWAY BURGER" class="logo-img" onerror="this.style.display='none'; document.getElementById('altLogoText').style.display='block';">
+        <span id="altLogoText" class="logo-text" style="display:none;">TWOWAY BURGER</span>
+      </a>
+
+      <nav>
+        <ul class="nav-list" id="navList">
+          <li><a href="#home" class="nav-link active">HOME</a></li>
+          <li><a href="#story" class="nav-link">STORY</a></li>
+          <li><a href="#menu" class="nav-link">MENU</a></li>
+          <li><a href="#community" class="nav-link">COMMUNITY</a></li>
+          <li><a href="#store" class="nav-link">STORE</a></li>
+          <li><a href="#franchise" class="nav-link">FRANCHISE</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- [SECTION 1: HOME] 풀스크린 메인 비주얼 -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+      <span class="hero-badge">THE ORIGINAL AMERICAN BURGER</span>
+      <h1 class="hero-title">TWO WAYS.<br>ONE PASSION.</h1>
+      <p class="hero-desc">정통 클래식 감성의 오리지널부터, 거친 LA 스트릿 감성의 치폴레까지.</p>
+      <a href="#franchise" class="btn-hero">FRANCHISE INQUIRY</a>
+    </div>
+  </section>
+
+
+  <!-- [SECTION 2: STORY] 브랜드 스토리 -->
+  <div id="story">
+
+    <!-- 2-1. 첫 번째 스토리 영상: 패티 조리편 -->
+    <section class="story-video-section">
+      <video class="video-bg-media" autoplay muted loop playsinline poster="images/video-cover.jpg">
+        <source src="images/twowayburger_cf.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay-layer"></div>
+
+      <div class="container" style="position: relative; z-index: 3; width: 100%;">
+        <div class="video-inner-grid">
+          <div>
+            <span class="section-tag" style="color:#fff; background:var(--color-chipotle-red); padding:4px 12px; border-radius:2px;">EASY & FAST SYSTEM</span>
+            <h2 class="video-huge-heading">
+              업계에서<br>
+              <span class="video-highlight-yellow">가장 편안한 조리</span>
+            </h2>
+            <p style="font-size: 1.15rem; color: #eee; font-weight: 500;">전분이나 밀가루를 섞지 않는 99.9% 고기로만 만들어진 진짜 패티</p>
+          </div>
+
+          <div class="video-info-card">
+            <p style="font-size: 1.05rem; line-height: 1.8; color: #ddd;">
+              패티 올리고 투웨이 소스만 바르면 끝나는 원팩 조리 시스템.<br>
+              전문 쉐프 없이도 초보자 누구나 완벽한 맛과 퀄리티를 유지할 수 있도록 주방 시스템을 극대화했습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-2. 두 번째 스토리 영상: 인테리어편 -->
+    <section class="story-video-section">
+      <video class="video-bg-media" autoplay muted loop playsinline poster="images/video-cover2.jpg">
+        <source src="images/twoway_interior.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay-layer"></div>
+
+      <div class="container" style="position: relative; z-index: 3; width: 100%;">
+        <div class="video-inner-grid">
+          <div>
+            <span class="section-tag" style="color:#fff; background:var(--color-chipotle-red); padding:4px 12px; border-radius:2px;">BUILT DIFFERENT</span>
+            <h2 class="video-huge-heading">
+              투웨이는<br>
+              <span class="video-highlight-yellow">'작품' 을 만듭니다</span>
+            </h2>
+            <p style="font-size: 1.15rem; color: #eee; font-weight: 500;">운영진이 직접 설계하고 시공합니다</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-3. 인테리어 3단 무한 롤링 갤러리 -->
+    <section class="section-marquee-gallery">
+      <div class="container">
+        <div class="section-header-center" style="margin-bottom: 40px;">
+          <span class="section-tag" style="color:var(--color-chipotle-red);">OUR SPACE & MOOD</span>
+          <h2 class="section-main-title" style="color:#fff;">독보적인 공간 브랜딩</h2>
+          <p class="section-sub-desc" style="color:#aaa;">투웨이는 전문 디자이너와 함께합니다</p>
+        </div>
+      </div>
+
+      <div class="marquee-container">
+        <div class="marquee-row row-speed-1">
+          <div class="marquee-item"><img src="images/twoway_design (1).jpg" alt="투웨이디자인 1"></div>
+          <div class="marquee-item"><img src="images/twoway_design (2).jpg" alt="투웨이디자인 2"></div>
+          <div class="marquee-item"><img src="images/twoway_design (3).jpg" alt="투웨이디자인 3"></div>
+          <div class="marquee-item"><img src="images/twoway_design (4).jpg" alt="투웨이디자인 4"></div>
+          <div class="marquee-item"><img src="images/twoway_design (1).jpg" alt="투웨이디자인 1"></div>
+          <div class="marquee-item"><img src="images/twoway_design (2).jpg" alt="투웨이디자인 2"></div>
+          <div class="marquee-item"><img src="images/twoway_design (3).jpg" alt="투웨이디자인 3"></div>
+          <div class="marquee-item"><img src="images/twoway_design (4).jpg" alt="투웨이디자인 4"></div>
+        </div>
+
+        <div class="marquee-row row-speed-2">
+          <div class="marquee-item"><img src="images/twoway_design (5).jpg" alt="투웨이디자인 5"></div>
+          <div class="marquee-item"><img src="images/twoway_design (6).jpg" alt="투웨이디자인 6"></div>
+          <div class="marquee-item"><img src="images/twoway_design (7).jpg" alt="투웨이디자인 7"></div>
+          <div class="marquee-item"><img src="images/twoway_design (8).jpg" alt="투웨이디자인 8"></div>
+          <div class="marquee-item"><img src="images/twoway_design (5).jpg" alt="투웨이디자인 5"></div>
+          <div class="marquee-item"><img src="images/twoway_design (6).jpg" alt="투웨이디자인 6"></div>
+          <div class="marquee-item"><img src="images/twoway_design (7).jpg" alt="투웨이디자인 7"></div>
+          <div class="marquee-item"><img src="images/twoway_design (8).jpg" alt="투웨이디자인 8"></div>
+        </div>
+
+        <div class="marquee-row row-speed-3">
+          <div class="marquee-item"><img src="images/twoway_design (9).jpg" alt="투웨이디자인 9"></div>
+          <div class="marquee-item"><img src="images/twoway_design (10).jpg" alt="투웨이디자인 10"></div>
+          <div class="marquee-item"><img src="images/twoway_design (11).jpg" alt="투웨이디자인 11"></div>
+          <div class="marquee-item"><img src="images/twoway_design (12).jpg" alt="투웨이디자인 12"></div>
+          <div class="marquee-item"><img src="images/twoway_design (9).jpg" alt="투웨이디자인 9"></div>
+          <div class="marquee-item"><img src="images/twoway_design (10).jpg" alt="투웨이디자인 10"></div>
+          <div class="marquee-item"><img src="images/twoway_design (11).jpg" alt="투웨이디자인 11"></div>
+          <div class="marquee-item"><img src="images/twoway_design (12).jpg" alt="투웨이디자인 12"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-4. SNS 3열 스크롤 패럴랙스 -->
+    <section class="section-sns" id="snsSection">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-tag">SOCIAL PROOF</span>
+          <h2 class="section-main-title">광고 없는 SNS 리얼 후기</h2>
+          <p class="section-sub-desc">수많은 버거 매니아분들과 인플루언서들이 열광하는 투웨이버거의 폭발적인 바이럴</p>
+        </div>
+
+        <div class="sns-collage-container">
+          <!-- 1열 -->
+          <div class="sns-col" id="snsCol1">
+            <div class="sns-photo-card h-medium"><img src="images/twoway_social (1).png" alt="후기 1"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-medium"><img src="images/twoway_social (2).png" alt="후기 2"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (3).png" alt="후기 3"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (4).png" alt="후기 4"><div class="sns-id-overlay"></div></div>
+          </div>
+          <!-- 2열 -->
+          <div class="sns-col" id="snsCol2">
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (5).png" alt="후기 5"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (6).png" alt="후기 6"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (7).png" alt="후기 7"><div class="sns-id-overlay"></div></div>
+          </div>
+          <!-- 3열 -->
+          <div class="sns-col" id="snsCol3">
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (8).png" alt="후기 8"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (9).png" alt="후기 9"><div class="sns-id-overlay"></div></div>
+            <div class="sns-photo-card h-tall"><img src="images/twoway_social (10).png" alt="후기 10"><div class="sns-id-overlay"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-5. 상권 검증 -->
+    <section class="section-commercial">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-tag">COMMERCIAL SUCCESS</span>
+          <h2 class="section-main-title">어디든지 투웨이는 됩니다</h2>
+          <p class="section-sub-desc">본점은 '월세 20만원' 아무도 없는 주택건물 1층에서 시작했습니다</p>
+        </div>
+
+        <div class="commercial-cards">
+          <div class="commercial-row">
+            <div class="comm-img"><img src="images/trade Area (1).jpg" alt="핫플 상권"></div>
+            <div class="comm-text">
+              <span class="comm-badge">HOT PLACE & UNIVERSITY</span>
+              <h3 class="comm-title">핫플 & 대학가 상권</h3>
+              <p class="comm-desc">외국인 거주자와 2030 MZ 트렌드세터들이 밀집된 대학 상권에서 수많은 버거집을 누르고 정통 미국식 맛으로 확고한 팬덤을 형성했습니다.</p>
+              <p style="margin-top: 15px; font-size: 0.75rem; color: var(--color-chipotle-red); font-weight:700;">월세70만, 1인운영, 배달없이 매출 2100만 [2024.11]</p>
+            </div>
+          </div>
+
+          <div class="commercial-row reverse">
+            <div class="comm-img"><img src="images/trade Area (2).jpg" alt="골목 상권"></div>
+            <div class="comm-text">
+              <span class="comm-badge" style="background:var(--color-chipotle-red);">RESIDENTIAL & ALLEY</span>
+              <h3 class="comm-title">주거 & 골목 상권</h3>
+              <p class="comm-desc">하루 50명도 안다니는 골목에서 조용히 시작했습니다. <strong>손님들이 직접 찾아오는 '투웨이'는 이면 상권에서도 압도적인 순수익률</strong>을 기록합니다.</p>
+              <p style="margin-top: 15px; font-size: 0.75rem; color: var(--color-chipotle-red); font-weight:700;">월세20만, 알바2명 풀오토, 배달없이 매출 2690만 [2024.3]</p>
+            </div>
+          </div>
+
+          <div class="commercial-row">
+            <div class="comm-img video-wrapper">
+              <video autoplay loop muted playsinline class="comm-video">
+                <source src="images/cctv.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="comm-text">
+              <span class="comm-badge">OFFICE & NIGHTLIFE</span>
+              <h3 class="comm-title">오피스 & 유흥 상권</h3>
+              <p class="comm-desc">점심시간 직장인들의 빠른 테이크아웃 회전율과 저녁 맥주 야식 수요까지 흡수하여 <strong>점심부터 심야까지 쉬지 않는 3WAY 매출</strong>을 완성합니다.</p>
+              <p style="margin-top: 15px; font-size: 0.75rem; color: var(--color-chipotle-red); font-weight:700;">대전 괴정점 월세70만, 홀+배달 평균 월매출 4000만 [2025.후반]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- ==========================================================================
+       [SECTION 3: MENU] 치토스 샘플 스타일 2열 회전목마 메뉴 섹션
+       ========================================================================== -->
+  <section class="section-carousel-menu" id="menu">
+
+    <!-- 1열: TWOWAY ORIGINAL (클래식 화이트 배경) -->
+    <div class="menu-row-original">
+      <div class="container">
+        <div class="section-header-center">
+  <span class="section-tag" style="color:var(--color-black);">CONCEPT.1</span>
+
+  <div class="menu-concept-title-box">
+      <!-- 이미지가 없을 경우 자동으로 글자(altConcept1Text)가 노출됩니다 -->
+    <!-- class에 'orig-logo' 추가 -->
+    <img src="images/concept_original_logo.png"
+         alt="TWOWAYBURGER ORIGINAL"
+         class="concept-logo-img orig-logo"
+         onerror="this.style.display='none'; document.getElementById('altConcept1Text').style.display='block';">
+
+    <h2 id="altConcept1Text" class="section-main-title" style="display:none;">TWOWAYBURGER ORIGINAL</h2>
+  </div>
+
+  <p class="section-sub-desc">인앤아웃 스타일의 쥬시한 정통 클래식 버거 </p>
+</div>
+      </div>
+
+      <div class="carousel-stage-wrapper">
+        <button class="carousel-arrow-btn left-btn" id="origPrevBtn" aria-label="이전">&#10094;</button>
+
+        <div class="carousel-track-container" id="origCarousel">
+          <!-- 1. 스모크버거 -->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_smokeburger.png" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80'" alt="스모크버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">SMOKE BURGER</h4>
+              <p class="burger-name-ko">스모크버거</p>
+              <div class="burger-price-val">₩ 5,300</div>
+            </div>
+          </div>
+
+          <!-- 2. 치즈 버거 -->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_cheeseburge.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="치즈버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CHEESE BURGER</h4>
+              <p class="burger-name-ko">치즈버거</p>
+              <div class="burger-price-val">₩ 5,900</div>
+            </div>
+          </div>
+
+          <!-- 3. 베이컨 버거 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-popular">POPULAR</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_baconburger.png" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=500&q=80'" alt="베이컨버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">BACON BURGER</h4>
+              <p class="burger-name-ko">베이컨버거</p>
+              <div class="burger-price-val">₩ 6,700</div>
+            </div>
+          </div>
+
+          <!-- 4. 베이컨치즈버거 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-bestseller">BEST SELLER</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_baconcheeseburger.png" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80'" alt="베이컨치즈버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">BACON CHEESE BURGER</h4>
+              <p class="burger-name-ko">베이컨치즈버거</p>
+              <div class="burger-price-val">₩ 7,300</div>
+            </div>
+          </div>
+
+          <!-- 5. 올웨이 버거 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-signature">SPECIAL</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_allwayburger.png" onerror="this.src='https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80'" alt="올웨이버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">ALLWAY BURGER</h4>
+              <p class="burger-name-ko">올웨이버거</p>
+              <div class="burger-price-val">₩ 10,100</div>
+            </div>
+          </div>
+
+          <!-- 6. 치즈프라이 -->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_cheesefries.png" onerror="this.src='https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=500&q=80'" alt="치즈프라이"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CHEESE FRIES</h4>
+              <p class="burger-name-ko">체다치즈프라이</p>
+              <div class="burger-price-val">₩ 4,300</div>
+            </div>
+          </div>
+
+          <!-- 7. 로스트갈릭 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-bestseller">BEST SIDE</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_garlicfries.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="갈릭 프라이즈"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">ROAST GARLIC FRIES</h4>
+              <p class="burger-name-ko">로스트갈릭프라이</p>
+              <div class="burger-price-val">₩ 4,300</div>
+            </div>
+          </div>
+
+          <!-- 8. 멕시칸프라이 -->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_mexicanfries.png" onerror="this.src='https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=500&q=80'" alt="멕시칸 프라이"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">MEXICAN FRIES</h4>
+              <p class="burger-name-ko">멕시칸프라이</p>
+              <div class="burger-price-val">₩ 4,300</div>
+            </div>
+          </div>
+
+          <!-- 9. BBQ포크 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-signature">SPECIAL</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway_o_bbqpork.png" onerror="this.src='https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80'" alt="올웨이버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">BBQ PORK</h4>
+              <p class="burger-name-ko">비비큐포크</p>
+              <div class="burger-price-val">₩ 6,200</div>
+            </div>
+          </div>
+
+
+
+        <button class="carousel-arrow-btn right-btn" id="origNextBtn" aria-label="다음">&#10095;</button>
+      </div>
+    </div>
+
+
+    <!-- 2열: TWOWAY CHIPOTLE (사선 배경 콜라주 & 어둡기 조절) -->
+    <div class="menu-row-chipotle">
+
+
+      <div class="diagonal-overlay-dark"></div>
+
+      <div class="container">
+        <div class="section-header-center">
+    <span class="section-tag">CONCEPT 02</span>
+
+      <div class="menu-concept-title-box">
+<!-- 이미지가 없을 경우 자동으로 글자(altConcept2Text)가 노출됩니다 -->
+      <!-- class에 'chip-logo' 추가 -->
+      <img src="images/concept_chipotle_logo.png"
+           alt="TWOWAYBURGER CHIPOTLE LINEUP"
+           class="concept-logo-img chip-logo"
+           onerror="this.style.display='none'; document.getElementById('altConcept2Text').style.display='block';">
+
+      <h2 id="altConcept2Text" class="section-main-title" style="display:none;">TWOWAYBURGER CHIPOTLE LINEUP</h2>
+    </div>
+
+    <p class="section-sub-desc">LA 스트릿 무드가 담긴 거친 치폴레의 매운맛</p>
+  </div>
+      </div>
+
+      <div class="carousel-stage-wrapper">
+        <button class="carousel-arrow-btn left-btn" id="chipPrevBtn" aria-label="이전">&#10094;</button>
+
+        <div class="carousel-track-container" id="chipCarousel">
+          <!-- 1. 치폴레 버거 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-signature">SIGNATURE</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_burger.png" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80'" alt="치폴레 버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CHIPOTLE BURGER</h4>
+              <p class="burger-name-ko">치폴레 버거</p>
+              <div class="burger-price-val">₩ 5,300</div>
+            </div>
+          </div>
+
+          <!-- 2. 치폴레 치즈버거-->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_cheese.png" onerror="this.src='https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80'" alt="치폴레 치즈버거"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CHIPOTLE CHEESE</h4>
+              <p class="burger-name-ko">치폴레 치즈</p>
+              <div class="burger-price-val">₩ 5,900</div>
+            </div>
+          </div>
+
+          <!-- 3. 치폴레 미트칠리 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-spicy">SPECIAL</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_meatchilly.png" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=500&q=80'" alt="치폴레 미트칠리"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CHIPOTLE BACON HOT</h4>
+              <p class="burger-name-ko">치폴레 미트칠리</p>
+              <div class="burger-price-val">₩ 8,100</div>
+            </div>
+          </div>
+
+          <!-- 4. 치폴레 더블더블 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-bestseller">BEST SELLER</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_double.png" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80'" alt="치폴레 더블더블"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">DOUBLE BOUBLE</h4>
+              <p class="burger-name-ko">치폴레 더블더블</p>
+              <div class="burger-price-val">₩ 9,.00</div>
+            </div>
+          </div>
+
+          <!-- 5. 프렌치 프라이 -->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_frenchfries.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="프랜치프라이"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">FRENCH FRIES</h4>
+              <p class="burger-name-ko">고소하게 튀겨낸 프라이</p>
+              <div class="burger-price-val">₩ 2,800</div>
+            </div>
+          </div>
+
+          <!-- 6. 프렌치 프라이 레드 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-bestseller">BEST SELLER</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_frenchfries_red.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="프랜치프라이"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">FRENCH FRIES</h4>
+              <p class="burger-name-ko">프렌치 프라이 레드</p>
+              <div class="burger-price-val">₩ 3,100</div>
+            </div>
+          </div>
+
+          <!-- 7. 딥프라이드포크 -->
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-spicy">SPECIAL</span>
+            <div class="burger-cutout-img-box"><img src="images/chipotle_deeppork.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="딥프라이드포크"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">DEEP FRIED PORK</h4>
+              <p class="burger-name-ko">딥 프라이드포크</p>
+              <div class="burger-price-val">₩ 6,200</div>
+            </div>
+          </div>
+
+          <!-- 7. 소스-->
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/cheese_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="체다치즈소스"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CHEDDAR CHEESE</h4>
+              <p class="burger-name-ko">체다치즈</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/garlic deeping_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="갈릭디핑소스"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">GARLIC DEEPING</h4>
+              <p class="burger-name-ko">갈릭디핑</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/salsa_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="크리미살사"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">CREAMY SALSA</h4>
+              <p class="burger-name-ko">크리미살사</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-bestseller">BEST SELLER</span>
+            <div class="burger-cutout-img-box"><img src="images/ranch_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="허브랜치"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">HERB RANCH</h4>
+              <p class="burger-name-ko">허브랜치</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <span class="burger-badge badge-spicy">SPECIAL</span>
+            <div class="burger-cutout-img-box"><img src="images/twoway smoky_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="투웨이스모키"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">TWOWAY SMOKY </h4>
+              <p class="burger-name-ko">투웨이스모키</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/zesty mustard_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="머스타드"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">ZESTY MUSTARD</h4>
+              <p class="burger-name-ko">제스티머스타드</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/honeybbq_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="허니비비큐"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">HONEY BBQ</h4>
+              <p class="burger-name-ko">허니비비큐</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+          <div class="carousel-burger-item">
+            <!-- 투명 뱃지 추가 (공간 차지용) -->
+            <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
+            <div class="burger-cutout-img-box"><img src="images/jalapenomayo_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="할라피뇨마요"></div>
+            <div class="burger-info-block">
+              <h4 class="burger-name-en">JALAPENO MAYO</h4>
+              <p class="burger-name-ko">할라피뇨마요</p>
+              <div class="burger-price-val">₩ 800</div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <button class="carousel-arrow-btn right-btn" id="chipNextBtn" aria-label="다음">&#10095;</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================================================
+       [SECTION 4: COMMUNITY] ★ [클릭 연동 + 1/2줄 자동 조절 + 탭/페이지네이션] ★
+       ========================================================================== -->
+  <section class="section-community" id="community">
+    <div class="container">
+
+      <div class="section-header-center">
+        <h2 class="section-main-title" style="font-size: clamp(2.8rem, 6vw, 4.8rem); letter-spacing: -0.01em;">COMMUNITY</h2>
+      </div>
+
+      <!-- 상단 탭 버튼 -->
+      <div class="community-tab-wrap">
+        <button class="comm-tab-btn tab-dark active" id="tabAllBtn">전체</button>
+        <button class="comm-tab-btn tab-red" id="tabNewsBtn">최신소식</button>
+        <button class="comm-tab-btn tab-dark" id="tabEventBtn">이벤트</button>
+      </div>
+
+      <!-- ★ 소식 카드 그리드 (개수에 따라 1줄/2줄 자동 반응형 & 클릭 시 링크 연결) ★ -->
+      <div class="community-cards-grid" id="commCardGrid">
+
+        <!--
+          ★★★ [수정 방법 안내] ★★★
+          - href="" 안에 네이버 뉴스 기사, 네이버 블로그, 인스타그램 URL을 넣으시면 됩니다.
+          - data-type="news"(최신소식) 또는 data-type="event"(이벤트)를 설정하시면 탭 버튼과 자동 연동됩니다.
+        -->
+
+        <!-- 1번 소식 -->
+        <a href="https://www.weeklyjb.co.kr/news/articleView.html?idxno=3074" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
+          <div class="comm-post-thumb">
+            <img src="images/20201215_newsweekly.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="소식 1">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>언론보도</span>
+              <span>2020. 12. 15</span>
+            </div>
+            <h3 class="comm-post-title">"더 맛있는 버거, 더 따뜻한 상생" 투웨이버거 MOU체결</h3>
+          </div>
+        </a>
+
+        <!-- 2번 소식 -->
+        <a href="https://www.instagram.com/p/B8kjdHeDPY3/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
+          <div class="comm-post-thumb">
+            <img src="images/20200215_foodinko.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="소식 2">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>소식</span>
+              <span>2020. 02. 15</span>
+            </div>
+            <h3 class="comm-post-title">"푸딘코.. 대전 최고의 햄버거로 극찬" 투웨이버거 방문</h3>
+          </div>
+        </a>
+
+        <!-- 3번 소식 -->
+        <a href="https://naver.me/GArLyK1p" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_gwanjeo.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>신규오픈</span>
+              <span>2026. 05. 11</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 치폴레 대전 관저점 성황리 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 4번 소식 -->
+        <a href="https://naver.me/xKEw7Lg6" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_jeonmin.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2025. 03. 16</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 대전 전민점 성황리 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 5번 소식 -->
+        <a href="https://naver.me/5KbHVJ75" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_goongdong.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2024. 07. 24</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 치폴레 대전 궁동점 성황리 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 5번 소식 -->
+        <a href="https://naver.me/G8hu4Syl" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/twowaypizza_daheng.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2025. 12. 2</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 신규브랜드<br>투웨이피자 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 5번 소식 -->
+        <a href="https://www.youtube.com/watch?v=ANKmmbTL9dw" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/20241008_dajeon_Official_channe.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>소식</span>
+              <span>2024. 10. 8</span>
+            </div>
+            <h3 class="comm-post-title">대전광역시 공식유튜브 채널<br>흥따 취재</h3>
+          </div>
+        </a>
+
+
+        <!-- 5번 소식 -->
+        <a href="https://naver.me/56R6c9VL" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_goejeong.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2023. 04. 15</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 치폴레 대전 괴정점 성황리 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 5번 소식 -->
+        <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_gao.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2020. 02. 27</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 대전 가오점 성황리 오픈</h3>
+          </div>
+        </a>
+
+
+        <!-- 6번 소식 -->
+        <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_gayang.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2019. 06. 28</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 대전 가양점 성황리 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 6번 소식 -->
+        <a href="https://naver.me/5wWeiCGR" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+          <div class="comm-post-thumb">
+            <img src="images/twoway_daejeon_mokdong.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>-</span>
+              <span>2018. 03. 8</span>
+            </div>
+            <h3 class="comm-post-title">투웨이버거 1호점 대전 목동점 오픈</h3>
+          </div>
+        </a>
+
+        <!-- 7번 소식 (이벤트) -->
+        <a href="https://pf.kakao.com" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="event">
+          <div class="comm-post-thumb">
+            <img src="images/twoway_design (10).jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="소식 6">
+          </div>
+          <div class="comm-post-content">
+            <div class="comm-post-meta">
+              <span>안내</span>
+              <span>2026. 08. 30</span>
+            </div>
+            <h3 class="comm-post-title">홈페이지 리뉴얼</h3>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 하단 페이지네이션 번호 (클릭 시 작동) -->
+      <div class="community-pagination" id="commPagination"></div>
+
+    </div>
+  </section>
+
+
+  <!-- [SECTION 5: STORE] 매장 안내 -->
+  <section class="section-store" id="store">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-tag">LOCATIONS</span>
+        <h2 class="section-main-title">FIND A TWOWAY BURGER</h2>
+        <p class="section-sub-desc">가까운 투웨이버거 매장에서 신선한 수제버거를 즐겨보세요.</p>
+      </div>
+
+      <div class="store-grid-layout">
+        <div class="store-left-flagship">
+          <span class="comm-badge">FLAGSHIP STORE</span>
+          <h3 style="font-size: 2.3rem; font-weight: 800; margin-bottom: 18px;">투웨이버거</h3>
+          <div style="font-size: 1.05rem; line-height: 1.85; color: #444;">
+            <p><strong>주소 :</strong> 대전광역시 중구 동서대로1365번길 6 (목동 114-10)</p>
+            <p><strong>운영시간 :</strong> 월~금 11:00 ~ 22:00 / 토·일 11:00 ~ 21:00</p>
+            <p><strong>브레이크타임 :</strong> 평일 14:00 ~ 16:00 (주말 없음)</p>
+            <p><strong>전화번호 :</strong> 042-222-2229</p>
+            <p><strong>서비스 :</strong> 매장 식사, 포장(테이크아웃), 배민/요기요 배달</p>
+          </div>
+
+          <a href="https://map.naver.com/p/search/%ED%88%AC%EC%9B%A8%EC%9D%B4%EB%B2%84%EA%B1%B0?searchType=place&c=15.00,0,0,3,dh" target="_blank" rel="noopener noreferrer" class="btn-naver-direct">
+            <svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/></svg>
+            네이버 플레이스로 전체 매장 보기 &rarr;
+          </a>
+        </div>
+
+        <div class="store-right-container">
+          <div class="store-header-bar">
+            <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; text-transform: uppercase;">STORE LOCATIONS (6)</div>
+            <input type="text" id="liveStoreSearch" class="store-search-box" placeholder="지점명/동 이름 검색...">
+          </div>
+
+          <div id="liveStoreList" style="max-height: 600px; overflow-y: auto;">
+            <div class="store-item-row">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                <h4 style="font-size:1.3rem; font-weight:700;">투웨이버거 대전목동</h4>
+                <span style="font-size:0.9rem; color:#777; font-weight:600;">Original</span>
+              </div>
+              <p style="font-size:0.95rem; color:#333; margin-bottom:4px;">대전 중구 동서대로1365번길 6 1층</p>
+              <strong style="font-size:1.05rem; display:block; margin-bottom:8px;">042-222-2229</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span class="store-tag-pill">매장</span><span class="store-tag-pill">포장</span>
+                <a href="https://naver.me/5wWeiCGR" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color:var(--color-naver); font-weight:700; text-decoration:underline;">지도보기 &rarr;</a>
+              </div>
+            </div>
+
+            <div class="store-item-row">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                <h4 style="font-size:1.3rem; font-weight:700;">투웨이버거 대전가양</h4>
+                <span style="font-size:0.9rem; color:#777; font-weight:600;">Original</span>
+              </div>
+              <p style="font-size:0.95rem; color:#333; margin-bottom:4px;">대전 동구 충정로 108 1층</p>
+              <strong style="font-size:1.05rem; display:block; margin-bottom:8px;">042-622-2227</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span class="store-tag-pill">매장</span><span class="store-tag-pill">포장</span><span class="store-tag-pill">배달</span>
+                <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color:var(--color-naver); font-weight:700; text-decoration:underline;">지도보기 &rarr;</a>
+              </div>
+            </div>
+
+            <div class="store-item-row">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                <h4 style="font-size:1.3rem; font-weight:700;">투웨이버거 치폴레 대전궁동</h4>
+                <span style="font-size:0.9rem; color:var(--color-chipotle-red); font-weight:700;">Chipotle</span>
+              </div>
+              <p style="font-size:0.95rem; color:#333; margin-bottom:4px;">대전 유성구 궁동로18번길 89 1층</p>
+              <strong style="font-size:1.05rem; display:block; margin-bottom:8px;">042-863-6760</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span class="store-tag-pill">매장</span><span class="store-tag-pill">포장</span>
+                <a href="https://naver.me/5KbHVJ75" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color:var(--color-naver); font-weight:700; text-decoration:underline;">지도보기 &rarr;</a>
+              </div>
+            </div>
+
+            <div class="store-item-row">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                <h4 style="font-size:1.3rem; font-weight:700;">투웨이버거 대전전민</h4>
+                <span style="font-size:0.9rem; color:#777; font-weight:600;">Original</span>
+              </div>
+              <p style="font-size:0.95rem; color:#333; margin-bottom:4px;">대전 유성구 전민로58번길 62 1층</p>
+              <strong style="font-size:1.05rem; display:block; margin-bottom:8px;">042-863-6760</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span class="store-tag-pill">매장</span><span class="store-tag-pill">포장</span><span class="store-tag-pill">배달</span>
+                <a href="https://naver.me/xKEw7Lg6" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color:var(--color-naver); font-weight:700; text-decoration:underline;">지도보기 &rarr;</a>
+              </div>
+            </div>
+
+            <div class="store-item-row">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                <h4 style="font-size:1.3rem; font-weight:700;">투웨이버거 치폴레 대전괴정</h4>
+                <span style="font-size:0.9rem; color:var(--color-chipotle-red); font-weight:700;">Chipotle</span>
+              </div>
+              <p style="font-size:0.95rem; color:#333; margin-bottom:4px;">대전 서구 계룡로 616 1층 116호</p>
+              <strong style="font-size:1.05rem; display:block; margin-bottom:8px;">042-525-2229</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span class="store-tag-pill">매장</span><span class="store-tag-pill">포장</span><span class="store-tag-pill">배달</span>
+                <a href="https://naver.me/56R6c9VL" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color:var(--color-naver); font-weight:700; text-decoration:underline;">지도보기 &rarr;</a>
+              </div>
+            </div>
+
+            <div class="store-item-row">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                <h4 style="font-size:1.3rem; font-weight:700;">투웨이버거 치폴레 대전관저</h4>
+                <span style="font-size:0.9rem; color:var(--color-chipotle-red); font-weight:700;">Chipotle</span>
+              </div>
+              <p style="font-size:0.95rem; color:#333; margin-bottom:4px;">대전광역시 서구 관저중로64번길 58 1층</p>
+              <strong style="font-size:1.05rem; display:block; margin-bottom:8px;">042-545-1536</strong>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span class="store-tag-pill">매장</span><span class="store-tag-pill">포장</span><span class="store-tag-pill">배달</span>
+                <a href="https://naver.me/GArLyK1p" target="_blank" rel="noopener noreferrer" style="margin-left:auto; color:var(--color-naver); font-weight:700; text-decoration:underline;">지도보기 &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- [SECTION 6: FRANCHISE] 가맹 안내 & 창업비용 & 신청 폼 -->
+  <section class="section-franchise-all" id="franchise">
+    <div class="container">
+
+      <div class="section-header-center">
+        <span class="section-tag">WHY TWOWAY BURGER</span>
+        <h2 class="section-main-title">FRANCHISE POWER</h2>
+        <p class="section-sub-desc">수제버거 창업 시장을 선도하는 투웨이버거만의 4가지 압도적 경쟁력</p>
+      </div>
+
+      <div class="franchise-power-4">
+        <div class="f-box-card">
+          <div class="f-num-large">01</div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:12px;">본사 직접 공장 생산<br>완벽한 원팩 시스템</h3>
+          <p style="font-size:0.95rem; color:#666; line-height:1.7;">HACCP 자체 육가공 라인에서 패티와 소스를 원팩 공급하여 초보자도 3분 조리 가능, <strong>인건비를 극대화 절감</strong>합니다.</p>
+        </div>
+        <div class="f-box-card">
+          <div class="f-num-large">02</div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:12px;">초기 창업 부담 제로<br>가맹비·교육비 전액 면제</h3>
+          <p style="font-size:0.95rem; color:#666; line-height:1.7;">예비 점주님의 초기 투자금 부담을 덜어드리기 위해 한시적으로 <strong>가맹비, 교육비를 전액 면제</strong>합니다.</p>
+        </div>
+        <div class="f-box-card">
+          <div class="f-num-large">03</div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:12px;">홀 + 포장 + 배달<br>3WAY 고수익 회전율</h3>
+          <p style="font-size:0.95rem; color:#666; line-height:1.7;">10~15평 소형 매장에서도 포장과 배달 매출이 폭발적으로 받쳐주는 복합 매출 모델을 구축했습니다.</p>
+        </div>
+        <div class="f-box-card">
+          <div class="f-num-large">04</div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:12px;">1:1 전담 슈퍼바이저<br>밀착 매장 케어 시스템</h3>
+          <p style="font-size:0.95rem; color:#666; line-height:1.7;">상권 분석부터 조리 실습, 오픈 지원 파견까지 본사 전문 슈퍼바이저가 밀착 동행하여 지속적인 매출을 관리합니다.</p>
+        </div>
+      </div>
+
+      <!-- 6단계 슬라이더 -->
+      <div class="section-header-center">
+        <span class="section-tag">STEP BY STEP</span>
+        <h2 class="section-main-title">가맹 개설 절차</h2>
+        <p class="section-sub-desc">투웨이버거만의 체계적인 6단계 오픈 지원 프로세스</p>
+      </div>
+
+      <div class="slider-wrap-box">
+        <button class="slider-nav prev" id="sliderPrevBtn" aria-label="이전">&#10094;</button>
+        <div class="process-scroll-container" id="processSlider">
+          <div class="p-step-card"><div class="p-step-badge">1</div><h4 style="font-size:1.25rem; color:var(--color-chipotle-red); margin:10px 0 8px;">가맹문의</h4><p style="font-size:0.9rem; color:#666;">홈페이지 또는 유선 문의 시 개설절차 안내와 희망지역 상권 1:1 상담</p></div>
+          <div class="p-step-card"><div class="p-step-badge">2</div><h4 style="font-size:1.25rem; color:var(--color-chipotle-red); margin:10px 0 8px;">상권조사 및 점포개발</h4><p style="font-size:0.9rem; color:#666;">유동인구 입지조사 및 경쟁업체 비교 분석을 통한 최적 후보지 선정</p></div>
+          <div class="p-step-card"><div class="p-step-badge">3</div><h4 style="font-size:1.25rem; color:var(--color-chipotle-red); margin:10px 0 8px;">계약 체결</h4><p style="font-size:0.9rem; color:#666;">임대차 계약 및 가맹계약 일정 협의, 가맹 정보공개서 확인 및 최종 계약</p></div>
+          <div class="p-step-card"><div class="p-step-badge">4</div><h4 style="font-size:1.25rem; color:var(--color-chipotle-red); margin:10px 0 8px;">인테리어 공사</h4><p style="font-size:0.9rem; color:#666;">매장 운영 최적화 도면 작성, 주방 설비 배치 및 전문 시공</p></div>
+          <div class="p-step-card"><div class="p-step-badge">5</div><h4 style="font-size:1.25rem; color:var(--color-chipotle-red); margin:10px 0 8px;">점주 교육</h4><p style="font-size:0.9rem; color:#666;">본사 현장 중심 패티 그릴링, 조리 실습, 위생 및 서비스 리허설</p></div>
+          <div class="p-step-card"><div class="p-step-badge">6</div><h4 style="font-size:1.25rem; color:var(--color-chipotle-red); margin:10px 0 8px;">그랜드 오픈</h4><p style="font-size:0.9rem; color:#666;">슈퍼바이저 오픈 지원 파견 및 매출 안정화를 위한 지속 사후 관리</p></div>
+        </div>
+        <button class="slider-nav next" id="sliderNextBtn" aria-label="다음">&#10095;</button>
+      </div>
+
+      <!-- 창업 비용 표 -->
+      <div class="cost-box-wrap">
+        <div class="section-header-center">
+          <span class="section-tag">ESTIMATED COST</span>
+          <h2 class="section-main-title">창업 비용</h2>
+          <p class="section-sub-desc">거품 없는 투명하고 합리적인 개설 비용 안내 (10-15평형 기준 / 단위: 원 [부가세 별도])</p>
+        </div>
+
+        <table class="cost-tbl" id="costTable">
+          <thead>
+            <tr><th>구분</th><th>항목</th><th>개설 비용</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3" style="text-align:center; font-weight:700; background:#FAFAF8; width:22%;">가맹금</td>
+              <td style="width:43%;">가맹비</td>
+              <td style="width:35%; text-align:right; font-weight:700;">
+                <span class="anim-price">10,000,000 원</span>
+                <span class="anim-badge">한시 면제 (0원)</span>
+              </td>
+            </tr>
+            <tr>
+              <td>교육비</td>
+              <td style="text-align:right; font-weight:700;">
+                <span class="anim-price">2,000,000 원</span>
+                <span class="anim-badge delay-2">한시 면제 (0원)</span>
+              </td>
+            </tr>
+            <tr>
+              <td>가맹이행보증금</td>
+              <td style="text-align:right; font-weight:700;">3,000,000 원</td>
+            </tr>
+            <tr>
+              <td rowspan="2" style="text-align:center; font-weight:700; background:#FAFAF8;">점포 시공</td>
+              <td>인테리어 (10-15평 기준)</td>
+              <td style="text-align:right; font-weight:700;">35,000,000 원</td>
+            </tr>
+            <tr>
+              <td>간판 및 내부 사인물</td>
+              <td style="text-align:right; font-weight:700;">6,000,000 원</td>
+            </tr>
+            <tr>
+              <td rowspan="2" style="text-align:center; font-weight:700; background:#FAFAF8;">기기 및 집기</td>
+              <td>주방 설비 및 집기 일체</td>
+              <td style="text-align:right; font-weight:700;">11,000,000 원</td>
+            </tr>
+            <tr>
+              <td class="pos-red-line-item">
+                <span style="display:inline-block; border:1px solid var(--color-chipotle-red); color:var(--color-chipotle-red); font-size:0.72rem; padding:2px 6px; border-radius:2px; margin-right:6px; font-weight:700;">렌탈선택가능</span>
+                포스기 및 무인 키오스크
+              </td>
+              <td class="pos-red-line-price" style="text-align:right;">
+                <strong style="font-size:1.15rem;">3,600,000 원</strong>
+              </td>
+            </tr>
+            <tr style="background:var(--color-table-total); color:#fff; font-size:1.35rem; font-weight:700;">
+              <td colspan="2" style="text-align:center; padding:22px;">총 합계 (VAT 별도)</td>
+              <td style="text-align:right; font-family:var(--font-display); font-size:1.6rem; padding:22px;">62,500,000 원</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 렌탈 15만원 박스-->
+        <!-- ★ 4개 칸 모두 완벽 중앙 정렬된 렌탈 안내 박스 ★ -->
+              <div class="rental-callout" style="border: 1px solid var(--color-chipotle-red); border-radius: var(--radius-subtle); background: #ffffff; display: grid; grid-template-columns: 2fr 2.2fr 2.8fr 3fr; align-items: center; padding: 0; overflow: hidden; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+
+                <!-- 1칸: 포스기 및 키오스크 (중앙 정렬) -->
+                <div style="padding: 22px 18px; border-right: 1px solid var(--color-border); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                  <span style="color: var(--color-chipotle-red); font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 3px;">▲ 위 항목 렌탈 전환 시</span>
+                  <strong style="color: #111; font-size: 1.05rem;">포스기 및 키오스크</strong>
+                </div>
+
+                <!-- 2칸: 렌탈 24개월 선택 시 (중앙 정렬) -->
+                <div style="padding: 22px 18px; border-right: 1px solid var(--color-border); text-align: center; display: flex; align-items: center; justify-content: center; height: 100%; color: var(--color-chipotle-red); font-weight: 700; text-decoration: underline; font-size: 1.05rem;">
+                  렌탈 24개월 선택 시
+                </div>
+
+                <!-- 3칸: 월 납입금 150,000원 (중앙 정렬) -->
+                <div style="padding: 22px 18px; border-right: 1px solid var(--color-border); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                  <span style="font-size: 0.85rem; color: #666; display: block; margin-bottom: 2px;">월 납입금</span>
+                  <div>
+                    <span style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--color-chipotle-red);">150,000</span>
+                    <strong style="color: var(--color-chipotle-red); font-size: 1.1rem;">원</strong>
+                  </div>
+                </div>
+
+                <!-- 4칸: 체크리스트 (중앙 정렬) -->
+                <div style="padding: 22px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; font-size: 0.9rem; color: #555; line-height: 1.7;">
+                  <span>✔ 초기 목돈 부담 ZERO</span>
+                  <span>✔ 전액 세금 비용처리</span>
+                  <span>✔ 3년 후 소유권 100% 이전</span>
+                </div>
+
+              </div>
+
+        <!-- ★ 창업 비용 하단 필수 유의사항 안내 문구 <p class="point-red">빨강색 ★ -->
+                <div class="cost-disclaimer-box">
+                  <p class="point-red">※ 위 사항은 점포 현장 조건 및 평수에 따라 변동될 수 있습니다.</p>
+                  <p>※ 서울, 수도권 및 대전 외 지역은 일부 추가 출장 실비가 발생할 수 있습니다.</p>
+                  <p>※ 외주공사(철거, 전기증설, 냉난방, 가스, 소방, CCTV, 화장실/건물 개보수 등)는 별도 공사 항목입니다.</p>
+                  <p>※ 상가 임대보증금 및 권리금은 포함되어 있지 않습니다.</p>
+                </div>
+      </div>
+
+      <!-- 가맹 상담 신청 폼 -->
+      <div class="form-box-container">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight:700; text-transform:uppercase;">FRANCHISE INQUIRY</h2>
+          <p style="color: #666; font-size: 0.95rem; margin-top: 8px;">정보를 남겨주시면 담당 가맹 전문가가 24시간 이내에 직접 연락드립니다.</p>
+        </div>
+
+        <form id="franchiseFormMaster">
+          <div class="form-grid-2col">
+            <div><label style="font-weight:700; font-size:0.95rem;">이름 <span style="color:var(--color-chipotle-red);">*</span></label><input type="text" id="name" class="f-input" placeholder="홍길동" required></div>
+            <div><label style="font-weight:700; font-size:0.95rem;">나이 <span style="color:var(--color-chipotle-red);">*</span></label><input type="number" id="age" class="f-input" placeholder="35" required></div>
+            <div><label style="font-weight:700; font-size:0.95rem;">연락처 <span style="color:var(--color-chipotle-red);">*</span></label><input type="tel" id="phone" class="f-input" placeholder="010-1234-5678" required></div>
+            <div><label style="font-weight:700; font-size:0.95rem;">오픈 희망 지역 <span style="color:var(--color-chipotle-red);">*</span></label><input type="text" id="location" class="f-input" placeholder="예: 대전 유성구 / 서울 강남구" required></div>
+            <div>
+              <label style="font-weight:700; font-size:0.95rem;">창업 예산 <span style="color:var(--color-chipotle-red);">*</span></label>
+              <select id="budget" class="f-input" required>
+                <option value="">예산 범위를 선택하세요</option>
+                <option value="5,000만원 미만">5,000만원 미만</option>
+                <option value="5,000만원 ~ 1억원">5,000만원 ~ 1억원</option>
+                <option value="1억원 ~ 1억 5천만원">1억원 ~ 1억 5천만원</option>
+                <option value="1억 5천만원 이상">1억 5천만원 이상</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-weight:700; font-size:0.95rem;">유입 경로 <span style="color:var(--color-chipotle-red);">*</span></label>
+              <select id="channel" class="f-input" required>
+                <option value="">알게 된 경로를 선택하세요</option>
+                <option value="네이버 검색">네이버 검색</option>
+                <option value="인스타그램 / SNS">인스타그램 / SNS</option>
+                <option value="지인 추천">지인 추천</option>
+                <option value="유튜브">유튜브</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label style="font-weight:700; font-size:0.95rem;">개인정보 수집 및 이용 동의 <span style="color:var(--color-chipotle-red);">*</span></label>
+            <div class="privacy-scroll-text">
+주식회사 나이스웨이(이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 가맹 상담 문의 처리를 위해 아래와 같이 개인정보를 수집·이용합니다.<br><br>
+1. 수집 항목: 성명, 나이, 연락처, 오픈희망지역, 창업예산, 유입경로<br>
+2. 수집 및 이용 목적: 가맹 상담 진행 및 창업 안내 자료 발송<br>
+3. 보유 및 이용 기간: 상담 종료 후 1년 또는 정보주체의 삭제 요청 시까지<br>
+귀하는 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있으나, 동의 거부 시 가맹 상담 서비스 제공이 제한될 수 있습니다.
+            </div>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:600;">
+              <input type="checkbox" id="privacyAgreeMaster" style="width:18px; height:18px; accent-color:var(--color-chipotle-red);" required>
+              <span>개인정보 수집 및 이용에 동의합니다. (필수)</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit-main" id="submitBtnMaster">가맹 상담 신청하기</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================================================
+         [SECTION 8: FOOTER] RED FOOTER & WATCH 롤링 & SNS & 팝업 모달
+         ========================================================================== -->
+    <footer class="footer-brand-section">
+      <div class="container">
+
+        <div class="footer-brand-grid">
+
+          <!-- 좌측: 사업자 정보 & 팝업 링크 & SNS -->
+          <div>
+            <!-- ★ 1. 누르면 팝업이 뜨는 약관 버튼 ★ -->
+            <div class="footer-links-row">
+              <button class="footer-popup-btn" id="openPrivacyModal">개인정보처리방침</button>
+              <span>|</span>
+              <button class="footer-popup-btn" id="openEmailModal">이메일무단수집거부</button>
+            </div>
+
+            <div class="footer-nice-info">
+              <p><strong>(주)나이스웨이</strong> | 대표: 김천구 | 사업자등록번호: 636-86-03514</p>
+              <p>본사 주소: 대전광역시 대덕구 송촌동 479-9번지, 1층</p>
+              <p>가맹 문의 직통: <strong>0507-1302-6380</strong> (평일 09:30 ~ 18:30)</p>
+              <p>COPYRIGHT &copy; 2026 TWOWAY BURGER. ALL RIGHTS RESERVED.</p>
+            </div>
+
+            <!-- ★ 2. 유튜브 / 인스타그램 링크 및 아이콘 ★ -->
+            <div class="footer-sns-icons">
+              <!-- 유튜브 링크 수정 위치 (href="" 안에 주소 입력)
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="sns-btn-icon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>-->
+              <!-- 인스타그램 링크 수정 위치 (href="" 안에 주소 입력) -->
+              <a href="https://www.instagram.com/twowayburger/" target="_blank" rel="noopener noreferrer" class="sns-btn-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- ★ 3. 우측: WATCH 숏폼 무한 롤링 슬라이더 (틀 안에서 자동 이동 & 클릭 시 링크 연결) ★ -->
+          <div class="watch-section">
+            <div class="watch-heading">SHORTS & REELS</div>
+
+            <div class="watch-marquee-frame">
+                        <div class="watch-marquee-track">
+
+                          <!-- ==========================================
+                               [1세트: 원본 5장]
+                               ========================================== -->
+                          <!-- 쇼츠 1 -->
+                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 1">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 쇼츠 2 -->
+                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 2">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 쇼츠 3 -->
+                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 3">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 릴스 1 -->
+                          <a href="https://www.instagram.com/reels/C2RlJy-yJDa/" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="릴스 1">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 릴스 2 -->
+                          <a href="https://www.instagram.com/reel/Cx6x1ZEvazc/?utm_source=ig_web_copy_link&igsi=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="릴스 2">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+
+                          <!-- ==========================================
+                               [2세트: 무한 루프용 동일 복제본 5장]
+                               ★ 원본과 똑같이 5장을 이어붙여야 1도 안 끊깁니다! ★
+                               ========================================== -->
+                          <!-- 쇼츠 1 복제 -->
+                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 1">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 쇼츠 2 복제 -->
+                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 2">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 쇼츠 3 복제 -->
+                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 3">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 릴스 1 복제 -->
+                          <a href="https://www.instagram.com/reels/C2RlJy-yJDa/" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="릴스 1">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                          <!-- 릴스 2 복제 -->
+                          <a href="https://www.instagram.com/reel/Cx6x1ZEvazc/?utm_source=ig_web_copy_link&igsi=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="watch-card">
+                            <img src="images/footer_watch_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="릴스 2">
+                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                          </a>
+
+                        </div>
+                      </div>
+
+        </div>
+
+        <!-- ★ 4. 최하단 로고 이미지 (이미지가 없으면 텍스트 노출) ★ -->
+        <div class="footer-huge-logo-box">
+          <img src="images/footer_huge_logo.png"
+               alt="TWOWAY BURGER"
+               class="footer-bottom-logo"
+               onerror="this.style.display='none'; document.getElementById('altFooterLogoText').style.display='block';">
+          <div id="altFooterLogoText" class="footer-huge-logo-text" style="display:none;">TWOWAY BURGER</div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ★ 1. 공통 약관 팝업 모달창 (숨겨져 있다가 버튼 누르면 등장) ★ -->
+    <div id="policyModal" class="modal-overlay" style="display: none;">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalTitle">개인정보처리방침</h3>
+          <button class="modal-close-btn" id="modalCloseBtn" aria-label="닫기">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- 자바스크립트로 약관 내용이 들어갑니다 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ★ 카카오톡 플로팅 버튼 (크기 강제 고정 안전장치 적용) ★ -->
+      <a href="https://pf.kakao.com" target="_blank" rel="noopener noreferrer" class="floating-kakao" aria-label="카카오톡 문의하기">
+        <svg viewBox="0 0 24 24" width="24" height="24" style="width:24px; height:24px; fill:#381E1F; display:block;">
+          <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.828 1.83 5.308 4.618 6.74-.202.748-.734 2.709-.841 3.129-.133.525.193.518.406.377.167-.111 2.656-1.808 3.73-2.544.674.095 1.371.148 2.087.148 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
+        </svg>
+        <span style="color:#381E1F; font-size:0.75rem; font-weight:700;">문의</span>
+      </a>
+
+
+  <!-- ==========================================================================
+       [JAVASCRIPT] 회전목마, 커뮤니티(탭/페이지네이션/링크), 스크롤스파이, 구글시트
+       ========================================================================== -->
+       <script>
+           // ==========================================================================
+           // 1. 모바일 햄버거 메뉴 토글
+           // ==========================================================================
+           const menuToggle = document.getElementById('menuToggle');
+           const navList = document.getElementById('navList');
+           const navLinks = document.querySelectorAll('.nav-link');
+           if (menuToggle && navList) {
+             menuToggle.addEventListener('click', () => navList.classList.toggle('active'));
+             navLinks.forEach(link => link.addEventListener('click', () => navList.classList.remove('active')));
+           }
+
+           // ==========================================================================
+           // 2. 스크롤스파이 & SNS 3열 패럴랙스
+           // ==========================================================================
+           const sections = document.querySelectorAll('section[id], div[id="story"]');
+           const snsCol1 = document.getElementById('snsCol1');
+           const snsCol2 = document.getElementById('snsCol2');
+           const snsCol3 = document.getElementById('snsCol3');
+           const snsSection = document.getElementById('snsSection');
+
+           window.addEventListener('scroll', () => {
+             const scrollY = window.pageYOffset;
+
+             // 스크롤스파이 메뉴 하이라이트
+             let current = '';
+             sections.forEach(section => {
+               const sectionTop = section.offsetTop - 130;
+               const sectionHeight = section.clientHeight;
+               if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                 current = section.getAttribute('id');
+               }
+             });
+             navLinks.forEach(link => {
+               link.classList.remove('active');
+               if (link.getAttribute('href') === `#${current}`) {
+                 link.classList.add('active');
+               }
+             });
+
+             // 히어로 패럴랙스
+             const heroBg = document.getElementById('heroBg');
+             if (heroBg && scrollY < window.innerHeight) {
+               heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
+             }
+
+             // SNS 패럴랙스
+             if (snsSection) {
+               const rect = snsSection.getBoundingClientRect();
+               if (rect.top < window.innerHeight && rect.bottom > 0) {
+                 const offset = (window.innerHeight - rect.top) * 0.08;
+                 if (snsCol1) snsCol1.style.transform = `translateY(${offset * -0.6}px)`;
+                 if (snsCol2) snsCol2.style.transform = `translateY(${offset * 0.8}px)`;
+                 if (snsCol3) snsCol3.style.transform = `translateY(${offset * -0.4}px)`;
+               }
+             }
+           });
+
+           // ==========================================================================
+           // 3. 3D 회전목마 캐러셀 컨트롤러 (오리지널 & 치폴레)
+           // ==========================================================================
+           function setupCarousel(carouselId, prevBtnId, nextBtnId) {
+             const carousel = document.getElementById(carouselId);
+             const prevBtn = document.getElementById(prevBtnId);
+             const nextBtn = document.getElementById(nextBtnId);
+             if (!carousel) return;
+
+             const scrollAmount = 280;
+
+             if (prevBtn) prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+             if (nextBtn) nextBtn.addEventListener('click', () => carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+
+             // 마우스 드래그 기능
+             let isDown = false;
+             let startX, scrollLeft;
+             carousel.addEventListener('mousedown', (e) => {
+               isDown = true;
+               startX = e.pageX - carousel.offsetLeft;
+               scrollLeft = carousel.scrollLeft;
+             });
+             carousel.addEventListener('mouseleave', () => isDown = false);
+             carousel.addEventListener('mouseup', () => isDown = false);
+             carousel.addEventListener('mousemove', (e) => {
+               if (!isDown) return;
+               e.preventDefault();
+               const x = e.pageX - carousel.offsetLeft;
+               const walk = (x - startX) * 1.5;
+               carousel.scrollLeft = scrollLeft - walk;
+             });
+           }
+
+           setupCarousel('origCarousel', 'origPrevBtn', 'origNextBtn');
+           setupCarousel('chipCarousel', 'chipPrevBtn', 'chipNextBtn');
+
+           // ==========================================================================
+           // 4. COMMUNITY 최신 날짜순 정렬 & 탭/페이지네이션 연동
+           // ==========================================================================
+           const commCards = Array.from(document.querySelectorAll('.comm-post-card'));
+           const paginationContainer = document.getElementById('commPagination');
+           const commCardGrid = document.getElementById('commCardGrid');
+           const tabAllBtn = document.getElementById('tabAllBtn');
+           const tabNewsBtn = document.getElementById('tabNewsBtn');
+           const tabEventBtn = document.getElementById('tabEventBtn');
+
+           const ITEMS_PER_PAGE = 6;
+           let currentFilter = 'all';
+           let currentPage = 1;
+
+           function getCardDate(card) {
+             const metaSpans = card.querySelectorAll('.comm-post-meta span');
+             for (let span of metaSpans) {
+               const match = span.innerText.trim().match(/(\d{4})[\.\-\/]\s*(\d{1,2})[\.\-\/]\s*(\d{1,2})/);
+               if (match) return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3])).getTime();
+             }
+             return 0;
+           }
+
+           function renderCommunity() {
+             let filteredCards = commCards.filter(card => {
+               const type = card.getAttribute('data-type');
+               return currentFilter === 'all' || type === currentFilter;
+             });
+
+             filteredCards.sort((a, b) => getCardDate(b) - getCardDate(a));
+
+             if (commCardGrid) {
+               filteredCards.forEach(card => commCardGrid.appendChild(card));
+             }
+
+             const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE) || 1;
+             if (currentPage > totalPages) currentPage = 1;
+
+             commCards.forEach(card => card.style.display = 'none');
+             const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+             const endIdx = startIdx + ITEMS_PER_PAGE;
+             filteredCards.slice(startIdx, endIdx).forEach(card => card.style.display = 'flex');
+
+             if (paginationContainer) {
+               paginationContainer.innerHTML = '';
+               for (let i = 1; i <= totalPages; i++) {
+                 const pageBtn = document.createElement('span');
+                 pageBtn.className = `comm-page-num ${i === currentPage ? 'active' : ''}`;
+                 pageBtn.innerText = i;
+                 pageBtn.addEventListener('click', () => {
+                   currentPage = i;
+                   renderCommunity();
+                   document.getElementById('community').scrollIntoView({ behavior: 'smooth' });
+                 });
+                 paginationContainer.appendChild(pageBtn);
+               }
+             }
+           }
+
+           function setTab(type, activeBtn) {
+             currentFilter = type;
+             currentPage = 1;
+             document.querySelectorAll('.comm-tab-btn').forEach(btn => {
+               btn.classList.remove('active', 'tab-red');
+               btn.classList.add('tab-dark');
+             });
+             activeBtn.classList.add('active');
+             if (type === 'news') activeBtn.classList.add('tab-red');
+             renderCommunity();
+           }
+
+           if (tabAllBtn) tabAllBtn.addEventListener('click', () => setTab('all', tabAllBtn));
+           if (tabNewsBtn) tabNewsBtn.addEventListener('click', () => setTab('news', tabNewsBtn));
+           if (tabEventBtn) tabEventBtn.addEventListener('click', () => setTab('event', tabEventBtn));
+           renderCommunity();
+
+           // ==========================================================================
+           // ★ 5. [수정 완료] 가맹 개설 절차 6단계 좌우 슬라이더 완벽 작동 ★
+           // ==========================================================================
+           const processSlider = document.getElementById('processSlider') || document.querySelector('.process-scroll-container');
+           const prevBtn = document.getElementById('sliderPrevBtn');
+           const nextBtn = document.getElementById('sliderNextBtn');
+
+           if (processSlider) {
+             if (prevBtn) {
+               prevBtn.addEventListener('click', () => {
+                 processSlider.scrollBy({ left: -320, behavior: 'smooth' });
+               });
+             }
+             if (nextBtn) {
+               nextBtn.addEventListener('click', () => {
+                 processSlider.scrollBy({ left: 320, behavior: 'smooth' });
+               });
+             }
+
+             // 마우스 드래그 & 모바일 터치 지원
+             let pIsDown = false;
+             let pStartX, pScrollLeft;
+             processSlider.addEventListener('mousedown', (e) => {
+               pIsDown = true;
+               pStartX = e.pageX - processSlider.offsetLeft;
+               pScrollLeft = processSlider.scrollLeft;
+             });
+             processSlider.addEventListener('mouseleave', () => pIsDown = false);
+             processSlider.addEventListener('mouseup', () => pIsDown = false);
+             processSlider.addEventListener('mousemove', (e) => {
+               if (!pIsDown) return;
+               e.preventDefault();
+               const x = e.pageX - processSlider.offsetLeft;
+               processSlider.scrollLeft = pScrollLeft - (x - pStartX) * 1.5;
+             });
+           }
+
+           // ==========================================================================
+               // ★★★ [오류 완벽 해결] 창업비용 실시간 자동 계산 & 스위치 시스템 ★★★
+               // ==========================================================================
+               //   false : [이벤트 OFF] 정상가(74,700,000원) 자동 덧셈 + 취소선 해제 + 뱃지 숨김
+               //   true  : [이벤트 ON]  할인가(61,500,000원) 자동 덧셈 + 취소선 긋기 + 뱃지 펄스
+               // ==========================================================================
+               const IS_DISCOUNT_EVENT_ON = true; // ★ false로 두면 정상가(7,470만), true로 바꾸면 할인가(6,150만)로 즉시 바뀝니다!
+
+               function updateCostTableAuto() {
+                 const table = document.getElementById('costTable') || document.querySelector('.cost-tbl');
+                 if (!table) return;
+
+                 // 표 안의 모든 가로 줄(tr) 가져오기
+                 const allRows = Array.from(table.querySelectorAll('tbody tr'));
+                 if (allRows.length === 0) return;
+
+                 // 맨 마지막 줄(총합계 줄)과 항목 줄들 분리
+                 const itemRows = allRows.slice(0, allRows.length - 1);
+                 const totalRow = allRows[allRows.length - 1];
+                 const totalCell = totalRow ? totalRow.querySelector('td:last-child') : null;
+
+                 let totalSum = 0;
+
+                 itemRows.forEach(row => {
+                   const priceCell = row.querySelector('td:last-child');
+                   if (!priceCell) return;
+
+                   const animPrice = priceCell.querySelector('.anim-price');
+                   const animBadge = priceCell.querySelector('.anim-badge');
+
+                   if (animPrice && animBadge) {
+                     // [면제 대상 항목: 가맹비, 교육비]
+                     if (IS_DISCOUNT_EVENT_ON) {
+                       // 이벤트 ON: 뱃지 보이기 + 취소선 긋기 + 0원 계산
+                       animBadge.style.display = 'inline-block';
+                       animBadge.classList.add('active');
+                       animPrice.classList.add('active');
+                       animPrice.style.textDecoration = 'line-through';
+                       animPrice.style.opacity = '0.45';
+                       animPrice.style.color = '#aaa';
+                       totalSum += 0;
+                     } else {
+                       // 이벤트 OFF: 뱃지 숨기기 + 취소선 제거 + 원래 가격 더하기
+                       animBadge.style.display = 'none';
+                       animBadge.classList.remove('active');
+                       animPrice.classList.remove('active');
+                       animPrice.style.textDecoration = 'none';
+                       animPrice.style.opacity = '1';
+                       animPrice.style.color = '#111';
+                       const val = parseInt(animPrice.innerText.replace(/[^0-9]/g, ''), 10) || 0;
+                       totalSum += val;
+                     }
+                   } else {
+                     // [일반 항목: 보증금 300만, 인테리어 3900만, 간판 500만, 설비 1100만, 포스기 350만]
+                     const val = parseInt(priceCell.innerText.replace(/[^0-9]/g, ''), 10) || 0;
+                     totalSum += val;
+                   }
+                 });
+
+                 // 총 합계 칸에 실시간 계산 결과 강제 반영!
+                 if (totalCell) {
+                   totalCell.innerText = totalSum.toLocaleString('ko-KR') + ' 원';
+                 }
+               }
+
+               // 화면 로딩 및 스크롤 시 자동 계산 실행
+               window.addEventListener('load', updateCostTableAuto);
+               document.addEventListener('DOMContentLoaded', updateCostTableAuto);
+               updateCostTableAuto();
+           // ==========================================================================
+           // 7. 매장 실시간 검색
+           // ==========================================================================
+           const liveSearch = document.getElementById('liveStoreSearch');
+           const storeRows = document.querySelectorAll('.store-item-row');
+           if (liveSearch) {
+             liveSearch.addEventListener('input', (e) => {
+               const val = e.target.value.toLowerCase().trim();
+               storeRows.forEach(row => {
+                 row.style.display = row.innerText.toLowerCase().includes(val) ? 'block' : 'none';
+               });
+             });
+           }
+
+           // ==========================================================================
+           // 8. 구글 스프레드시트 폼 전송
+           // ==========================================================================
+
+           // ==========================================================================
+               // ★ [연락처 자동 하이픈(-) 생성 기능] ★
+               // ==========================================================================
+               const phoneInput = document.getElementById('phone');
+               if (phoneInput) {
+                 phoneInput.setAttribute('maxlength', '13'); // 최대 자릿수 제한
+
+                 phoneInput.addEventListener('input', (e) => {
+                   let val = e.target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
+                   let formatted = '';
+
+                   if (val.startsWith('02')) {
+                     // 서울 지역번호 (02-XXX-XXXX 또는 02-XXXX-XXXX)
+                     if (val.length <= 2) {
+                       formatted = val;
+                     } else if (val.length <= 5) {
+                       formatted = val.substr(0, 2) + '-' + val.substr(2);
+                     } else if (val.length <= 9) {
+                       formatted = val.substr(0, 2) + '-' + val.substr(2, 3) + '-' + val.substr(5);
+                     } else {
+                       formatted = val.substr(0, 2) + '-' + val.substr(2, 4) + '-' + val.substr(6, 4);
+                     }
+                   } else {
+                     // 휴대폰(010) 및 전국 지역번호(042 등)
+                     if (val.length < 4) {
+                       formatted = val;
+                     } else if (val.length < 7) {
+                       formatted = val.substr(0, 3) + '-' + val.substr(3);
+                     } else if (val.length <= 10) {
+                       formatted = val.substr(0, 3) + '-' + val.substr(3, 3) + '-' + val.substr(6);
+                     } else {
+                       formatted = val.substr(0, 3) + '-' + val.substr(3, 4) + '-' + val.substr(7, 4);
+                     }
+                   }
+
+                   e.target.value = formatted;
+                 });
+               }
+
+
+           const GOOGLE_SHEET_MASTER_URL = "https://script.google.com/macros/s/AKfycbxNDfXW3y5fThnNmPVZSejdqeVcu8QkFLSX6Cm0NZmOPanbNHJuiIgnYuOAtXAizG9V/exec";
+           const masterForm = document.getElementById('franchiseFormMaster');
+           const masterSubmitBtn = document.getElementById('submitBtnMaster');
+
+           if (masterForm) {
+             masterForm.addEventListener('submit', async (e) => {
+               e.preventDefault();
+               const agree = document.getElementById('privacyAgreeMaster');
+               if (agree && !agree.checked) {
+                 alert('개인정보 수집 및 이용에 동의해주세요.');
+                 return;
+               }
+
+               if (masterSubmitBtn) {
+                 masterSubmitBtn.disabled = true;
+                 masterSubmitBtn.innerText = "전송 중...";
+               }
+
+               const formData = {
+                 name: document.getElementById('name') ? document.getElementById('name').value : '',
+                 age: document.getElementById('age') ? document.getElementById('age').value : '',
+                 phone: document.getElementById('phone') ? document.getElementById('phone').value : '',
+                 location: document.getElementById('location') ? document.getElementById('location').value : '',
+                 budget: document.getElementById('budget') ? document.getElementById('budget').value : '',
+                 channel: document.getElementById('channel') ? document.getElementById('channel').value : '',
+                 date: new Date().toLocaleString()
+               };
+
+               try {
+                 await fetch(GOOGLE_SHEET_MASTER_URL, {
+                   method: 'POST',
+                   mode: 'no-cors',
+                   headers: { 'Content-Type': 'application/json' },
+                   body: JSON.stringify(formData)
+                 });
+                 alert("가맹 상담 신청이 성공적으로 접수되었습니다. 담당자가 빠른 시일 내에 연락드리겠습니다.");
+                 masterForm.reset();
+               } catch (error) {
+                 console.error("전송 에러:", error);
+                 alert("전송 중 오류가 발생했습니다. 고객센터(0507-1302-6380)로 문의해주세요.");
+               } finally {
+                 if (masterSubmitBtn) {
+                   masterSubmitBtn.disabled = false;
+                   masterSubmitBtn.innerText = "가맹 상담 신청하기";
+                 }
+               }
+             });
+           }
+
+           // ==========================================================================
+               // ★ [약관 팝업 모달창 제어 로직] ★
+               // ==========================================================================
+               const policyModal = document.getElementById('policyModal');
+               const modalTitle = document.getElementById('modalTitle');
+               const modalBody = document.getElementById('modalBody');
+               const modalCloseBtn = document.getElementById('modalCloseBtn');
+               const openPrivacyBtn = document.getElementById('openPrivacyModal');
+               const openEmailBtn = document.getElementById('openEmailModal');
+
+               // 1) 개인정보처리방침 전문 내용
+               const privacyContent = `
+                 <strong>(주)나이스웨이 개인정보처리방침</strong><br><br>
+                 (주)나이스웨이(이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립, 공개합니다.<br><br>
+                 <strong>제1조 (개인정보의 처리목적)</strong><br>
+                 회사는 다음의 목적을 위하여 개인정보를 처리합니다.<br><br>
+                 1. 가맹 상담 및 창업 컨설팅 지원<br>
+                 2. 서비스 문의 응대 및 고객 불만 처리<br><br>
+                 <strong>제2조 (처리하는 개인정보의 항목)</strong><br>
+                 - 필수항목: 성명, 연락처, 나이, 희망지역, 창업예산, 유입경로<br>
+                 - 자동수집항목: 접속 IP, 쿠키, 서비스 이용 기록<br><br>
+                 <strong>제3조 (개인정보의 보유 및 이용기간)</strong><br>
+                 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 일정 기간 보관합니다. (상담 완료 후 1년)<br><br>
+                 <strong>제4조 (개인정보의 파기절차 및 방법)</strong><br>
+                 회사는 원칙적으로 개인정보 처리 목적이 달성된 경우에는 지체 없이 해당 개인정보를 파기합니다.<br>
+                 1. 파기절차: 이용자가 입력한 정보는 목적 달성 후 내부 방침 및 기타 관련 법령에 따라 1년간 저장된 후 파기됩니다.<br>
+                 2. 파기방법: 전자적 파일 형태(구글 스프레드시트 등)로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 완전히 삭제합니다.<br><br>
+                 <strong>제5조 (개인정보 처리의 위탁)</strong><br>
+                 - 필수항목: 성명, 연락처, 나이, 희망지역, 창업예산, 유입경로<br>
+                 회사는 원활한 가맹 문의 접수 및 데이터의 안전한 보관을 위하여 아래와 같이 외부 전문 플랫폼에 데이터 관리를 위탁하고 있습니다.<br>
+                 - 수탁업체: Google LLC (구글 폼)<br>
+                 - 위탁업무 내용: 가맹 문의 데이터의 수집 및 클라우드 서버 보관<br><br>
+
+                 <strong>제6조 (정보주체의 권리와 그 행사방법)</strong><br>
+                 이용자는 언제든지 회사에 대해 자신의 개인정보 열람, 정정, 삭제, 처리정지 요구 등의 권리를 행사할 수 있습니다. 권리 행사는 제7조에 명시된 개인정보 보호책임자에게 서면, 전화, 이메일 등을 통하여 하실 수 있으며 회사는 이에 대해 지체 없이 조치하겠습니다.<br><br>
+
+                 <strong>제7조 (개인정보 보호책임자 및 고충 처리 부서)</strong><br>
+                 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.<br>
+                 - 책임자: 김천구 (대표이사)<br>
+                 - 위탁업무 내용: 가맹 문의 데이터의 수집 및 클라우드 서버 보관<br><br>
+
+                 <strong>제8조 (개인정보처리방침 변경)</strong><br>
+                 이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우에는 가능한 한 시행 7일 전부터 웹사이트 공지사항을 통하여 고지할 것입니다.<br><br>
+                 <center>- 시행일: 2026년 8월 23일 -</center>
+               `;
+
+               // 2) 이메일무단수집거부 전문 내용
+               const emailContent = `
+                 <strong>이메일 무단 수집 거부</strong><br><br>
+                 본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부합니다.<br><br>
+                 이를 위반할 시 <strong>「정보통신망 이용촉진 및 정보보호 등에 관한 법률」</strong> 제50조의2, 제65조의2 등에 의해 형사처벌됨을 유념하시기 바랍니다.<br><br>
+                  <center><strong>게시일자 :</strong> 2026년 8월 21일</center>
+               `;
+
+               function openModal(title, content) {
+                 modalTitle.innerText = title;
+                 modalBody.innerHTML = content;
+                 policyModal.style.display = 'flex';
+                 document.body.style.overflow = 'hidden'; // 뒤 배경 스크롤 방지
+               }
+
+               function closeModal() {
+                 policyModal.style.display = 'none';
+                 document.body.style.overflow = 'auto'; // 스크롤 복구
+               }
+
+               if (openPrivacyBtn) openPrivacyBtn.addEventListener('click', () => openModal('개인정보처리방침', privacyContent));
+               if (openEmailBtn) openEmailBtn.addEventListener('click', () => openModal('이메일무단수집거부', emailContent));
+               if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+
+               // 모달창 바깥 검은 배경을 클릭해도 닫힘
+               if (policyModal) {
+                 policyModal.addEventListener('click', (e) => {
+                   if (e.target === policyModal) closeModal();
+                 });
+               }
+         </script>
+</body>
+</html>
