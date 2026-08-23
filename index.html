@@ -10,7 +10,7 @@
    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
    <link rel="apple-touch-icon" href="images/favicon.png">
    <!-- ========================================================= -->
-  
+
   <!-- 폰트 깜빡임(FOUT) 방지 최적화 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -671,54 +671,251 @@
       display: flex; align-items: center; justify-content: center;
     }
 
-    /* 창업비용 표 */
-    .cost-box-wrap { max-width: 960px; margin: 0 auto 120px; }
-    .cost-tbl { width: 100%; border-collapse: collapse; border: 1px solid var(--color-border); border-radius: var(--radius-subtle); overflow: hidden; margin-bottom: 10px; }
-    .cost-tbl th, .cost-tbl td { padding: 18px 24px; border: 1px solid var(--color-border); }
-    .cost-tbl th { background: var(--color-table-header); font-weight: 700; text-align: center; }
+    /* ==========================================================================
+           ★ [창업비용 표 & 렌탈박스 모바일 완벽 대응 완성 CSS] ★
+           ========================================================================== */
+        .cost-box-wrap {
+          max-width: 960px;
+          margin: 0 auto 120px;
+          padding: 0 10px;
+        }
 
-    .pos-red-line-item { border-top: 2px solid var(--color-chipotle-red) !important; border-bottom: 2px solid var(--color-chipotle-red) !important; border-left: 2px solid var(--color-chipotle-red) !important; background: #fff !important; }
-    .pos-red-line-price { border-top: 2px solid var(--color-chipotle-red) !important; border-bottom: 2px solid var(--color-chipotle-red) !important; border-right: 2px solid var(--color-chipotle-red) !important; background: #fff !important; }
+        .cost-tbl {
+          width: 100%;
+          border-collapse: collapse !important;
+          border: 1px solid var(--color-border) !important;
+          border-radius: var(--radius-subtle);
+          margin-bottom: 20px;
+          background: #ffffff;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
 
-    @keyframes badgePulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(228, 30, 38, 0.4); }
-      50% { transform: scale(1.08); box-shadow: 0 4px 14px rgba(228, 30, 38, 0.45); }
-    }
-    .anim-price { display: inline-block; transition: all 0.6s ease; }
-    .anim-price.active { color: #aaa; text-decoration: line-through; opacity: 0.45; }
-    .anim-badge {
-      display: inline-block; background: var(--color-chipotle-red); color: #fff; font-size: 0.78rem; font-weight: 700;
-      padding: 4px 10px; border-radius: var(--radius-subtle); margin-left: 8px; opacity: 0; transform: scale(0.4);
-      transition: all 0.5s ease;
-    }
-    .anim-badge.active { opacity: 1; transform: scale(1); animation: badgePulse 2.2s ease-in-out infinite; }
-    .anim-badge.delay-2 { animation-delay: 0.3s; }
+        .cost-tbl th,
+        .cost-tbl td {
+          border: 1px solid var(--color-border) !important;
+          padding: 16px 18px;
+          vertical-align: middle;
+        }
 
-    .rental-callout {
-      border: 1px solid var(--color-chipotle-red); border-radius: var(--radius-subtle); background: #fff;
-      display: grid; grid-template-columns: 2fr 2.2fr 2.8fr 3fr; align-items: center; padding: 0; overflow: hidden;
-    }
-    /* 창업 비용 하단 유의사항 안내문 스타일 */
+        .cost-tbl th {
+          background: var(--color-table-header) !important;
+          font-weight: 700;
+          color: var(--color-black);
+          text-align: center;
+          font-size: 1.1rem;
+        }
+
+        .cost-tbl td.col-category {
+          background: #FAFAF8 !important;
+          font-weight: 700;
+          text-align: center;
+          width: 20%;
+        }
+
+        .cost-tbl td.col-item {
+          width: 45%;
+          color: #333;
+          font-weight: 500;
+          text-align: left;
+        }
+
+        .cost-tbl td.col-price {
+          width: 35%;
+          text-align: right !important;
+          padding-right: 24px !important;
+          font-weight: 700;
+          font-family: var(--font-kr);
+        }
+
+        /* 포스기 빨간 강조 테두리 */
+        .highlight-red-row td.col-item,
+        .highlight-red-row td:nth-last-child(2) {
+          border-top: 2px solid var(--color-chipotle-red) !important;
+          border-bottom: 2px solid var(--color-chipotle-red) !important;
+          border-left: 2px solid var(--color-chipotle-red) !important;
+          border-right: none !important;
+          background: #ffffff !important;
+        }
+        .highlight-red-row td.col-price,
+        .highlight-red-row td:last-child {
+          border-top: 2px solid var(--color-chipotle-red) !important;
+          border-bottom: 2px solid var(--color-chipotle-red) !important;
+          border-right: 2px solid var(--color-chipotle-red) !important;
+          border-left: none !important;
+          background: #ffffff !important;
+          text-align: right !important;
+          padding-right: 24px !important;
+        }
+
+        .pos-highlight-tag {
+          display: inline-block;
+          border: 1px solid var(--color-chipotle-red);
+          color: var(--color-chipotle-red);
+          background: #fff;
+          font-size: 0.72rem;
+          padding: 2px 6px;
+          border-radius: 2px;
+          margin-right: 6px;
+          font-weight: 700;
+          vertical-align: middle;
+        }
+
+        /* 펄스 애니메이션 */
+        .anim-price {
+          display: inline-block;
+          vertical-align: middle;
+          transition: all 0.6s ease;
+        }
+        .anim-price.active {
+          color: #aaa !important;
+          text-decoration: line-through !important;
+          opacity: 0.45 !important;
+        }
+        .anim-badge {
+          display: inline-block;
+          background: var(--color-chipotle-red);
+          color: #fff;
+          font-size: 0.78rem;
+          font-weight: 700;
+          padding: 4px 10px;
+          border-radius: var(--radius-subtle);
+          margin-left: 8px;
+          vertical-align: middle;
+          opacity: 0;
+          transform: scale(0.4);
+          transition: all 0.5s ease;
+        }
+        .anim-badge.active {
+          opacity: 1 !important;
+          transform: scale(1) !important;
+          animation: badgePulse 2.2s ease-in-out infinite;
+        }
+        .anim-badge.delay-2 { animation-delay: 0.3s; }
+
+        @keyframes badgePulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(228, 30, 38, 0.4); }
+          50% { transform: scale(1.08); box-shadow: 0 4px 14px rgba(228, 30, 38, 0.45); }
+        }
+
+        /* 총 합계 행 */
+        .cost-tbl tr.total-row td {
+          background: var(--color-table-total) !important;
+          color: #ffffff !important;
+          font-size: 1.3rem;
+          font-weight: 700;
+          padding: 20px 24px;
+          border: 1px solid var(--color-table-total) !important;
+        }
+        .cost-tbl tr.total-row td.total-price {
+          text-align: right !important;
+          padding-right: 24px !important;
+          font-family: var(--font-display);
+          font-size: 1.5rem;
+          color: #ffffff !important;
+        }
+
+        /* 렌탈 박스 (PC: 4열 가로 정렬) */
+        .rental-callout {
+          border: 1px solid var(--color-chipotle-red);
+          border-radius: var(--radius-subtle);
+          background: #ffffff;
+          display: grid;
+          grid-template-columns: 2fr 2.2fr 2.6fr 3.2fr;
+          align-items: center;
+          overflow: hidden;
+          margin-top: 30px;
+          margin-bottom: 20px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .rental-callout > div {
+          padding: 20px 14px;
+          border-right: 1px solid var(--color-border);
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+        }
+        .rental-callout > div:last-child {
+          border-right: none;
+          text-align: left;
+        }
+
+        /* 유의사항 박스 */
         .cost-disclaimer-box {
           margin-top: 10px;
           text-align: right;
-          font-size: 0.86rem;
-          line-height: 1.2;
+          font-size: 0.85rem;
+          line-height: 1.75;
           color: #666666;
         }
-        .cost-disclaimer-box p {
-          margin: 0;
-        }
-        /* 빨간색 강조 문구 */
-        .cost-disclaimer-box .point-red {
-          color: var(--color-chipotle-red);
-          font-weight: 600;
-        }
+        .cost-disclaimer-box p { margin: 0; }
+        .cost-disclaimer-box .point-red { color: var(--color-chipotle-red); font-weight: 600; }
 
+        /* =========================================================
+           ★ [모바일 스마트폰 768px 이하 전용 반응형] ★
+           ========================================================= */
         @media (max-width: 768px) {
+          .cost-box-wrap {
+            margin: 0 auto 80px;
+            padding: 0;
+          }
+          .cost-tbl th,
+          .cost-tbl td {
+            padding: 12px 6px !important;
+            font-size: 0.82rem !important;
+          }
+          .cost-tbl th {
+            font-size: 0.88rem !important;
+            padding: 10px 4px !important;
+          }
+          .cost-tbl td.col-category { width: 18% !important; }
+          .cost-tbl td.col-item { width: 44% !important; }
+          .cost-tbl td.col-price,
+          .highlight-red-row td.col-price {
+            width: 38% !important;
+            padding-right: 6px !important;
+            font-size: 0.82rem !important;
+          }
+
+          .pos-highlight-tag {
+            font-size: 0.65rem;
+            padding: 1px 4px;
+            margin-right: 3px;
+            display: block;
+            width: max-content;
+            margin-bottom: 2px;
+          }
+
+          .cost-tbl tr.total-row td {
+            font-size: 0.95rem !important;
+            padding: 14px 8px !important;
+          }
+          .cost-tbl tr.total-row td.total-price {
+            font-size: 1.15rem !important;
+            padding-right: 8px !important;
+          }
+
+          /* 모바일에서는 렌탈박스가 세로 1줄로 시원하게 전환 */
+          .rental-callout {
+            grid-template-columns: 1fr !important;
+            margin-top: 20px;
+          }
+          .rental-callout > div {
+            border-right: none !important;
+            border-bottom: 1px solid var(--color-border);
+            padding: 14px 16px !important;
+            text-align: center !important;
+          }
+          .rental-callout > div:last-child {
+            border-bottom: none;
+            text-align: center !important;
+          }
+
           .cost-disclaimer-box {
-            text-align: left; /* 모바일에서는 읽기 편하게 좌측 정렬 */
-            font-size: 0.8rem;
+            text-align: left;
+            font-size: 0.78rem;
             margin-top: 10px;
           }
         }
@@ -2030,109 +2227,120 @@
         <button class="slider-nav next" id="sliderNextBtn" aria-label="다음">&#10095;</button>
       </div>
 
-      <!-- 창업 비용 표 -->
-      <div class="cost-box-wrap">
-        <div class="section-header-center">
-          <span class="section-tag">ESTIMATED COST</span>
-          <h2 class="section-main-title">창업 비용</h2>
-          <p class="section-sub-desc">거품 없는 투명하고 합리적인 개설 비용 안내 (10-15평형 기준 / 단위: 원 [부가세 별도])</p>
-        </div>
+      <!-- ==========================================================================
+                 [SECTION: 창업 비용] 모바일 반응형 완벽 지원 표 & 렌탈 박스
+                 ========================================================================== -->
+            <div class="cost-box-wrap">
 
-        <table class="cost-tbl" id="costTable">
-          <thead>
-            <tr><th>구분</th><th>항목</th><th>개설 비용</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td rowspan="3" style="text-align:center; font-weight:700; background:#FAFAF8; width:22%;">가맹금</td>
-              <td style="width:43%;">가맹비</td>
-              <td style="width:35%; text-align:right; font-weight:700;">
-                <span class="anim-price">10,000,000 원</span>
-                <span class="anim-badge">한시 면제 (0원)</span>
-              </td>
-            </tr>
-            <tr>
-              <td>교육비</td>
-              <td style="text-align:right; font-weight:700;">
-                <span class="anim-price">2,000,000 원</span>
-                <span class="anim-badge delay-2">한시 면제 (0원)</span>
-              </td>
-            </tr>
-            <tr>
-              <td>가맹이행보증금</td>
-              <td style="text-align:right; font-weight:700;">3,000,000 원</td>
-            </tr>
-            <tr>
-              <td rowspan="2" style="text-align:center; font-weight:700; background:#FAFAF8;">점포 시공</td>
-              <td>인테리어 (10-15평 기준)</td>
-              <td style="text-align:right; font-weight:700;">35,000,000 원</td>
-            </tr>
-            <tr>
-              <td>간판 및 내부 사인물</td>
-              <td style="text-align:right; font-weight:700;">6,000,000 원</td>
-            </tr>
-            <tr>
-              <td rowspan="2" style="text-align:center; font-weight:700; background:#FAFAF8;">기기 및 집기</td>
-              <td>주방 설비 및 집기 일체</td>
-              <td style="text-align:right; font-weight:700;">11,000,000 원</td>
-            </tr>
-            <tr>
-              <td class="pos-red-line-item">
-                <span style="display:inline-block; border:1px solid var(--color-chipotle-red); color:var(--color-chipotle-red); font-size:0.72rem; padding:2px 6px; border-radius:2px; margin-right:6px; font-weight:700;">렌탈선택가능</span>
-                포스기 및 무인 키오스크
-              </td>
-              <td class="pos-red-line-price" style="text-align:right;">
-                <strong style="font-size:1.15rem;">3,600,000 원</strong>
-              </td>
-            </tr>
-            <tr style="background:var(--color-table-total); color:#fff; font-size:1.35rem; font-weight:700;">
-              <td colspan="2" style="text-align:center; padding:22px;">총 합계 (VAT 별도)</td>
-              <td style="text-align:right; font-family:var(--font-display); font-size:1.6rem; padding:22px;">62,500,000 원</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- 렌탈 15만원 박스-->
-        <!-- ★ 4개 칸 모두 완벽 중앙 정렬된 렌탈 안내 박스 ★ -->
-              <div class="rental-callout" style="border: 1px solid var(--color-chipotle-red); border-radius: var(--radius-subtle); background: #ffffff; display: grid; grid-template-columns: 2fr 2.2fr 2.8fr 3fr; align-items: center; padding: 0; overflow: hidden; margin-bottom: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-
-                <!-- 1칸: 포스기 및 키오스크 (중앙 정렬) -->
-                <div style="padding: 22px 18px; border-right: 1px solid var(--color-border); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                  <span style="color: var(--color-chipotle-red); font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 3px;">▲ 위 항목 렌탈 전환 시</span>
-                  <strong style="color: #111; font-size: 1.05rem;">포스기 및 키오스크</strong>
-                </div>
-
-                <!-- 2칸: 렌탈 24개월 선택 시 (중앙 정렬) -->
-                <div style="padding: 22px 18px; border-right: 1px solid var(--color-border); text-align: center; display: flex; align-items: center; justify-content: center; height: 100%; color: var(--color-chipotle-red); font-weight: 700; text-decoration: underline; font-size: 1.05rem;">
-                  렌탈 24개월 선택 시
-                </div>
-
-                <!-- 3칸: 월 납입금 150,000원 (중앙 정렬) -->
-                <div style="padding: 22px 18px; border-right: 1px solid var(--color-border); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                  <span style="font-size: 0.85rem; color: #666; display: block; margin-bottom: 2px;">월 납입금</span>
-                  <div>
-                    <span style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--color-chipotle-red);">150,000</span>
-                    <strong style="color: var(--color-chipotle-red); font-size: 1.1rem;">원</strong>
-                  </div>
-                </div>
-
-                <!-- 4칸: 체크리스트 (중앙 정렬) -->
-                <div style="padding: 22px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; font-size: 0.9rem; color: #555; line-height: 1.7;">
-                  <span>✔ 초기 목돈 부담 ZERO</span>
-                  <span>✔ 전액 세금 비용처리</span>
-                  <span>✔ 3년 후 소유권 100% 이전</span>
-                </div>
-
+              <div class="section-header-center">
+                <span class="section-tag">ESTIMATED COST</span>
+                <h2 class="section-main-title">창업 비용</h2>
+                <p class="section-sub-desc">거품 없는 투명하고 합리적인 개설 비용 안내 (10평형 기준 / 단위: 원)</p>
               </div>
 
-        <!-- ★ 창업 비용 하단 필수 유의사항 안내 문구 <p class="point-red">빨강색 ★ -->
-                <div class="cost-disclaimer-box">
-                  <p class="point-red">※ 위 사항은 점포 현장 조건 및 평수에 따라 변동될 수 있습니다.</p>
-                  <p>※ 서울, 수도권 및 대전 외 지역은 일부 추가 출장 실비가 발생할 수 있습니다.</p>
-                  <p>※ 외주공사(철거, 전기증설, 냉난방, 가스, 소방, CCTV, 화장실/건물 개보수 등)는 별도 공사 항목입니다.</p>
-                  <p>※ 상가 임대보증금 및 권리금은 포함되어 있지 않습니다.</p>
+              <div style="text-align: right; font-size: 0.85rem; color: #777; margin-bottom: 10px; font-weight: 500;">
+                창업 비용 (10평형 기준 / 단위: 원)
+              </div>
+
+              <!-- 1. 창업 비용 표 -->
+              <table class="cost-tbl" id="costTable">
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>항목</th>
+                    <th>개설 비용</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- 1. 가맹금 (3줄 묶음) -->
+                  <tr>
+                    <td class="col-category" rowspan="3">가맹금</td>
+                    <td class="col-item">가맹비</td>
+                    <td class="col-price">
+                      <span class="anim-price">11,000,000 원</span>
+                      <span class="anim-badge">10개까지만 면제!! (0원)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="col-item">교육비</td>
+                    <td class="col-price">
+                      <span class="anim-price">2,200,000 원</span>
+                      <span class="anim-badge delay-2">10개까지만 면제!! (0원)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="col-item">가맹이행보증금</td>
+                    <td class="col-price">3,000,000 원</td>
+                  </tr>
+
+                  <!-- 2. 점포 시공 (2줄 묶음) -->
+                  <tr>
+                    <td class="col-category" rowspan="2">점포 시공</td>
+                    <td class="col-item">인테리어 (10평 기준)</td>
+                    <td class="col-price">35,000,000 원</td>
+                  </tr>
+                  <tr>
+                    <td class="col-item">간판 및 내부 사인물</td>
+                    <td class="col-price">6,000,000 원</td>
+                  </tr>
+
+                  <!-- 3. 기기 및 집기 (2줄 묶음) -->
+                  <tr>
+                    <td class="col-category" rowspan="2">기기 및 집기</td>
+                    <td class="col-item">주방 설비 및 집기 일체</td>
+                    <td class="col-price">12,500,000 원</td>
+                  </tr>
+                  <!-- 빨간색 강조 박스 행 -->
+                  <tr class="highlight-red-row">
+                    <td class="col-item">
+                      <span class="pos-highlight-tag">렌탈선택가능</span>
+                      <strong>포스기 및 무인 키오스크</strong>
+                    </td>
+                    <td class="col-price">
+                      <strong>3,500,000 원</strong>
+                    </td>
+                  </tr>
+
+                  <!-- 총 합계 행 -->
+                  <tr class="total-row">
+                    <td colspan="2" style="text-align:center;">총 합계 (VAT 별도)</td>
+                    <td class="total-price">60,000,000 원</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- 2. 하단 렌탈 안내 박스 (모바일에서는 자동으로 세로 1줄씩 정렬됨) -->
+              <div class="rental-callout">
+                <div>
+                  <span style="color: var(--color-chipotle-red); font-size: 0.78rem; font-weight: 700; display: block; margin-bottom: 2px;">▲ 위 항목 렌탈 전환 시</span>
+                  <strong style="color: #111;">포스기 및 키오스크</strong>
                 </div>
-      </div>
+                <div style="color: var(--color-chipotle-red); font-weight: 700; text-decoration: underline;">
+                  렌탈 24개월 선택 시
+                </div>
+                <div>
+                  <span style="font-size: 0.8rem; color: #666; display: block; margin-bottom: 2px;">월 납입금</span>
+                  <div style="display: flex; align-items: baseline; justify-content: center; gap: 2px;">
+                    <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-chipotle-red); line-height: 1;">150,000</span>
+                    <strong style="color: var(--color-chipotle-red);">원</strong>
+                  </div>
+                </div>
+                <div style="font-size: 0.85rem; color: #555; line-height: 1.6;">
+                  <div>✔ 초기 목돈 부담 ZERO</div>
+                  <div>✔ 전액 세금 비용처리</div>
+                  <div>✔ 3년 후 소유권 100% 이전</div>
+                </div>
+              </div>
+
+              <!-- 3. 유의사항 안내 문구 -->
+              <div class="cost-disclaimer-box">
+                <p class="point-red">※ 위 사항은 점포 현장 조건 및 평수에 따라 변동될 수 있습니다.</p>
+                <p>※ 서울, 수도권 및 대전 외 지역은 일부 추가 출장 실비가 발생할 수 있습니다.</p>
+                <p class="point-red">※ 외주공사(철거, 전기증설, 냉난방, 가스, 소방, CCTV, 화장실/건물 개보수 등)는 별도 공사 항목입니다.</p>
+                <p>※ 상가 임대보증금 및 권리금은 포함되어 있지 않습니다.</p>
+              </div>
+
+            </div>
 
       <!-- 가맹 상담 신청 폼 -->
       <div class="form-box-container">
