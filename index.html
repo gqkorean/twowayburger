@@ -1080,32 +1080,69 @@
         }
         .watch-play-btn svg { width: 22px; height: 22px; fill: #fff; margin-left: 2px; }
 
-        /* ★ 4. 최하단 로고 이미지 박스 ★ */
-        .footer-huge-logo-box {
-          text-align: center;
-          margin-top: 40px;
-          padding-top: 40px;
-          border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .footer-bottom-logo {
-          max-height: 100px;
-          max-width: 600px;
-          width: auto;
-          margin: 0 auto;
-          object-fit: contain;
-          /* filter 줄을 완전히 삭제하거나 아래처럼 none으로 두세요 */
-          filter: none;
-        }
-        .footer-huge-logo-text {
-          font-family: var(--font-display);
-          font-size: clamp(3.5rem, 12vw, 11rem);
-          font-weight: 700;
-          line-height: 0.85;
-          text-transform: uppercase;
-          letter-spacing: -0.03em;
-          color: #ffffff;
-          text-align: center;
-        }
+        /* ==========================================================================
+               ★ [최하단 로고 이미지 모바일 자동 축소 & 완벽 중앙 정렬] ★
+               ========================================================================== */
+            .footer-huge-logo-box {
+              width: 100%;
+              text-align: center;
+              display: flex;
+              justify-content: center;  /* 가로 정중앙 정렬 */
+              align-items: center;      /* 세로 정중앙 정렬 */
+              margin-top: 40px;
+              padding-top: 40px;
+              border-top: 1px solid rgba(255, 255, 255, 0.2);
+              overflow: hidden;
+            }
+
+            /* [PC 화면] 하단 로고 이미지 */
+            .footer-bottom-logo {
+              width: auto;
+              max-width: 550px;         /* PC 최대 가로폭 */
+              height: auto;
+              max-height: 80px;         /* PC 최대 높이 */
+              object-fit: contain;
+              display: block;
+              margin: 0 auto;
+              filter: none;
+            }
+
+            .footer-huge-logo-text {
+              font-family: var(--font-display);
+              font-size: clamp(3.5rem, 12vw, 11rem);
+              font-weight: 700;
+              line-height: 0.85;
+              text-transform: uppercase;
+              letter-spacing: -0.03em;
+              color: #ffffff;
+              text-align: center;
+            }
+
+            /* =========================================================
+               ★ [모바일 스마트폰 전용 768px 이하 자동 크기 조절] ★
+               ========================================================= */
+            @media (max-width: 768px) {
+              .footer-huge-logo-box {
+                margin-top: 25px;
+                padding-top: 25px;
+                padding-left: 10px;
+                padding-right: 10px;
+              }
+
+              /* ★ 스마트폰 화면 폭에 맞게 85% 비율로 자동 축소 & 정중앙 정렬 ★ */
+              .footer-bottom-logo {
+                width: 85% !important;   /* 스마트폰 가로 폭의 85%로 자동 맞춤 */
+                max-width: 260px !important;
+                height: auto !important;
+                max-height: 50px !important;
+                margin: 0 auto !important;
+                display: block !important;
+              }
+
+              .footer-huge-logo-text {
+                font-size: clamp(2rem, 8.5vw, 3.5rem) !important;
+              }
+            }
 
         /* ==========================================================================
            ★ 1. 약관 팝업 모달창 (2번 이미지 스타일) ★
