@@ -6,10 +6,10 @@
   <title>TWOWAY BURGER | 투웨이버거 공식 웹사이트</title>
 
   <!-- ========================================================= -->
-   <!-- ★ [파비콘 설정: 브라우저 탭에 작은 로고 띄우기] ★ -->
-   <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-   <link rel="apple-touch-icon" href="images/favicon.png">
-   <!-- ========================================================= -->
+  <!-- ★ [파비콘 설정: 브라우저 탭에 작은 로고 띄우기] ★ -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <!-- ========================================================= -->
 
   <!-- 폰트 깜빡임(FOUT) 방지 최적화 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +29,8 @@
       --color-black: #111111;
       --color-white: #ffffff;
       --color-gray-bg: #f8f8f9;
-      --color-border: #E2E2E5; /* 1px 소프트 그레이 선 */
-      --color-chipotle-red: #e41e26; /* 투웨이 레드 */
+      --color-border: #E2E2E5;
+      --color-chipotle-red: #e41e26;
       --color-naver: #03C75A;
       --color-badge-dark: #3E2723;
       --color-kakao: #FEE500;
@@ -105,81 +105,62 @@
       align-items: center;
     }
     .header-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    /* --------------------------------------------------
-       1. 상단 고정 헤더 로고 (HEADER LOGO)
-       -------------------------------------------------- */
+
     .logo-container {
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      max-width: 220px;       /* 헤더 로고 전체 영역 최대 폭 */
+      max-width: 220px;
     }
 
     .logo-img {
-      height: 38px;           /* [PC] 헤더 로고 높이 */
-      max-height: 44px;       /* 헤더 바(80px)를 넘치지 않게 제한 */
-      max-width: 180px;       /* ★ [PC] 메뉴를 침범하지 못하도록 가로 최대폭 제한 */
-      width: auto;            /* 가로세로 비율 자동 유지 */
+      height: 38px;
+      max-height: 44px;
+      max-width: 180px;
+      width: auto;
       object-fit: contain;
       display: block;
     }
 
-
-    /* --------------------------------------------------
-       2. CONCEPT 01 (오리지널) 메뉴 로고 크기 & 폭 제한
-       -------------------------------------------------- */
     .concept-logo-img.orig-logo {
-      height: 60px;           /* [PC] 오리지널 로고 높이 (원하는 크기로 조절: 40px ~ 80px) */
-      max-height: 75px;       /* 최대 높이 한계치 */
-      max-width: 420px;       /* ★ [PC] 오리지널 로고 가로 최대폭 제한 */
-      width: auto;            /* 비율 찌그러짐 방지 */
+      height: 60px;
+      max-height: 75px;
+      max-width: 420px;
+      width: auto;
       object-fit: contain;
       display: block;
       margin: 0 auto;
-      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0)); /* 그림자 */
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0));
     }
 
-
-    /* --------------------------------------------------
-       3. CONCEPT 02 (치폴레) 메뉴 로고 크기 & 폭 제한
-       -------------------------------------------------- */
     .concept-logo-img.chip-logo {
-      height: 60px;           /* [PC] 치폴레 로고 높이 (원하는 크기로 조절: 40px ~ 80px) */
-      max-height: 75px;       /* 최대 높이 한계치 */
-      max-width: 480px;       /* ★ [PC] 치폴레 로고 가로 최대폭 제한 */
-      width: auto;            /* 비율 찌그러짐 방지 */
+      height: 60px;
+      max-height: 75px;
+      max-width: 480px;
+      width: auto;
       object-fit: contain;
       display: block;
       margin: 0 auto;
       filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0));
     }
 
-
-    /* --------------------------------------------------
-       4. [모바일 스마트폰 전용] 로고 크기 및 폭 제한
-       -------------------------------------------------- */
     @media (max-width: 768px) {
-      /* 모바일 상단 헤더 로고 */
       .logo-img {
         height: 30px;
-        max-width: 130px;     /* 모바일 화면에 맞춘 가로폭 축소 */
+        max-width: 130px;
       }
-
-      /* 모바일 오리지널 메뉴 로고 */
       .concept-logo-img.orig-logo {
         height: 42px;
-        max-width: 260px;     /* 모바일 화면 밖으로 튀어나가지 않게 폭 제한 */
+        max-width: 260px;
       }
-
-      /* 모바일 치폴레 메뉴 로고 */
       .concept-logo-img.chip-logo {
         height: 42px;
-        max-width: 280px;     /* 모바일 화면 밖으로 튀어나가지 않게 폭 제한 */
+        max-width: 280px;
       }
     }
     .logo-text { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; text-transform: uppercase; color: var(--color-black); }
 
-    .nav-list { display: flex; gap: 24px; }  /* 메뉴들 간격 조절32px - 24px */
+    .nav-list { display: flex; gap: 24px; }
     .nav-link {
       font-family: var(--font-display);
       font-size: 1.12rem;
@@ -276,7 +257,7 @@
     }
 
     /* ==========================================
-       4. STORY (조리영상 -> 인테리어 마키 -> SNS 패럴랙스 -> 상권)
+       4. STORY
        ========================================== */
     .story-video-section {
       position: relative;
@@ -384,9 +365,9 @@
     .comm-title { font-size: 1.85rem; font-weight: 800; margin-bottom: 12px; }
     .comm-desc { font-size: 1.05rem; color: #555; line-height: 1.75; }
 
-    /* ==========================================================================
-       5. MENU SECTION & 사선 배경 콜라주
-       ========================================================================== */
+    /* ==========================================
+       5. MENU SECTION
+       ========================================== */
     .section-carousel-menu { padding: 0; overflow: hidden; border-bottom: 1px solid var(--color-border); }
     .menu-row-original { background: var(--color-white); padding: 100px 0; border-bottom: 1px solid var(--color-border); position: relative; }
     .menu-row-chipotle { position: relative; color: #ffffff; padding: 110px 0 120px; overflow: hidden; background: #111111; }
@@ -443,10 +424,10 @@
 
     .burger-cutout-img-box { width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; }
     .burger-cutout-img-box img {
-      max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0)); /* 버거png이미지박스 그림자 마지막꺼를 0으로 변경*/
+      max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0));
       transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .carousel-burger-item:hover .burger-cutout-img-box img { transform: scale(1.12) translateY(-8px); filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0)); }  /* 버거png이미지박스 롤오버 그림자 마지막꺼를 0으로 변경*/
+    .carousel-burger-item:hover .burger-cutout-img-box img { transform: scale(1.12) translateY(-8px); }
 
     .burger-info-block { width: 100%; }
     .burger-name-en { font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px; line-height: 1.2; }
@@ -455,16 +436,15 @@
     .burger-price-val { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: 0.02em; }
     .menu-row-chipotle .burger-price-val { color: #FEE500; }
 
-    /* ==========================================================================
-       6. [업그레이드] COMMUNITY (링크 클릭 연동 & 1줄/2줄 자동 조절 & 탭 필터)
-       ========================================================================== */
+    /* ==========================================
+       6. COMMUNITY
+       ========================================== */
     .section-community {
       padding: 120px 0;
       background: var(--color-white);
       border-bottom: 1px solid var(--color-border);
     }
 
-    /* 탭 버튼 */
     .community-tab-wrap {
       display: flex;
       justify-content: center;
@@ -487,16 +467,14 @@
     .comm-tab-btn.active.tab-red { background: var(--color-chipotle-red); color: #fff; border-color: var(--color-chipotle-red); }
     .comm-tab-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
 
-    /* ★ 소식 카드 컨테이너 (1~3개면 1줄, 4~6개면 2줄 유연 자동 반응형) ★ */
     .community-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
       margin-bottom: 60px;
-      min-height: 380px; /* 로딩/전환 시 레이아웃 흔들림 방지 */
+      min-height: 380px;
     }
 
-    /* 클릭 가능한 링크형 카드 */
     .comm-post-card {
       border: 1px solid var(--color-border);
       border-radius: var(--radius-subtle);
@@ -557,7 +535,6 @@
       color: var(--color-chipotle-red);
     }
 
-    /* 하단 페이지네이션 번호 */
     .community-pagination {
       display: flex;
       justify-content: center;
@@ -671,254 +648,258 @@
       display: flex; align-items: center; justify-content: center;
     }
 
-    /* ==========================================================================
-           ★ [창업비용 표 & 렌탈박스 모바일 완벽 대응 완성 CSS] ★
-           ========================================================================== */
-        .cost-box-wrap {
-          max-width: 960px;
-          margin: 0 auto 120px;
-          padding: 0 10px;
-        }
+    /* ==========================================
+       창업비용 표 & 렌탈 박스
+       ========================================== */
+    .cost-box-wrap {
+      max-width: 960px;
+      margin: 0 auto 120px;
+      padding: 0 10px;
+    }
 
-        .cost-tbl {
-          width: 100%;
-          border-collapse: collapse !important;
-          border: 1px solid var(--color-border) !important;
-          border-radius: var(--radius-subtle);
-          margin-bottom: 20px;
-          background: #ffffff;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-        }
+    .cost-tbl {
+      width: 100%;
+      border-collapse: collapse !important;
+      border: 1px solid var(--color-border) !important;
+      border-radius: var(--radius-subtle);
+      margin-bottom: 20px;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
 
-        .cost-tbl th,
-        .cost-tbl td {
-          border: 1px solid var(--color-border) !important;
-          padding: 16px 18px;
-          vertical-align: middle;
-        }
+    .cost-tbl th,
+    .cost-tbl td {
+      border: 1px solid var(--color-border) !important;
+      padding: 16px 18px;
+      vertical-align: middle;
+    }
 
-        .cost-tbl th {
-          background: var(--color-table-header) !important;
-          font-weight: 700;
-          color: var(--color-black);
-          text-align: center;
-          font-size: 1.1rem;
-        }
+    .cost-tbl th {
+      background: var(--color-table-header) !important;
+      font-weight: 700;
+      color: var(--color-black);
+      text-align: center;
+      font-size: 1.1rem;
+    }
 
-        .cost-tbl td.col-category {
-          background: #FAFAF8 !important;
-          font-weight: 700;
-          text-align: center;
-          width: 20%;
-        }
+    .cost-tbl td.col-category {
+      background: #FAFAF8 !important;
+      font-weight: 700;
+      text-align: center;
+      width: 20%;
+    }
 
-        .cost-tbl td.col-item {
-          width: 45%;
-          color: #333;
-          font-weight: 500;
-          text-align: left;
-        }
+    .cost-tbl td.col-item {
+      width: 42%;
+      color: #333;
+      font-weight: 500;
+      text-align: left;
+    }
 
-        .cost-tbl td.col-price {
-          width: 35%;
-          text-align: right !important;
-          padding-right: 24px !important;
-          font-weight: 700;
-          font-family: var(--font-kr);
-        }
+    .cost-tbl td.col-price {
+      width: 38%;
+      text-align: right !important;
+      padding-right: 24px !important;
+      font-weight: 700;
+      font-family: var(--font-kr);
+      white-space: nowrap;
+    }
 
-        /* 포스기 빨간 강조 테두리 */
-        .highlight-red-row td.col-item,
-        .highlight-red-row td:nth-last-child(2) {
-          border-top: 2px solid var(--color-chipotle-red) !important;
-          border-bottom: 2px solid var(--color-chipotle-red) !important;
-          border-left: 2px solid var(--color-chipotle-red) !important;
-          border-right: none !important;
-          background: #ffffff !important;
-        }
-        .highlight-red-row td.col-price,
-        .highlight-red-row td:last-child {
-          border-top: 2px solid var(--color-chipotle-red) !important;
-          border-bottom: 2px solid var(--color-chipotle-red) !important;
-          border-right: 2px solid var(--color-chipotle-red) !important;
-          border-left: none !important;
-          background: #ffffff !important;
-          text-align: right !important;
-          padding-right: 24px !important;
-        }
+    /* 포스기 빨간 강조 테두리 */
+    .highlight-red-row td.col-item,
+    .highlight-red-row td:nth-last-child(2) {
+      border-top: 2px solid var(--color-chipotle-red) !important;
+      border-bottom: 2px solid var(--color-chipotle-red) !important;
+      border-left: 2px solid var(--color-chipotle-red) !important;
+      border-right: none !important;
+      background: #ffffff !important;
+    }
+    .highlight-red-row td.col-price,
+    .highlight-red-row td:last-child {
+      border-top: 2px solid var(--color-chipotle-red) !important;
+      border-bottom: 2px solid var(--color-chipotle-red) !important;
+      border-right: 2px solid var(--color-chipotle-red) !important;
+      border-left: none !important;
+      background: #ffffff !important;
+      text-align: right !important;
+      padding-right: 24px !important;
+    }
 
-        .pos-highlight-tag {
-          display: inline-block;
-          border: 1px solid var(--color-chipotle-red);
-          color: var(--color-chipotle-red);
-          background: #fff;
-          font-size: 0.72rem;
-          padding: 2px 6px;
-          border-radius: 2px;
-          margin-right: 6px;
-          font-weight: 700;
-          vertical-align: middle;
-        }
+    .pos-highlight-tag {
+      display: inline-block;
+      border: 1px solid var(--color-chipotle-red);
+      color: var(--color-chipotle-red);
+      background: #fff;
+      font-size: 0.72rem;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-right: 6px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
 
-        /* 펄스 애니메이션 */
-        .anim-price {
-          display: inline-block;
-          vertical-align: middle;
-          transition: all 0.6s ease;
-        }
-        .anim-price.active {
-          color: #aaa !important;
-          text-decoration: line-through !important;
-          opacity: 0.45 !important;
-        }
-        .anim-badge {
-          display: inline-block;
-          background: var(--color-chipotle-red);
-          color: #fff;
-          font-size: 0.78rem;
-          font-weight: 700;
-          padding: 4px 10px;
-          border-radius: var(--radius-subtle);
-          margin-left: 8px;
-          vertical-align: middle;
-          opacity: 0;
-          transform: scale(0.4);
-          transition: all 0.5s ease;
-        }
-        .anim-badge.active {
-          opacity: 1 !important;
-          transform: scale(1) !important;
-          animation: badgePulse 2.2s ease-in-out infinite;
-        }
-        .anim-badge.delay-2 { animation-delay: 0.3s; }
+    /* 펄스 애니메이션 */
+    .anim-price {
+      display: inline-block;
+      vertical-align: middle;
+      transition: all 0.6s ease;
+    }
+    .anim-price.active {
+      color: #aaa !important;
+      text-decoration: line-through !important;
+      opacity: 0.45 !important;
+    }
+    .anim-badge {
+      display: inline-block;
+      background: var(--color-chipotle-red);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-subtle);
+      margin-left: 8px;
+      vertical-align: middle;
+      opacity: 0;
+      transform: scale(0.4);
+      transition: all 0.5s ease;
+    }
+    .anim-badge.active {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+      animation: badgePulse 2.2s ease-in-out infinite;
+    }
+    .anim-badge.delay-2 { animation-delay: 0.3s; }
 
-        @keyframes badgePulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(228, 30, 38, 0.4); }
-          50% { transform: scale(1.08); box-shadow: 0 4px 14px rgba(228, 30, 38, 0.45); }
-        }
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(228, 30, 38, 0.4); }
+      50% { transform: scale(1.08); box-shadow: 0 4px 14px rgba(228, 30, 38, 0.45); }
+    }
 
-        /* 총 합계 행 */
-        .cost-tbl tr.total-row td {
-          background: var(--color-table-total) !important;
-          color: #ffffff !important;
-          font-size: 1.3rem;
-          font-weight: 700;
-          padding: 20px 24px;
-          border: 1px solid var(--color-table-total) !important;
-        }
-        .cost-tbl tr.total-row td.total-price {
-          text-align: right !important;
-          padding-right: 24px !important;
-          font-family: var(--font-display);
-          font-size: 1.5rem;
-          color: #ffffff !important;
-        }
+    /* 총 합계 행 */
+    .cost-tbl tr.total-row td {
+      background: var(--color-table-total) !important;
+      color: #ffffff !important;
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding: 20px 24px;
+      border: 1px solid var(--color-table-total) !important;
+    }
+    .cost-tbl tr.total-row td.total-price {
+      text-align: right !important;
+      padding-right: 24px !important;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: #ffffff !important;
+    }
 
-        /* 렌탈 박스 (PC: 4열 가로 정렬) */
-        .rental-callout {
-          border: 1px solid var(--color-chipotle-red);
-          border-radius: var(--radius-subtle);
-          background: #ffffff;
-          display: grid;
-          grid-template-columns: 2fr 2.2fr 2.6fr 3.2fr;
-          align-items: center;
-          overflow: hidden;
-          margin-top: 30px;
-          margin-bottom: 20px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-        .rental-callout > div {
-          padding: 20px 14px;
-          border-right: 1px solid var(--color-border);
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-        }
-        .rental-callout > div:last-child {
-          border-right: none;
-          text-align: left;
-        }
+    /* 렌탈 박스 */
+    .rental-callout {
+      border: 1px solid var(--color-chipotle-red);
+      border-radius: var(--radius-subtle);
+      background: #ffffff;
+      display: grid;
+      grid-template-columns: 2fr 2.2fr 2.6fr 3.2fr;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .rental-callout > div {
+      padding: 20px 14px;
+      border-right: 1px solid var(--color-border);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .rental-callout > div:last-child {
+      border-right: none;
+      text-align: left;
+    }
 
-        /* 유의사항 박스 */
-        .cost-disclaimer-box {
-          margin-top: 10px;
-          text-align: right;
-          font-size: 0.85rem;
-          line-height: 1.75;
-          color: #666666;
-        }
-        .cost-disclaimer-box p { margin: 0; }
-        .cost-disclaimer-box .point-red { color: var(--color-chipotle-red); font-weight: 600; }
+    .cost-disclaimer-box {
+      margin-top: 10px;
+      text-align: right;
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: #666666;
+    }
+    .cost-disclaimer-box p { margin: 0; }
+    .cost-disclaimer-box .point-red { color: var(--color-chipotle-red); font-weight: 600; }
 
-        /* =========================================================
-           ★ [모바일 스마트폰 768px 이하 전용 반응형] ★
-           ========================================================= */
-        @media (max-width: 768px) {
-          .cost-box-wrap {
-            margin: 0 auto 80px;
-            padding: 0;
-          }
-          .cost-tbl th,
-          .cost-tbl td {
-            padding: 12px 6px !important;
-            font-size: 0.82rem !important;
-          }
-          .cost-tbl th {
-            font-size: 0.88rem !important;
-            padding: 10px 4px !important;
-          }
-          .cost-tbl td.col-category { width: 18% !important; }
-          .cost-tbl td.col-item { width: 44% !important; }
-          .cost-tbl td.col-price,
-          .highlight-red-row td.col-price {
-            width: 38% !important;
-            padding-right: 6px !important;
-            font-size: 0.82rem !important;
-          }
+    @media (max-width: 768px) {
+      .cost-box-wrap {
+        margin: 0 auto 80px;
+        padding: 0;
+      }
+      .cost-tbl th,
+      .cost-tbl td {
+        padding: 12px 6px !important;
+        font-size: 0.82rem !important;
+      }
+      .cost-tbl th {
+        font-size: 0.88rem !important;
+        padding: 10px 4px !important;
+      }
+      .cost-tbl td.col-category { width: 18% !important; }
+      .cost-tbl td.col-item { width: 42% !important; }
+      .cost-tbl td.col-price,
+      .highlight-red-row td.col-price {
+        width: 40% !important;
+        padding-right: 6px !important;
+        font-size: 0.78rem !important;
+        white-space: normal !important;
+      }
+      .anim-badge {
+        margin-left: 2px !important;
+        margin-top: 4px !important;
+        display: block !important;
+        font-size: 0.7rem !important;
+        padding: 2px 6px !important;
+      }
 
-          .pos-highlight-tag {
-            font-size: 0.65rem;
-            padding: 1px 4px;
-            margin-right: 3px;
-            display: block;
-            width: max-content;
-            margin-bottom: 2px;
-          }
+      .pos-highlight-tag {
+        font-size: 0.65rem;
+        padding: 1px 4px;
+        margin-right: 3px;
+        display: block;
+        width: max-content;
+        margin-bottom: 2px;
+      }
 
-          .cost-tbl tr.total-row td {
-            font-size: 0.95rem !important;
-            padding: 14px 8px !important;
-          }
-          .cost-tbl tr.total-row td.total-price {
-            font-size: 1.15rem !important;
-            padding-right: 8px !important;
-          }
+      .cost-tbl tr.total-row td {
+        font-size: 0.95rem !important;
+        padding: 14px 8px !important;
+      }
+      .cost-tbl tr.total-row td.total-price {
+        font-size: 1.15rem !important;
+        padding-right: 8px !important;
+      }
 
-          /* 모바일에서는 렌탈박스가 세로 1줄로 시원하게 전환 */
-          .rental-callout {
-            grid-template-columns: 1fr !important;
-            margin-top: 20px;
-          }
-          .rental-callout > div {
-            border-right: none !important;
-            border-bottom: 1px solid var(--color-border);
-            padding: 14px 16px !important;
-            text-align: center !important;
-          }
-          .rental-callout > div:last-child {
-            border-bottom: none;
-            text-align: center !important;
-          }
+      .rental-callout {
+        grid-template-columns: 1fr !important;
+        margin-top: 20px;
+      }
+      .rental-callout > div {
+        border-right: none !important;
+        border-bottom: 1px solid var(--color-border);
+        padding: 14px 16px !important;
+        text-align: center !important;
+      }
+      .rental-callout > div:last-child {
+        border-bottom: none;
+        text-align: center !important;
+      }
 
-          .cost-disclaimer-box {
-            text-align: left;
-            font-size: 0.78rem;
-            margin-top: 10px;
-          }
-        }
+      .cost-disclaimer-box {
+        text-align: left;
+        font-size: 0.78rem;
+        margin-top: 10px;
+      }
+    }
 
     /* 가맹 신청 폼 */
     .form-box-container {
@@ -935,303 +916,285 @@
     }
     .btn-submit-main:hover { background: var(--color-chipotle-red); transform: translateY(-2px); }
 
-    /* ==========================================================================
-           ★ [푸터 & WATCH & 팝업 모달 & 하단 로고 스타일] ★
-           ========================================================================== */
-        .footer-brand-section {
-          background: var(--color-chipotle-red);
-          color: #ffffff;
-          padding: 90px 0 50px;
-          position: relative;
-        }
-        .footer-brand-grid {
-          display: grid;
-          grid-template-columns: 1.2fr 1fr;
-          gap: 60px;
-          align-items: start;
-          margin-bottom: 50px;
-        }
-
-        /* 좌측 약관 팝업 링크 버튼 */
-        .footer-links-row {
-          display: flex;
-          gap: 16px;
-          margin-bottom: 24px;
-          font-size: 0.95rem;
-          font-weight: 700;
-        }
-        .footer-popup-btn {
-          background: none;
-          border: none;
-          color: #fff;
-          font-family: var(--font-kr);
-          font-size: 0.95rem;
-          font-weight: 700;
-          cursor: pointer;
-          padding: 0;
-          text-decoration: none;
-          transition: var(--transition);
-        }
-        .footer-popup-btn:hover {
-          text-decoration: underline;
-          opacity: 0.85;
-        }
-
-        .footer-nice-info {
-          font-size: 0.9rem;
-          line-height: 1.8;
-          color: rgba(255, 255, 255, 0.9);
-          margin-bottom: 30px;
-        }
-
-        /* ★ 2. 유튜브/인스타 아이콘 크기 조절 ★ */
-        .footer-sns-icons {
-          display: flex;
-          gap: 5px;
-          align-items: center;
-        }
-        .sns-btn-icon {
-          width: 44px;         /* [크기조절] 아이콘 원형 버튼 지름 (36px ~ 55px) */
-          height: 44px;
-          border-radius: 50%;
-          background: rgba(0, 0, 0, 0.35);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: var(--transition);
-        }
-        .sns-btn-icon:hover {
-          background: #000;
-          border-color: #000;
-          transform: translateY(-3px);
-        }
-        .sns-btn-icon svg {
-          width: 22px;         /* [크기조절] 아이콘 자체 크기 (18px ~ 28px) */
-          height: 22px;
-          fill: #fff;
-        }
-
-        /* ★ 3. WATCH 숏폼 무한 롤링 슬라이더 ★ */
-        .watch-section {
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-        }
-        .watch-heading {
-          font-family: var(--font-display);
-          font-size: 2.2rem;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          margin-bottom: 18px;
-        }
-        .watch-marquee-frame {
-          width: 100%;
-          max-width: 300px;    /* 정해진 틀 너비 (벗어나면 자동 짤림) */
-          overflow: hidden;
-          position: relative;
-          border-radius: 12px;
-        }
-        .watch-marquee-track {
-          display: flex;
-          gap: 10px;
-          width: max-content;
-          /* 25초 주기로 자연스럽고 부드럽게 무한 이동 (더 느리게: 30s / 더 빠르게: 18s) */
-          animation: watchScrollLTR 30s linear infinite;
-        }
-        .watch-marquee-track:hover {
-          animation-play-state: paused; /* 마우스 올리면 일시정지 (클릭 편의) */
-        }
-
-        @keyframes watchScrollLTR {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-
-        /* 숏폼 카드 디자인 */
-        .watch-card {
-          position: relative;
-          width: 165px;
-          height: 250px;
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          cursor: pointer;
-          display: block;
-          flex-shrink: 0;
-          transition: transform 0.3s ease;
-        }
-        .watch-card:hover { transform: scale(1.04); }
-        .watch-card img { width: 100%; height: 100%; object-fit: cover; }
-        .watch-play-btn {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          background: var(--color-chipotle-red);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-        .watch-play-btn svg { width: 22px; height: 22px; fill: #fff; margin-left: 2px; }
-
-        /* ==========================================================================
-               ★ [최하단 로고 이미지 모바일 자동 축소 & 완벽 중앙 정렬] ★
-               ========================================================================== */
-            .footer-huge-logo-box {
-              width: 100%;
-              text-align: center;
-              display: flex;
-              justify-content: center;  /* 가로 정중앙 정렬 */
-              align-items: center;      /* 세로 정중앙 정렬 */
-              margin-top: 40px;
-              padding-top: 40px;
-              border-top: 1px solid rgba(255, 255, 255, 0.2);
-              overflow: hidden;
-            }
-
-            /* [PC 화면] 하단 로고 이미지 */
-            .footer-bottom-logo {
-              width: auto;
-              max-width: 550px;         /* PC 최대 가로폭 */
-              height: auto;
-              max-height: 80px;         /* PC 최대 높이 */
-              object-fit: contain;
-              display: block;
-              margin: 0 auto;
-              filter: none;
-            }
-
-            .footer-huge-logo-text {
-              font-family: var(--font-display);
-              font-size: clamp(3.5rem, 12vw, 11rem);
-              font-weight: 700;
-              line-height: 0.85;
-              text-transform: uppercase;
-              letter-spacing: -0.03em;
-              color: #ffffff;
-              text-align: center;
-            }
-
-            /* =========================================================
-               ★ [모바일 스마트폰 전용 768px 이하 자동 크기 조절] ★
-               ========================================================= */
-            @media (max-width: 768px) {
-              .footer-huge-logo-box {
-                margin-top: 25px;
-                padding-top: 25px;
-                padding-left: 10px;
-                padding-right: 10px;
-              }
-
-              /* ★ 스마트폰 화면 폭에 맞게 85% 비율로 자동 축소 & 정중앙 정렬 ★ */
-              .footer-bottom-logo {
-                width: 85% !important;   /* 스마트폰 가로 폭의 85%로 자동 맞춤 */
-                max-width: 260px !important;
-                height: auto !important;
-                max-height: 50px !important;
-                margin: 0 auto !important;
-                display: block !important;
-              }
-
-              .footer-huge-logo-text {
-                font-size: clamp(2rem, 8.5vw, 3.5rem) !important;
-              }
-            }
-
-        /* ==========================================================================
-           ★ 1. 약관 팝업 모달창 (2번 이미지 스타일) ★
-           ========================================================================== */
-        .modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(0, 0, 0, 0.7);
-          backdrop-filter: blur(5px);
-          -webkit-backdrop-filter: blur(5px);
-          z-index: 10000;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 20px;
-        }
-        .modal-window {
-          background: #ffffff;
-          color: #111111;
-          width: 100%;
-          max-width: 780px;
-          max-height: 82vh;
-          border-radius: 8px;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          animation: modalPop 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        @keyframes modalPop {
-          0% { opacity: 0; transform: scale(0.92) translateY(20px); }
-          100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .modal-header {
-          padding: 28px 32px 20px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid var(--color-border);
-        }
-        .modal-title {
-          font-size: 1.45rem;
-          font-weight: 800;
-          color: var(--color-black);
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .modal-title::before {
-          content: '';
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background: var(--color-chipotle-red);
-          display: inline-block;
-        }
-        .modal-close-btn {
-          width: 38px;
-          height: 38px;
-          background: #f0f0f0;
-          border: none;
-          border-radius: 4px;
-          font-size: 1.6rem;
-          line-height: 1;
-          cursor: pointer;
-          color: #666;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: var(--transition);
-        }
-        .modal-close-btn:hover {
-          background: var(--color-black);
-          color: #fff;
-        }
-        .modal-body {
-          padding: 28px 32px;
-          overflow-y: auto;
-          font-size: 0.95rem;
-          line-height: 1.8;
-          color: #444;
-        }
     /* ==========================================
-       10. RESPONSIVE
+       9. FOOTER
        ========================================== */
+    .footer-brand-section {
+      background: var(--color-chipotle-red);
+      color: #ffffff;
+      padding: 90px 0 50px;
+      position: relative;
+    }
+    .footer-brand-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    .footer-links-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .footer-popup-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-family: var(--font-kr);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .footer-popup-btn:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+
+    .footer-nice-info {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 30px;
+    }
+
+    .footer-sns-icons {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+    .sns-btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .sns-btn-icon:hover {
+      background: #000;
+      border-color: #000;
+      transform: translateY(-3px);
+    }
+    .sns-btn-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .watch-section {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .watch-heading {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 18px;
+    }
+    .watch-marquee-frame {
+      width: 100%;
+      max-width: 300px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+    }
+    .watch-marquee-track {
+      display: flex;
+      gap: 10px;
+      width: max-content;
+      animation: watchScrollLTR 30s linear infinite;
+    }
+    .watch-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes watchScrollLTR {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .watch-card {
+      position: relative;
+      width: 165px;
+      height: 250px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      display: block;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .watch-card:hover { transform: scale(1.04); }
+    .watch-card img { width: 100%; height: 100%; object-fit: cover; }
+    .watch-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-chipotle-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    .watch-play-btn svg { width: 22px; height: 22px; fill: #fff; margin-left: 2px; }
+
+    .footer-huge-logo-box {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+    }
+
+    .footer-bottom-logo {
+      width: auto;
+      max-width: 550px;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      filter: none;
+    }
+
+    .footer-huge-logo-text {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 12vw, 11rem);
+      font-weight: 700;
+      line-height: 0.85;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .footer-huge-logo-box {
+        margin-top: 25px;
+        padding-top: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .footer-bottom-logo {
+        width: 85% !important;
+        max-width: 260px !important;
+        height: auto !important;
+        max-height: 50px !important;
+        margin: 0 auto !important;
+        display: block !important;
+      }
+      .footer-huge-logo-text {
+        font-size: clamp(2rem, 8.5vw, 3.5rem) !important;
+      }
+    }
+
+    /* 약관 팝업 모달창 */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-window {
+      background: #ffffff;
+      color: #111111;
+      width: 100%;
+      max-width: 780px;
+      max-height: 82vh;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: modalPop 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    @keyframes modalPop {
+      0% { opacity: 0; transform: scale(0.92) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-header {
+      padding: 28px 32px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .modal-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-black);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-title::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-chipotle-red);
+      display: inline-block;
+    }
+    .modal-close-btn {
+      width: 38px;
+      height: 38px;
+      background: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .modal-close-btn:hover {
+      background: var(--color-black);
+      color: #fff;
+    }
+    .modal-body {
+      padding: 28px 32px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* 10. RESPONSIVE */
     @media (max-width: 1024px) {
       .video-inner-grid, .store-grid-layout, .footer-brand-grid { grid-template-columns: 1fr; }
       .carousel-burger-item { flex: 0 0 220px; }
@@ -1269,65 +1232,61 @@
       .footer-top { flex-direction: column; gap: 24px; }
     }
 
-    /* ==========================================================================
-           ★ [카카오톡 우측 하단 노란색 플로팅 버튼 고정 스타일] ★
-           ========================================================================== */
-        .floating-kakao {
-          position: fixed !important;
-          bottom: 35px !important;
-          right: 35px !important;
-          z-index: 99999 !important; /* 항상 화면 맨 위에 노출 */
-          background: var(--color-kakao) !important;
-          color: #381E1F !important;
-          width: 68px !important;
-          height: 68px !important;
-          border-radius: 50% !important;
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: center !important;
-          justify-content: center !important;
-          font-weight: 700 !important;
-          font-size: 0.75rem !important;
-          border: 1px solid rgba(0, 0, 0, 0.1) !important;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
-          text-decoration: none !important;
-          transition: var(--transition) !important;
-        }
-        .floating-kakao:hover {
-          transform: scale(1.1) rotate(5deg) !important;
-          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35) !important;
-        }
-        .floating-kakao svg {
-          width: 24px !important;
-          height: 24px !important;
-          max-width: 24px !important;
-          max-height: 24px !important;
-          fill: #381E1F !important;
-          margin-bottom: 2px !important;
-        }
+    /* 플로팅 버튼 */
+    .floating-kakao {
+      position: fixed !important;
+      bottom: 35px !important;
+      right: 35px !important;
+      z-index: 99999 !important;
+      background: var(--color-kakao) !important;
+      color: #381E1F !important;
+      width: 68px !important;
+      height: 68px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-weight: 700 !important;
+      font-size: 0.75rem !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+      text-decoration: none !important;
+      transition: var(--transition) !important;
+    }
+    .floating-kakao:hover {
+      transform: scale(1.1) rotate(5deg) !important;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35) !important;
+    }
+    .floating-kakao svg {
+      width: 24px !important;
+      height: 24px !important;
+      max-width: 24px !important;
+      max-height: 24px !important;
+      fill: #381E1F !important;
+      margin-bottom: 2px !important;
+    }
 
-        @media (max-width: 768px) {
-          .floating-kakao {
-            bottom: 20px !important;
-            right: 20px !important;
-            width: 60px !important;
-            height: 60px !important;
-            font-size: 0.7rem !important;
-          }
-          .floating-kakao svg {
-            width: 20px !important;
-            height: 20px !important;
-          }
-        }
-
+    @media (max-width: 768px) {
+      .floating-kakao {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 60px !important;
+        height: 60px !important;
+        font-size: 0.7rem !important;
+      }
+      .floating-kakao svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- [HEADER] HOME - STORY - MENU - COMMUNITY - STORE - FRANCHISE -->
+  <!-- [HEADER] -->
   <header class="header">
     <div class="container header-inner">
-      <!-- ★ 로고 영역 (이미지가 있으면 이미지 우선, 없으면 텍스트 노출) ★ -->
       <a href="#home" class="logo-container">
         <img src="images/logo.png" alt="TWOWAY BURGER" class="logo-img" onerror="this.style.display='none'; document.getElementById('altLogoText').style.display='block';">
         <span id="altLogoText" class="logo-text" style="display:none;">TWOWAY BURGER</span>
@@ -1350,7 +1309,7 @@
   </header>
 
 
-  <!-- [SECTION 1: HOME] 풀스크린 메인 비주얼 -->
+  <!-- [SECTION 1: HOME] -->
   <section class="hero" id="home">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-content">
@@ -1362,10 +1321,9 @@
   </section>
 
 
-  <!-- [SECTION 2: STORY] 브랜드 스토리 -->
+  <!-- [SECTION 2: STORY] -->
   <div id="story">
-
-    <!-- 2-1. 첫 번째 스토리 영상: 패티 조리편 -->
+    <!-- 패티 조리편 -->
     <section class="story-video-section">
       <video class="video-bg-media" autoplay muted loop playsinline poster="images/video-cover.jpg">
         <source src="images/twowayburger_cf.mp4" type="video/mp4">
@@ -1393,7 +1351,7 @@
       </div>
     </section>
 
-    <!-- 2-2. 두 번째 스토리 영상: 인테리어편 -->
+    <!-- 인테리어편 -->
     <section class="story-video-section">
       <video class="video-bg-media" autoplay muted loop playsinline poster="images/video-cover2.jpg">
         <source src="images/twoway_interior.mp4" type="video/mp4">
@@ -1414,7 +1372,7 @@
       </div>
     </section>
 
-    <!-- 2-3. 인테리어 3단 무한 롤링 갤러리 -->
+    <!-- 인테리어 갤러리 -->
     <section class="section-marquee-gallery">
       <div class="container">
         <div class="section-header-center" style="margin-bottom: 40px;">
@@ -1460,7 +1418,7 @@
       </div>
     </section>
 
-    <!-- 2-4. SNS 3열 스크롤 패럴랙스 -->
+    <!-- SNS 후기 -->
     <section class="section-sns" id="snsSection">
       <div class="container">
         <div class="section-header-center">
@@ -1470,20 +1428,17 @@
         </div>
 
         <div class="sns-collage-container">
-          <!-- 1열 -->
           <div class="sns-col" id="snsCol1">
             <div class="sns-photo-card h-medium"><img src="images/twoway_social (1).png" alt="후기 1"><div class="sns-id-overlay"></div></div>
             <div class="sns-photo-card h-medium"><img src="images/twoway_social (2).png" alt="후기 2"><div class="sns-id-overlay"></div></div>
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (3).png" alt="후기 3"><div class="sns-id-overlay"></div></div>
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (4).png" alt="후기 4"><div class="sns-id-overlay"></div></div>
           </div>
-          <!-- 2열 -->
           <div class="sns-col" id="snsCol2">
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (5).png" alt="후기 5"><div class="sns-id-overlay"></div></div>
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (6).png" alt="후기 6"><div class="sns-id-overlay"></div></div>
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (7).png" alt="후기 7"><div class="sns-id-overlay"></div></div>
           </div>
-          <!-- 3열 -->
           <div class="sns-col" id="snsCol3">
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (8).png" alt="후기 8"><div class="sns-id-overlay"></div></div>
             <div class="sns-photo-card h-tall"><img src="images/twoway_social (9).png" alt="후기 9"><div class="sns-id-overlay"></div></div>
@@ -1493,7 +1448,7 @@
       </div>
     </section>
 
-    <!-- 2-5. 상권 검증 -->
+    <!-- 상권 검증 -->
     <section class="section-commercial">
       <div class="container">
         <div class="section-header-center">
@@ -1539,43 +1494,32 @@
         </div>
       </div>
     </section>
-
   </div>
 
 
-  <!-- ==========================================================================
-       [SECTION 3: MENU] 치토스 샘플 스타일 2열 회전목마 메뉴 섹션
-       ========================================================================== -->
+  <!-- [SECTION 3: MENU] -->
   <section class="section-carousel-menu" id="menu">
-
-    <!-- 1열: TWOWAY ORIGINAL (클래식 화이트 배경) -->
+    <!-- 1열: TWOWAY ORIGINAL -->
     <div class="menu-row-original">
       <div class="container">
         <div class="section-header-center">
-  <span class="section-tag" style="color:var(--color-black);">CONCEPT.1</span>
-
-  <div class="menu-concept-title-box">
-      <!-- 이미지가 없을 경우 자동으로 글자(altConcept1Text)가 노출됩니다 -->
-    <!-- class에 'orig-logo' 추가 -->
-    <img src="images/concept_original_logo.png"
-         alt="TWOWAYBURGER ORIGINAL"
-         class="concept-logo-img orig-logo"
-         onerror="this.style.display='none'; document.getElementById('altConcept1Text').style.display='block';">
-
-    <h2 id="altConcept1Text" class="section-main-title" style="display:none;">TWOWAYBURGER ORIGINAL</h2>
-  </div>
-
-  <p class="section-sub-desc">인앤아웃 스타일의 쥬시한 정통 클래식 버거 </p>
-</div>
+          <span class="section-tag" style="color:var(--color-black);">CONCEPT.1</span>
+          <div class="menu-concept-title-box">
+            <img src="images/concept_original_logo.png"
+                 alt="TWOWAYBURGER ORIGINAL"
+                 class="concept-logo-img orig-logo"
+                 onerror="this.style.display='none'; document.getElementById('altConcept1Text').style.display='block';">
+            <h2 id="altConcept1Text" class="section-main-title" style="display:none;">TWOWAYBURGER ORIGINAL</h2>
+          </div>
+          <p class="section-sub-desc">인앤아웃 스타일의 쥬시한 정통 클래식 버거 </p>
+        </div>
       </div>
 
       <div class="carousel-stage-wrapper">
         <button class="carousel-arrow-btn left-btn" id="origPrevBtn" aria-label="이전">&#10094;</button>
 
         <div class="carousel-track-container" id="origCarousel">
-          <!-- 1. 스모크버거 -->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_smokeburger.png" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80'" alt="스모크버거"></div>
             <div class="burger-info-block">
@@ -1585,9 +1529,7 @@
             </div>
           </div>
 
-          <!-- 2. 치즈 버거 -->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_cheeseburge.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="치즈버거"></div>
             <div class="burger-info-block">
@@ -1597,7 +1539,6 @@
             </div>
           </div>
 
-          <!-- 3. 베이컨 버거 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-popular">POPULAR</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_baconburger.png" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=500&q=80'" alt="베이컨버거"></div>
@@ -1608,7 +1549,6 @@
             </div>
           </div>
 
-          <!-- 4. 베이컨치즈버거 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-bestseller">BEST SELLER</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_baconcheeseburger.png" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80'" alt="베이컨치즈버거"></div>
@@ -1619,7 +1559,6 @@
             </div>
           </div>
 
-          <!-- 5. 올웨이 버거 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-signature">SPECIAL</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_allwayburger.png" onerror="this.src='https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80'" alt="올웨이버거"></div>
@@ -1630,9 +1569,7 @@
             </div>
           </div>
 
-          <!-- 6. 치즈프라이 -->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_cheesefries.png" onerror="this.src='https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=500&q=80'" alt="치즈프라이"></div>
             <div class="burger-info-block">
@@ -1642,7 +1579,6 @@
             </div>
           </div>
 
-          <!-- 7. 로스트갈릭 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-bestseller">BEST SIDE</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_garlicfries.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="갈릭 프라이즈"></div>
@@ -1653,9 +1589,7 @@
             </div>
           </div>
 
-          <!-- 8. 멕시칸프라이 -->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_mexicanfries.png" onerror="this.src='https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?auto=format&fit=crop&w=500&q=80'" alt="멕시칸 프라이"></div>
             <div class="burger-info-block">
@@ -1665,7 +1599,6 @@
             </div>
           </div>
 
-          <!-- 9. BBQ포크 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-signature">SPECIAL</span>
             <div class="burger-cutout-img-box"><img src="images/twoway_o_bbqpork.png" onerror="this.src='https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80'" alt="올웨이버거"></div>
@@ -1675,44 +1608,35 @@
               <div class="burger-price-val">₩ 6,200</div>
             </div>
           </div>
-
-
+        </div>
 
         <button class="carousel-arrow-btn right-btn" id="origNextBtn" aria-label="다음">&#10095;</button>
       </div>
     </div>
 
 
-    <!-- 2열: TWOWAY CHIPOTLE (사선 배경 콜라주 & 어둡기 조절) -->
+    <!-- 2열: TWOWAY CHIPOTLE -->
     <div class="menu-row-chipotle">
-
-
       <div class="diagonal-overlay-dark"></div>
 
       <div class="container">
         <div class="section-header-center">
-    <span class="section-tag">CONCEPT 02</span>
-
-      <div class="menu-concept-title-box">
-<!-- 이미지가 없을 경우 자동으로 글자(altConcept2Text)가 노출됩니다 -->
-      <!-- class에 'chip-logo' 추가 -->
-      <img src="images/concept_chipotle_logo.png"
-           alt="TWOWAYBURGER CHIPOTLE LINEUP"
-           class="concept-logo-img chip-logo"
-           onerror="this.style.display='none'; document.getElementById('altConcept2Text').style.display='block';">
-
-      <h2 id="altConcept2Text" class="section-main-title" style="display:none;">TWOWAYBURGER CHIPOTLE LINEUP</h2>
-    </div>
-
-    <p class="section-sub-desc">LA 스트릿 무드가 담긴 거친 치폴레의 매운맛</p>
-  </div>
+          <span class="section-tag">CONCEPT 02</span>
+          <div class="menu-concept-title-box">
+            <img src="images/concept_chipotle_logo.png"
+                 alt="TWOWAYBURGER CHIPOTLE LINEUP"
+                 class="concept-logo-img chip-logo"
+                 onerror="this.style.display='none'; document.getElementById('altConcept2Text').style.display='block';">
+            <h2 id="altConcept2Text" class="section-main-title" style="display:none;">TWOWAYBURGER CHIPOTLE LINEUP</h2>
+          </div>
+          <p class="section-sub-desc">LA 스트릿 무드가 담긴 거친 치폴레의 매운맛</p>
+        </div>
       </div>
 
       <div class="carousel-stage-wrapper">
         <button class="carousel-arrow-btn left-btn" id="chipPrevBtn" aria-label="이전">&#10094;</button>
 
         <div class="carousel-track-container" id="chipCarousel">
-          <!-- 1. 치폴레 버거 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-signature">SIGNATURE</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_burger.png" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80'" alt="치폴레 버거"></div>
@@ -1723,9 +1647,7 @@
             </div>
           </div>
 
-          <!-- 2. 치폴레 치즈버거-->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_cheese.png" onerror="this.src='https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80'" alt="치폴레 치즈버거"></div>
             <div class="burger-info-block">
@@ -1735,7 +1657,6 @@
             </div>
           </div>
 
-          <!-- 3. 치폴레 미트칠리 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-spicy">SPECIAL</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_meatchilly.png" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=500&q=80'" alt="치폴레 미트칠리"></div>
@@ -1746,7 +1667,6 @@
             </div>
           </div>
 
-          <!-- 4. 치폴레 더블더블 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-bestseller">BEST SELLER</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_double.png" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80'" alt="치폴레 더블더블"></div>
@@ -1757,9 +1677,7 @@
             </div>
           </div>
 
-          <!-- 5. 프렌치 프라이 -->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_frenchfries.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="프랜치프라이"></div>
             <div class="burger-info-block">
@@ -1769,7 +1687,6 @@
             </div>
           </div>
 
-          <!-- 6. 프렌치 프라이 레드 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-bestseller">BEST SELLER</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_frenchfries_red.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="프랜치프라이"></div>
@@ -1780,7 +1697,6 @@
             </div>
           </div>
 
-          <!-- 7. 딥프라이드포크 -->
           <div class="carousel-burger-item">
             <span class="burger-badge badge-spicy">SPECIAL</span>
             <div class="burger-cutout-img-box"><img src="images/chipotle_deeppork.png" onerror="this.src='https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80'" alt="딥프라이드포크"></div>
@@ -1791,9 +1707,7 @@
             </div>
           </div>
 
-          <!-- 7. 소스-->
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/cheese_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="체다치즈소스"></div>
             <div class="burger-info-block">
@@ -1804,7 +1718,6 @@
           </div>
 
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/garlic deeping_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="갈릭디핑소스"></div>
             <div class="burger-info-block">
@@ -1815,7 +1728,6 @@
           </div>
 
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/salsa_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="크리미살사"></div>
             <div class="burger-info-block">
@@ -1846,7 +1758,6 @@
           </div>
 
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/zesty mustard_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="머스타드"></div>
             <div class="burger-info-block">
@@ -1857,7 +1768,6 @@
           </div>
 
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/honeybbq_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="허니비비큐"></div>
             <div class="burger-info-block">
@@ -1868,7 +1778,6 @@
           </div>
 
           <div class="carousel-burger-item">
-            <!-- 투명 뱃지 추가 (공간 차지용) -->
             <span class="burger-badge badge-empty" style="visibility: hidden;">EMPTY</span>
             <div class="burger-cutout-img-box"><img src="images/jalapenomayo_sauce.png" onerror="this.src='https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=500&q=80'" alt="할라피뇨마요"></div>
             <div class="burger-info-block">
@@ -1877,44 +1786,28 @@
               <div class="burger-price-val">₩ 800</div>
             </div>
           </div>
-
         </div>
-
 
         <button class="carousel-arrow-btn right-btn" id="chipNextBtn" aria-label="다음">&#10095;</button>
       </div>
     </div>
-
   </section>
 
 
-  <!-- ==========================================================================
-       [SECTION 4: COMMUNITY] ★ [클릭 연동 + 1/2줄 자동 조절 + 탭/페이지네이션] ★
-       ========================================================================== -->
+  <!-- [SECTION 4: COMMUNITY] -->
   <section class="section-community" id="community">
     <div class="container">
-
       <div class="section-header-center">
         <h2 class="section-main-title" style="font-size: clamp(2.8rem, 6vw, 4.8rem); letter-spacing: -0.01em;">COMMUNITY</h2>
       </div>
 
-      <!-- 상단 탭 버튼 -->
       <div class="community-tab-wrap">
         <button class="comm-tab-btn tab-dark active" id="tabAllBtn">전체</button>
         <button class="comm-tab-btn tab-red" id="tabNewsBtn">최신소식</button>
         <button class="comm-tab-btn tab-dark" id="tabEventBtn">이벤트</button>
       </div>
 
-      <!-- ★ 소식 카드 그리드 (개수에 따라 1줄/2줄 자동 반응형 & 클릭 시 링크 연결) ★ -->
       <div class="community-cards-grid" id="commCardGrid">
-
-        <!--
-          ★★★ [수정 방법 안내] ★★★
-          - href="" 안에 네이버 뉴스 기사, 네이버 블로그, 인스타그램 URL을 넣으시면 됩니다.
-          - data-type="news"(최신소식) 또는 data-type="event"(이벤트)를 설정하시면 탭 버튼과 자동 연동됩니다.
-        -->
-
-        <!-- 1번 소식 -->
         <a href="https://www.weeklyjb.co.kr/news/articleView.html?idxno=3074" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/20201215_newsweekly.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="소식 1">
@@ -1928,7 +1821,6 @@
           </div>
         </a>
 
-        <!-- 2번 소식 -->
         <a href="https://www.instagram.com/p/B8kjdHeDPY3/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/20200215_foodinko.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="소식 2">
@@ -1942,7 +1834,6 @@
           </div>
         </a>
 
-        <!-- 3번 소식 -->
         <a href="https://naver.me/GArLyK1p" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_gwanjeo.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
@@ -1956,7 +1847,6 @@
           </div>
         </a>
 
-        <!-- 4번 소식 -->
         <a href="https://naver.me/xKEw7Lg6" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_jeonmin.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
@@ -1970,8 +1860,7 @@
           </div>
         </a>
 
-        <!-- 5번 소식 -->
-        <a href="https://naver.me/5KbHVJ75" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://naver.me/5KbHVJ75" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_goongdong.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -1984,8 +1873,7 @@
           </div>
         </a>
 
-        <!-- 5번 소식 -->
-        <a href="https://naver.me/G8hu4Syl" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://naver.me/G8hu4Syl" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twowaypizza_daheng.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -1998,8 +1886,7 @@
           </div>
         </a>
 
-        <!-- 5번 소식 -->
-        <a href="https://www.youtube.com/watch?v=ANKmmbTL9dw" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://www.youtube.com/watch?v=ANKmmbTL9dw" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/20241008_dajeon_Official_channe.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -2012,9 +1899,7 @@
           </div>
         </a>
 
-
-        <!-- 5번 소식 -->
-        <a href="https://naver.me/56R6c9VL" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://naver.me/56R6c9VL" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_goejeong.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -2027,8 +1912,7 @@
           </div>
         </a>
 
-        <!-- 5번 소식 -->
-        <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_gao.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -2041,9 +1925,7 @@
           </div>
         </a>
 
-
-        <!-- 6번 소식 -->
-        <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://naver.me/FTXwCypK" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_gayang.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -2056,8 +1938,7 @@
           </div>
         </a>
 
-        <!-- 6번 소식 -->
-        <a href="https://naver.me/5wWeiCGR" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news"><!-- news냐 event냐로 홈페이지에서 걸러짐 -->
+        <a href="https://naver.me/5wWeiCGR" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="news">
           <div class="comm-post-thumb">
             <img src="images/twoway_daejeon_mokdong.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="소식 3">
           </div>
@@ -2070,7 +1951,6 @@
           </div>
         </a>
 
-        <!-- 7번 소식 (이벤트) -->
         <a href="http://pf.kakao.com/_xeNrSX/chat" target="_blank" rel="noopener noreferrer" class="comm-post-card" data-type="event">
           <div class="comm-post-thumb">
             <img src="images/twoway_design (10).jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="소식 6">
@@ -2083,17 +1963,14 @@
             <h3 class="comm-post-title">홈페이지 리뉴얼</h3>
           </div>
         </a>
-
       </div>
 
-      <!-- 하단 페이지네이션 번호 (클릭 시 작동) -->
       <div class="community-pagination" id="commPagination"></div>
-
     </div>
   </section>
 
 
-  <!-- [SECTION 5: STORE] 매장 안내 -->
+  <!-- [SECTION 5: STORE] -->
   <section class="section-store" id="store">
     <div class="container">
       <div class="section-header-center">
@@ -2211,10 +2088,9 @@
   </section>
 
 
-  <!-- [SECTION 6: FRANCHISE] 가맹 안내 & 창업비용 & 신청 폼 -->
+  <!-- [SECTION 6: FRANCHISE] -->
   <section class="section-franchise-all" id="franchise">
     <div class="container">
-
       <div class="section-header-center">
         <span class="section-tag">WHY TWOWAY BURGER</span>
         <h2 class="section-main-title">FRANCHISE POWER</h2>
@@ -2229,8 +2105,8 @@
         </div>
         <div class="f-box-card">
           <div class="f-num-large">02</div>
-          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:12px;">초기 창업 부담 제로<br>가맹비·교육비 전액 면제</h3>
-          <p style="font-size:0.95rem; color:#666; line-height:1.7;">예비 점주님의 초기 투자금 부담을 덜어드리기 위해 한시적으로 <strong>가맹비, 교육비를 전액 면제</strong>합니다.</p>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:12px;">초기 창업 부담 제로<br>가맹비·교육비 지원 프로모션</h3>
+          <p style="font-size:0.95rem; color:#666; line-height:1.7;">예비 점주님의 초기 투자금 부담을 덜어드리기 위해 한시적으로 <strong>가맹비 대폭 할인 및 교육비 전액 면제</strong> 혜택을 제공합니다.</p>
         </div>
         <div class="f-box-card">
           <div class="f-num-large">03</div>
@@ -2264,120 +2140,116 @@
         <button class="slider-nav next" id="sliderNextBtn" aria-label="다음">&#10095;</button>
       </div>
 
-      <!-- ==========================================================================
-                 [SECTION: 창업 비용] 모바일 반응형 완벽 지원 표 & 렌탈 박스
-                 ========================================================================== -->
-            <div class="cost-box-wrap">
+      <!-- 창업 비용 안내 -->
+      <div class="cost-box-wrap">
+        <div class="section-header-center">
+          <span class="section-tag">ESTIMATED COST</span>
+          <h2 class="section-main-title">창업 비용</h2>
+          <p class="section-sub-desc">거품 없는 투명하고 합리적인 개설 비용 안내 (10-15평형 기준 / 단위: 원)</p>
+        </div>
 
-              <div class="section-header-center">
-                <span class="section-tag">ESTIMATED COST</span>
-                <h2 class="section-main-title">창업 비용</h2>
-                <p class="section-sub-desc">거품 없는 투명하고 합리적인 개설 비용 안내 (10-15평형 기준 / 단위: 원)</p>
-              </div>
+        <div style="text-align: right; font-size: 0.85rem; color: #777; margin-bottom: 10px; font-weight: 500;">
+          창업 비용 (10-15평형 기준 / 단위: 원)
+        </div>
 
-              <div style="text-align: right; font-size: 0.85rem; color: #777; margin-bottom: 10px; font-weight: 500;">
-                창업 비용 (10-15평형 기준 / 단위: 원)
-              </div>
+        <!-- 1. 창업 비용 표 -->
+        <table class="cost-tbl" id="costTable">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>항목</th>
+              <th>개설 비용</th>
+            </tr>
+          </thead>
+          <tbody>
+<!-- 1. 가맹비 (빨간 뱃지 유지) -->
+          <tr>
+            <td class="col-category" rowspan="3">가맹금</td>
+            <td class="col-item">가맹비</td>
+            <td class="col-price">
+              <span class="anim-price">10,000,000 원</span>
+              <span class="anim-badge">10개까지만 500만원 지원!!</span>
+            </td>
+          </tr>
 
-              <!-- 1. 창업 비용 표 -->
-              <table class="cost-tbl" id="costTable">
-                <thead>
-                  <tr>
-                    <th>구분</th>
-                    <th>항목</th>
-                    <th>개설 비용</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- 1. 가맹금 (3줄 묶음) -->
-                  <tr>
-                    <td class="col-category" rowspan="3">가맹금</td>
-                    <td class="col-item">가맹비</td>
-                    <td class="col-price">
-                      <span class="anim-price">11,000,000 원</span>
-                      <span class="anim-badge">10개까지만 면제!! (0원)</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="col-item">교육비</td>
-                    <td class="col-price">
-                      <span class="anim-price">2,200,000 원</span>
-                      <span class="anim-badge delay-2">10개까지만 면제!! (0원)</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="col-item">가맹이행보증금</td>
-                    <td class="col-price">3,000,000 원</td>
-                  </tr>
+          <!-- 2. 교육비 (★ 빨간 상자 빼고 일반 정가로 복구 ★) -->
+          <tr>
+            <td class="col-item">교육비</td>
+            <td class="col-price">2,200,000 원</td>
+          </tr>
 
-                  <!-- 2. 점포 시공 (2줄 묶음) -->
-                  <tr>
-                    <td class="col-category" rowspan="2">점포 시공</td>
-                    <td class="col-item">인테리어 (10-15평 기준)</td>
-                    <td class="col-price">35,000,000 원</td>
-                  </tr>
-                  <tr>
-                    <td class="col-item">간판 및 내부 사인물</td>
-                    <td class="col-price">6,000,000 원</td>
-                  </tr>
+          <!-- 3. 가맹이행보증금 -->
+          <tr>
+            <td class="col-item">가맹이행보증금</td>
+            <td class="col-price">3,000,000 원</td>
+          </tr>
 
-                  <!-- 3. 기기 및 집기 (2줄 묶음) -->
-                  <tr>
-                    <td class="col-category" rowspan="2">기기 및 집기</td>
-                    <td class="col-item">주방 설비 및 집기 일체</td>
-                    <td class="col-price">11,000,000 원</td>
-                  </tr>
-                  <!-- 빨간색 강조 박스 행 -->
-                  <tr class="highlight-red-row">
-                    <td class="col-item">
-                      <span class="pos-highlight-tag">렌탈선택가능</span>
-                      <strong>포스기 및 무인 키오스크</strong>
-                    </td>
-                    <td class="col-price">
-                      <strong>3,500,000 원</strong>
-                    </td>
-                  </tr>
+            <!-- 2. 점포 시공 -->
+            <tr>
+              <td class="col-category" rowspan="2">점포 시공</td>
+              <td class="col-item">인테리어 (10-15평 기준)</td>
+              <td class="col-price">35,000,000 원</td>
+            </tr>
+            <tr>
+              <td class="col-item">간판 및 내부 사인물</td>
+              <td class="col-price">6,000,000 원</td>
+            </tr>
 
-                  <!-- 총 합계 행 -->
-                  <tr class="total-row">
-                    <td colspan="2" style="text-align:center;">총 합계 (VAT 별도)</td>
-                    <td class="total-price">60,000,000 원</td>
-                  </tr>
-                </tbody>
-              </table>
+            <!-- 3. 기기 및 집기 -->
+            <tr>
+              <td class="col-category" rowspan="2">기기 및 집기</td>
+              <td class="col-item">주방 설비 및 집기 일체</td>
+              <td class="col-price">11,000,000 원</td>
+            </tr>
+            <tr class="highlight-red-row">
+              <td class="col-item">
+                <span class="pos-highlight-tag">렌탈선택가능</span>
+                <strong>포스기 및 무인 키오스크</strong>
+              </td>
+              <td class="col-price">
+                <strong>3,500,000 원</strong>
+              </td>
+            </tr>
 
-              <!-- 2. 하단 렌탈 안내 박스 (모바일에서는 자동으로 세로 1줄씩 정렬됨) -->
-              <div class="rental-callout">
-                <div>
-                  <span style="color: var(--color-chipotle-red); font-size: 0.78rem; font-weight: 700; display: block; margin-bottom: 2px;">▲ 위 항목 렌탈 전환 시</span>
-                  <strong style="color: #111;">포스기 및 키오스크</strong>
-                </div>
-                <div style="color: var(--color-chipotle-red); font-weight: 700; text-decoration: underline;">
-                  렌탈 24개월 선택 시
-                </div>
-                <div>
-                  <span style="font-size: 0.8rem; color: #666; display: block; margin-bottom: 2px;">월 납입금</span>
-                  <div style="display: flex; align-items: baseline; justify-content: center; gap: 2px;">
-                    <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-chipotle-red); line-height: 1;">150,000</span>
-                    <strong style="color: var(--color-chipotle-red);">원</strong>
-                  </div>
-                </div>
-                <div style="font-size: 0.85rem; color: #555; line-height: 1.6;">
-                  <div>✔ 초기 목돈 부담 ZERO</div>
-                  <div>✔ 전액 세금 비용처리</div>
-                  <div>✔ 3년 후 소유권 100% 이전</div>
-                </div>
-              </div>
+            <!-- 총 합계 행 -->
+            <tr class="total-row">
+              <td colspan="2" style="text-align:center;">총 합계 (VAT 별도)</td>
+              <td class="total-price">63,500,000 원</td>
+            </tr>
+          </tbody>
+        </table>
 
-              <!-- 3. 유의사항 안내 문구 -->
-              <div class="cost-disclaimer-box">
-                <p class="point-red">※ 위 사항은 점포 현장 조건 및 평수에 따라 변동될 수 있습니다.</p>
-                <p>※ 서울, 수도권 및 대전 외 지역은 일부 추가 출장 실비가 발생할 수 있습니다.</p>
-                <p class="point-red">※ 외주공사(철거, 전기증설, 냉난방, 가스, 소방, CCTV, 화장실/건물 개보수 등)는 별도 공사 항목입니다.</p>
-                <p>※ 상가 임대보증금 및 권리금은 포함되어 있지 않습니다.</p>
-              </div>
-
+        <!-- 2. 하단 렌탈 안내 박스 -->
+        <div class="rental-callout">
+          <div>
+            <span style="color: var(--color-chipotle-red); font-size: 0.78rem; font-weight: 700; display: block; margin-bottom: 2px;">▲ 위 항목 렌탈 전환 시</span>
+            <strong style="color: #111;">포스기 및 키오스크</strong>
+          </div>
+          <div style="color: var(--color-chipotle-red); font-weight: 700; text-decoration: underline;">
+            렌탈 24개월 선택 시
+          </div>
+          <div>
+            <span style="font-size: 0.8rem; color: #666; display: block; margin-bottom: 2px;">월 납입금</span>
+            <div style="display: flex; align-items: baseline; justify-content: center; gap: 2px;">
+              <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-chipotle-red); line-height: 1;">150,000</span>
+              <strong style="color: var(--color-chipotle-red);">원</strong>
             </div>
+          </div>
+          <div style="font-size: 0.85rem; color: #555; line-height: 1.6;">
+            <div>✔ 초기 목돈 부담 ZERO</div>
+            <div>✔ 전액 세금 비용처리</div>
+            <div>✔ 3년 후 소유권 100% 이전</div>
+          </div>
+        </div>
+
+        <!-- 3. 유의사항 안내 문구 -->
+        <div class="cost-disclaimer-box">
+          <p class="point-red">※ 위 사항은 점포 현장 조건 및 평수에 따라 변동될 수 있습니다.</p>
+          <p>※ 서울, 수도권 및 대전 외 지역은 일부 추가 출장 실비가 발생할 수 있습니다.</p>
+          <p class="point-red">※ 외주공사(철거, 전기증설, 냉난방, 가스, 소방, CCTV, 화장실/건물 개보수 등)는 별도 공사 항목입니다.</p>
+          <p>※ 상가 임대보증금 및 권리금은 포함되어 있지 않습니다.</p>
+        </div>
+      </div>
 
       <!-- 가맹 상담 신청 폼 -->
       <div class="form-box-container">
@@ -2433,624 +2305,540 @@
           <button type="submit" class="btn-submit-main" id="submitBtnMaster">가맹 상담 신청하기</button>
         </form>
       </div>
-
     </div>
   </section>
 
 
-  <!-- ==========================================================================
-         [SECTION 8: FOOTER] RED FOOTER & WATCH 롤링 & SNS & 팝업 모달
-         ========================================================================== -->
-    <footer class="footer-brand-section">
-      <div class="container">
+  <!-- [SECTION 8: FOOTER] -->
+  <footer class="footer-brand-section">
+    <div class="container">
+      <div class="footer-brand-grid">
+        <div>
+          <div class="footer-links-row">
+            <button class="footer-popup-btn" id="openPrivacyModal">개인정보처리방침</button>
+            <span>|</span>
+            <button class="footer-popup-btn" id="openEmailModal">이메일무단수집거부</button>
+          </div>
 
-        <div class="footer-brand-grid">
+          <div class="footer-nice-info">
+            <p><strong>(주)나이스웨이</strong> | 대표: 김천구 | 사업자등록번호: 636-86-03514</p>
+            <p>본사 주소: 대전광역시 대덕구 송촌동 479-9번지, 1층</p>
+            <p>가맹 문의 직통: <strong>0507-1302-6380</strong> (평일 09:30 ~ 18:30)</p>
+            <p>COPYRIGHT &copy; 2026 TWOWAY BURGER. ALL RIGHTS RESERVED.</p>
+          </div>
 
-          <!-- 좌측: 사업자 정보 & 팝업 링크 & SNS -->
-          <div>
-            <!-- ★ 1. 누르면 팝업이 뜨는 약관 버튼 ★ -->
-            <div class="footer-links-row">
-              <button class="footer-popup-btn" id="openPrivacyModal">개인정보처리방침</button>
-              <span>|</span>
-              <button class="footer-popup-btn" id="openEmailModal">이메일무단수집거부</button>
-            </div>
+          <div class="footer-sns-icons">
+            <a href="https://www.instagram.com/twowayburger/" target="_blank" rel="noopener noreferrer" class="sns-btn-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
 
-            <div class="footer-nice-info">
-              <p><strong>(주)나이스웨이</strong> | 대표: 김천구 | 사업자등록번호: 636-86-03514</p>
-              <p>본사 주소: 대전광역시 대덕구 송촌동 479-9번지, 1층</p>
-              <p>가맹 문의 직통: <strong>0507-1302-6380</strong> (평일 09:30 ~ 18:30)</p>
-              <p>COPYRIGHT &copy; 2026 TWOWAY BURGER. ALL RIGHTS RESERVED.</p>
-            </div>
+        <div class="watch-section">
+          <div class="watch-heading">SHORTS & REELS</div>
+          <div class="watch-marquee-frame">
+            <div class="watch-marquee-track">
+              <!-- 1세트 -->
+              <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 1">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 2">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 3">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="https://www.instagram.com/reels/C2RlJy-yJDa/" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="릴스 1">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="https://www.instagram.com/reel/Cx6x1ZEvazc/?utm_source=ig_web_copy_link&igsi=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="릴스 2">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
 
-            <!-- ★ 2. 유튜브 / 인스타그램 링크 및 아이콘 ★ -->
-            <div class="footer-sns-icons">
-              <!-- 유튜브 링크 수정 위치 (href="" 안에 주소 입력)
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="sns-btn-icon" aria-label="YouTube">
-                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </a>-->
-              <!-- 인스타그램 링크 수정 위치 (href="" 안에 주소 입력) -->
-              <a href="https://www.instagram.com/twowayburger/" target="_blank" rel="noopener noreferrer" class="sns-btn-icon" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <!-- 2세트 -->
+              <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 1">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 2">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 3">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="https://www.instagram.com/reels/C2RlJy-yJDa/" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="릴스 1">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              </a>
+              <a href="https://www.instagram.com/reel/Cx6x1ZEvazc/?utm_source=ig_web_copy_link&igsi=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="watch-card">
+                <img src="images/footer_watch_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="릴스 2">
+                <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
               </a>
             </div>
           </div>
-
-          <!-- ★ 3. 우측: WATCH 숏폼 무한 롤링 슬라이더 (틀 안에서 자동 이동 & 클릭 시 링크 연결) ★ -->
-          <div class="watch-section">
-            <div class="watch-heading">SHORTS & REELS</div>
-
-            <div class="watch-marquee-frame">
-                        <div class="watch-marquee-track">
-
-                          <!-- ==========================================
-                               [1세트: 원본 5장]
-                               ========================================== -->
-                          <!-- 쇼츠 1 -->
-                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 1">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 쇼츠 2 -->
-                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 2">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 쇼츠 3 -->
-                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 3">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 릴스 1 -->
-                          <a href="https://www.instagram.com/reels/C2RlJy-yJDa/" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="릴스 1">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 릴스 2 -->
-                          <a href="https://www.instagram.com/reel/Cx6x1ZEvazc/?utm_source=ig_web_copy_link&igsi=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="릴스 2">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-
-                          <!-- ==========================================
-                               [2세트: 무한 루프용 동일 복제본 5장]
-                               ★ 원본과 똑같이 5장을 이어붙여야 1도 안 끊깁니다! ★
-                               ========================================== -->
-                          <!-- 쇼츠 1 복제 -->
-                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 1">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 쇼츠 2 복제 -->
-                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 2">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 쇼츠 3 복제 -->
-                          <a href="#" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=600&q=80'" alt="쇼츠 3">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 릴스 1 복제 -->
-                          <a href="https://www.instagram.com/reels/C2RlJy-yJDa/" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=600&q=80'" alt="릴스 1">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                          <!-- 릴스 2 복제 -->
-                          <a href="https://www.instagram.com/reel/Cx6x1ZEvazc/?utm_source=ig_web_copy_link&igsi=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="watch-card">
-                            <img src="images/footer_watch_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" alt="릴스 2">
-                            <div class="watch-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-                          </a>
-
-                        </div>
-                      </div>
-
         </div>
-
-        <!-- ★ 4. 최하단 로고 이미지 (이미지가 없으면 텍스트 노출) ★ -->
-        <div class="footer-huge-logo-box">
-          <img src="images/footer_huge_logo.png"
-               alt="TWOWAY BURGER"
-               class="footer-bottom-logo"
-               onerror="this.style.display='none'; document.getElementById('altFooterLogoText').style.display='block';">
-          <div id="altFooterLogoText" class="footer-huge-logo-text" style="display:none;">TWOWAY BURGER</div>
-        </div>
-
       </div>
-    </footer>
 
-    <!-- ★ 1. 공통 약관 팝업 모달창 (숨겨져 있다가 버튼 누르면 등장) ★ -->
-    <div id="policyModal" class="modal-overlay" style="display: none;">
-      <div class="modal-window">
-        <div class="modal-header">
-          <h3 class="modal-title" id="modalTitle">개인정보처리방침</h3>
-          <button class="modal-close-btn" id="modalCloseBtn" aria-label="닫기">&times;</button>
-        </div>
-        <div class="modal-body" id="modalBody">
-          <!-- 자바스크립트로 약관 내용이 들어갑니다 -->
-        </div>
+      <div class="footer-huge-logo-box">
+        <img src="images/footer_huge_logo.png"
+             alt="TWOWAY BURGER"
+             class="footer-bottom-logo"
+             onerror="this.style.display='none'; document.getElementById('altFooterLogoText').style.display='block';">
+        <div id="altFooterLogoText" class="footer-huge-logo-text" style="display:none;">TWOWAY BURGER</div>
       </div>
     </div>
+  </footer>
 
-    <!-- ★ 카카오톡 플로팅 버튼 (크기 강제 고정 안전장치 적용) ★ -->
-      <a href="http://pf.kakao.com/_xeNrSX/chat" target="_blank" rel="noopener noreferrer" class="floating-kakao" aria-label="카카오톡 문의하기">
-        <svg viewBox="0 0 24 24" width="24" height="24" style="width:24px; height:24px; fill:#381E1F; display:block;">
-          <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.828 1.83 5.308 4.618 6.74-.202.748-.734 2.709-.841 3.129-.133.525.193.518.406.377.167-.111 2.656-1.808 3.73-2.544.674.095 1.371.148 2.087.148 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
-        </svg>
-        <span style="color:#381E1F; font-size:0.75rem; font-weight:700;">문의</span>
-      </a>
+  <!-- 약관 팝업 모달창 -->
+  <div id="policyModal" class="modal-overlay" style="display: none;">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">개인정보처리방침</h3>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="닫기">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
-
-  <!-- ==========================================================================
-       [JAVASCRIPT] 회전목마, 커뮤니티(탭/페이지네이션/링크), 스크롤스파이, 구글시트
-       ========================================================================== -->
-       <script>
-           // ==========================================================================
-           // 1. 모바일 햄버거 메뉴 토글
-           // ==========================================================================
-           const menuToggle = document.getElementById('menuToggle');
-           const navList = document.getElementById('navList');
-           const navLinks = document.querySelectorAll('.nav-link');
-           if (menuToggle && navList) {
-             menuToggle.addEventListener('click', () => navList.classList.toggle('active'));
-             navLinks.forEach(link => link.addEventListener('click', () => navList.classList.remove('active')));
-           }
-
-           // ==========================================================================
-           // 2. 스크롤스파이 & SNS 3열 패럴랙스
-           // ==========================================================================
-           const sections = document.querySelectorAll('section[id], div[id="story"]');
-           const snsCol1 = document.getElementById('snsCol1');
-           const snsCol2 = document.getElementById('snsCol2');
-           const snsCol3 = document.getElementById('snsCol3');
-           const snsSection = document.getElementById('snsSection');
-
-           window.addEventListener('scroll', () => {
-             const scrollY = window.pageYOffset;
-
-             // 스크롤스파이 메뉴 하이라이트
-             let current = '';
-             sections.forEach(section => {
-               const sectionTop = section.offsetTop - 130;
-               const sectionHeight = section.clientHeight;
-               if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                 current = section.getAttribute('id');
-               }
-             });
-             navLinks.forEach(link => {
-               link.classList.remove('active');
-               if (link.getAttribute('href') === `#${current}`) {
-                 link.classList.add('active');
-               }
-             });
-
-             // 히어로 패럴랙스
-             const heroBg = document.getElementById('heroBg');
-             if (heroBg && scrollY < window.innerHeight) {
-               heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
-             }
-
-             // SNS 패럴랙스
-             if (snsSection) {
-               const rect = snsSection.getBoundingClientRect();
-               if (rect.top < window.innerHeight && rect.bottom > 0) {
-                 const offset = (window.innerHeight - rect.top) * 0.08;
-                 if (snsCol1) snsCol1.style.transform = `translateY(${offset * -0.6}px)`;
-                 if (snsCol2) snsCol2.style.transform = `translateY(${offset * 0.8}px)`;
-                 if (snsCol3) snsCol3.style.transform = `translateY(${offset * -0.4}px)`;
-               }
-             }
-           });
-
-           // ==========================================================================
-           // 3. 3D 회전목마 캐러셀 컨트롤러 (오리지널 & 치폴레)
-           // ==========================================================================
-           function setupCarousel(carouselId, prevBtnId, nextBtnId) {
-             const carousel = document.getElementById(carouselId);
-             const prevBtn = document.getElementById(prevBtnId);
-             const nextBtn = document.getElementById(nextBtnId);
-             if (!carousel) return;
-
-             const scrollAmount = 280;
-
-             if (prevBtn) prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
-             if (nextBtn) nextBtn.addEventListener('click', () => carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
-
-             // 마우스 드래그 기능
-             let isDown = false;
-             let startX, scrollLeft;
-             carousel.addEventListener('mousedown', (e) => {
-               isDown = true;
-               startX = e.pageX - carousel.offsetLeft;
-               scrollLeft = carousel.scrollLeft;
-             });
-             carousel.addEventListener('mouseleave', () => isDown = false);
-             carousel.addEventListener('mouseup', () => isDown = false);
-             carousel.addEventListener('mousemove', (e) => {
-               if (!isDown) return;
-               e.preventDefault();
-               const x = e.pageX - carousel.offsetLeft;
-               const walk = (x - startX) * 1.5;
-               carousel.scrollLeft = scrollLeft - walk;
-             });
-           }
-
-           setupCarousel('origCarousel', 'origPrevBtn', 'origNextBtn');
-           setupCarousel('chipCarousel', 'chipPrevBtn', 'chipNextBtn');
-
-           // ==========================================================================
-           // 4. COMMUNITY 최신 날짜순 정렬 & 탭/페이지네이션 연동
-           // ==========================================================================
-           const commCards = Array.from(document.querySelectorAll('.comm-post-card'));
-           const paginationContainer = document.getElementById('commPagination');
-           const commCardGrid = document.getElementById('commCardGrid');
-           const tabAllBtn = document.getElementById('tabAllBtn');
-           const tabNewsBtn = document.getElementById('tabNewsBtn');
-           const tabEventBtn = document.getElementById('tabEventBtn');
-
-           const ITEMS_PER_PAGE = 6;
-           let currentFilter = 'all';
-           let currentPage = 1;
-
-           function getCardDate(card) {
-             const metaSpans = card.querySelectorAll('.comm-post-meta span');
-             for (let span of metaSpans) {
-               const match = span.innerText.trim().match(/(\d{4})[\.\-\/]\s*(\d{1,2})[\.\-\/]\s*(\d{1,2})/);
-               if (match) return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3])).getTime();
-             }
-             return 0;
-           }
-
-           function renderCommunity() {
-             let filteredCards = commCards.filter(card => {
-               const type = card.getAttribute('data-type');
-               return currentFilter === 'all' || type === currentFilter;
-             });
-
-             filteredCards.sort((a, b) => getCardDate(b) - getCardDate(a));
-
-             if (commCardGrid) {
-               filteredCards.forEach(card => commCardGrid.appendChild(card));
-             }
-
-             const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE) || 1;
-             if (currentPage > totalPages) currentPage = 1;
-
-             commCards.forEach(card => card.style.display = 'none');
-             const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
-             const endIdx = startIdx + ITEMS_PER_PAGE;
-             filteredCards.slice(startIdx, endIdx).forEach(card => card.style.display = 'flex');
-
-             if (paginationContainer) {
-               paginationContainer.innerHTML = '';
-               for (let i = 1; i <= totalPages; i++) {
-                 const pageBtn = document.createElement('span');
-                 pageBtn.className = `comm-page-num ${i === currentPage ? 'active' : ''}`;
-                 pageBtn.innerText = i;
-                 pageBtn.addEventListener('click', () => {
-                   currentPage = i;
-                   renderCommunity();
-                   document.getElementById('community').scrollIntoView({ behavior: 'smooth' });
-                 });
-                 paginationContainer.appendChild(pageBtn);
-               }
-             }
-           }
-
-           function setTab(type, activeBtn) {
-             currentFilter = type;
-             currentPage = 1;
-             document.querySelectorAll('.comm-tab-btn').forEach(btn => {
-               btn.classList.remove('active', 'tab-red');
-               btn.classList.add('tab-dark');
-             });
-             activeBtn.classList.add('active');
-             if (type === 'news') activeBtn.classList.add('tab-red');
-             renderCommunity();
-           }
-
-           if (tabAllBtn) tabAllBtn.addEventListener('click', () => setTab('all', tabAllBtn));
-           if (tabNewsBtn) tabNewsBtn.addEventListener('click', () => setTab('news', tabNewsBtn));
-           if (tabEventBtn) tabEventBtn.addEventListener('click', () => setTab('event', tabEventBtn));
-           renderCommunity();
-
-           // ==========================================================================
-           // ★ 5. [수정 완료] 가맹 개설 절차 6단계 좌우 슬라이더 완벽 작동 ★
-           // ==========================================================================
-           const processSlider = document.getElementById('processSlider') || document.querySelector('.process-scroll-container');
-           const prevBtn = document.getElementById('sliderPrevBtn');
-           const nextBtn = document.getElementById('sliderNextBtn');
-
-           if (processSlider) {
-             if (prevBtn) {
-               prevBtn.addEventListener('click', () => {
-                 processSlider.scrollBy({ left: -320, behavior: 'smooth' });
-               });
-             }
-             if (nextBtn) {
-               nextBtn.addEventListener('click', () => {
-                 processSlider.scrollBy({ left: 320, behavior: 'smooth' });
-               });
-             }
-
-             // 마우스 드래그 & 모바일 터치 지원
-             let pIsDown = false;
-             let pStartX, pScrollLeft;
-             processSlider.addEventListener('mousedown', (e) => {
-               pIsDown = true;
-               pStartX = e.pageX - processSlider.offsetLeft;
-               pScrollLeft = processSlider.scrollLeft;
-             });
-             processSlider.addEventListener('mouseleave', () => pIsDown = false);
-             processSlider.addEventListener('mouseup', () => pIsDown = false);
-             processSlider.addEventListener('mousemove', (e) => {
-               if (!pIsDown) return;
-               e.preventDefault();
-               const x = e.pageX - processSlider.offsetLeft;
-               processSlider.scrollLeft = pScrollLeft - (x - pStartX) * 1.5;
-             });
-           }
-
-           // ==========================================================================
-               // ★★★ [오류 완벽 해결] 창업비용 실시간 자동 계산 & 스위치 시스템 ★★★
-               // ==========================================================================
-               //   false : [이벤트 OFF] 정상가(74,700,000원) 자동 덧셈 + 취소선 해제 + 뱃지 숨김
-               //   true  : [이벤트 ON]  할인가(61,500,000원) 자동 덧셈 + 취소선 긋기 + 뱃지 펄스
-               // ==========================================================================
-               const IS_DISCOUNT_EVENT_ON = true; // ★ false로 두면 정상가(7,470만), true로 바꾸면 할인가(6,150만)로 즉시 바뀝니다!
-
-               function updateCostTableAuto() {
-                 const table = document.getElementById('costTable') || document.querySelector('.cost-tbl');
-                 if (!table) return;
-
-                 // 표 안의 모든 가로 줄(tr) 가져오기
-                 const allRows = Array.from(table.querySelectorAll('tbody tr'));
-                 if (allRows.length === 0) return;
-
-                 // 맨 마지막 줄(총합계 줄)과 항목 줄들 분리
-                 const itemRows = allRows.slice(0, allRows.length - 1);
-                 const totalRow = allRows[allRows.length - 1];
-                 const totalCell = totalRow ? totalRow.querySelector('td:last-child') : null;
-
-                 let totalSum = 0;
-
-                 itemRows.forEach(row => {
-                   const priceCell = row.querySelector('td:last-child');
-                   if (!priceCell) return;
-
-                   const animPrice = priceCell.querySelector('.anim-price');
-                   const animBadge = priceCell.querySelector('.anim-badge');
-
-                   if (animPrice && animBadge) {
-                     // [면제 대상 항목: 가맹비, 교육비]
-                     if (IS_DISCOUNT_EVENT_ON) {
-                       // 이벤트 ON: 뱃지 보이기 + 취소선 긋기 + 0원 계산
-                       animBadge.style.display = 'inline-block';
-                       animBadge.classList.add('active');
-                       animPrice.classList.add('active');
-                       animPrice.style.textDecoration = 'line-through';
-                       animPrice.style.opacity = '0.45';
-                       animPrice.style.color = '#aaa';
-                       totalSum += 0;
-                     } else {
-                       // 이벤트 OFF: 뱃지 숨기기 + 취소선 제거 + 원래 가격 더하기
-                       animBadge.style.display = 'none';
-                       animBadge.classList.remove('active');
-                       animPrice.classList.remove('active');
-                       animPrice.style.textDecoration = 'none';
-                       animPrice.style.opacity = '1';
-                       animPrice.style.color = '#111';
-                       const val = parseInt(animPrice.innerText.replace(/[^0-9]/g, ''), 10) || 0;
-                       totalSum += val;
-                     }
-                   } else {
-                     // [일반 항목: 보증금 300만, 인테리어 3900만, 간판 500만, 설비 1100만, 포스기 350만]
-                     const val = parseInt(priceCell.innerText.replace(/[^0-9]/g, ''), 10) || 0;
-                     totalSum += val;
-                   }
-                 });
-
-                 // 총 합계 칸에 실시간 계산 결과 강제 반영!
-                 if (totalCell) {
-                   totalCell.innerText = totalSum.toLocaleString('ko-KR') + ' 원';
-                 }
-               }
-
-               // 화면 로딩 및 스크롤 시 자동 계산 실행
-               window.addEventListener('load', updateCostTableAuto);
-               document.addEventListener('DOMContentLoaded', updateCostTableAuto);
-               updateCostTableAuto();
-           // ==========================================================================
-           // 7. 매장 실시간 검색
-           // ==========================================================================
-           const liveSearch = document.getElementById('liveStoreSearch');
-           const storeRows = document.querySelectorAll('.store-item-row');
-           if (liveSearch) {
-             liveSearch.addEventListener('input', (e) => {
-               const val = e.target.value.toLowerCase().trim();
-               storeRows.forEach(row => {
-                 row.style.display = row.innerText.toLowerCase().includes(val) ? 'block' : 'none';
-               });
-             });
-           }
-
-           // ==========================================================================
-           // 8. 구글 스프레드시트 폼 전송
-           // ==========================================================================
-
-           // ==========================================================================
-               // ★ [연락처 자동 하이픈(-) 생성 기능] ★
-               // ==========================================================================
-               const phoneInput = document.getElementById('phone');
-               if (phoneInput) {
-                 phoneInput.setAttribute('maxlength', '13'); // 최대 자릿수 제한
-
-                 phoneInput.addEventListener('input', (e) => {
-                   let val = e.target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
-                   let formatted = '';
-
-                   if (val.startsWith('02')) {
-                     // 서울 지역번호 (02-XXX-XXXX 또는 02-XXXX-XXXX)
-                     if (val.length <= 2) {
-                       formatted = val;
-                     } else if (val.length <= 5) {
-                       formatted = val.substr(0, 2) + '-' + val.substr(2);
-                     } else if (val.length <= 9) {
-                       formatted = val.substr(0, 2) + '-' + val.substr(2, 3) + '-' + val.substr(5);
-                     } else {
-                       formatted = val.substr(0, 2) + '-' + val.substr(2, 4) + '-' + val.substr(6, 4);
-                     }
-                   } else {
-                     // 휴대폰(010) 및 전국 지역번호(042 등)
-                     if (val.length < 4) {
-                       formatted = val;
-                     } else if (val.length < 7) {
-                       formatted = val.substr(0, 3) + '-' + val.substr(3);
-                     } else if (val.length <= 10) {
-                       formatted = val.substr(0, 3) + '-' + val.substr(3, 3) + '-' + val.substr(6);
-                     } else {
-                       formatted = val.substr(0, 3) + '-' + val.substr(3, 4) + '-' + val.substr(7, 4);
-                     }
-                   }
-
-                   e.target.value = formatted;
-                 });
-               }
+  <!-- 카카오톡 플로팅 버튼 -->
+  <a href="http://pf.kakao.com/_xeNrSX/chat" target="_blank" rel="noopener noreferrer" class="floating-kakao" aria-label="카카오톡 문의하기">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.828 1.83 5.308 4.618 6.74-.202.748-.734 2.709-.841 3.129-.133.525.193.518.406.377.167-.111 2.656-1.808 3.73-2.544.674.095 1.371.148 2.087.148 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
+    </svg>
+    <span>문의</span>
+  </a>
 
 
-           const GOOGLE_SHEET_MASTER_URL = "https://script.google.com/macros/s/AKfycbxNDfXW3y5fThnNmPVZSejdqeVcu8QkFLSX6Cm0NZmOPanbNHJuiIgnYuOAtXAizG9V/exec";
-           const masterForm = document.getElementById('franchiseFormMaster');
-           const masterSubmitBtn = document.getElementById('submitBtnMaster');
+  <!-- [JAVASCRIPT] -->
+  <script>
+    // 1. 모바일 햄버거 메뉴
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (menuToggle && navList) {
+      menuToggle.addEventListener('click', () => navList.classList.toggle('active'));
+      navLinks.forEach(link => link.addEventListener('click', () => navList.classList.remove('active')));
+    }
 
-           if (masterForm) {
-             masterForm.addEventListener('submit', async (e) => {
-               e.preventDefault();
-               const agree = document.getElementById('privacyAgreeMaster');
-               if (agree && !agree.checked) {
-                 alert('개인정보 수집 및 이용에 동의해주세요.');
-                 return;
-               }
+    // 2. 스크롤스파이 & SNS 패럴랙스
+    const sections = document.querySelectorAll('section[id], div[id="story"]');
+    const snsCol1 = document.getElementById('snsCol1');
+    const snsCol2 = document.getElementById('snsCol2');
+    const snsCol3 = document.getElementById('snsCol3');
+    const snsSection = document.getElementById('snsSection');
 
-               if (masterSubmitBtn) {
-                 masterSubmitBtn.disabled = true;
-                 masterSubmitBtn.innerText = "전송 중...";
-               }
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset;
 
-               const formData = {
-                 name: document.getElementById('name') ? document.getElementById('name').value : '',
-                 age: document.getElementById('age') ? document.getElementById('age').value : '',
-                 phone: document.getElementById('phone') ? document.getElementById('phone').value : '',
-                 location: document.getElementById('location') ? document.getElementById('location').value : '',
-                 budget: document.getElementById('budget') ? document.getElementById('budget').value : '',
-                 channel: document.getElementById('channel') ? document.getElementById('channel').value : '',
-                 date: new Date().toLocaleString()
-               };
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 130;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
 
-               try {
-                 await fetch(GOOGLE_SHEET_MASTER_URL, {
-                   method: 'POST',
-                   mode: 'no-cors',
-                   headers: { 'Content-Type': 'application/json' },
-                   body: JSON.stringify(formData)
-                 });
-                 alert("가맹 상담 신청이 성공적으로 접수되었습니다. 담당자가 빠른 시일 내에 연락드리겠습니다.");
-                 masterForm.reset();
-               } catch (error) {
-                 console.error("전송 에러:", error);
-                 alert("전송 중 오류가 발생했습니다. 고객센터(0507-1302-6380)로 문의해주세요.");
-               } finally {
-                 if (masterSubmitBtn) {
-                   masterSubmitBtn.disabled = false;
-                   masterSubmitBtn.innerText = "가맹 상담 신청하기";
-                 }
-               }
-             });
-           }
+      const heroBg = document.getElementById('heroBg');
+      if (heroBg && scrollY < window.innerHeight) {
+        heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
+      }
 
-           // ==========================================================================
-               // ★ [약관 팝업 모달창 제어 로직] ★
-               // ==========================================================================
-               const policyModal = document.getElementById('policyModal');
-               const modalTitle = document.getElementById('modalTitle');
-               const modalBody = document.getElementById('modalBody');
-               const modalCloseBtn = document.getElementById('modalCloseBtn');
-               const openPrivacyBtn = document.getElementById('openPrivacyModal');
-               const openEmailBtn = document.getElementById('openEmailModal');
+      if (snsSection) {
+        const rect = snsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const offset = (window.innerHeight - rect.top) * 0.08;
+          if (snsCol1) snsCol1.style.transform = `translateY(${offset * -0.6}px)`;
+          if (snsCol2) snsCol2.style.transform = `translateY(${offset * 0.8}px)`;
+          if (snsCol3) snsCol3.style.transform = `translateY(${offset * -0.4}px)`;
+        }
+      }
+    });
 
-               // 1) 개인정보처리방침 전문 내용
-               const privacyContent = `
-                 <strong>(주)나이스웨이 개인정보처리방침</strong><br><br>
-                 (주)나이스웨이(이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립, 공개합니다.<br><br>
-                 <strong>제1조 (개인정보의 처리목적)</strong><br>
-                 회사는 다음의 목적을 위하여 개인정보를 처리합니다.<br><br>
-                 1. 가맹 상담 및 창업 컨설팅 지원<br>
-                 2. 서비스 문의 응대 및 고객 불만 처리<br><br>
-                 <strong>제2조 (처리하는 개인정보의 항목)</strong><br>
-                 - 필수항목: 성명, 연락처, 나이, 희망지역, 창업예산, 유입경로<br>
-                 - 자동수집항목: 접속 IP, 쿠키, 서비스 이용 기록<br><br>
-                 <strong>제3조 (개인정보의 보유 및 이용기간)</strong><br>
-                 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 일정 기간 보관합니다. (상담 완료 후 1년)<br><br>
-                 <strong>제4조 (개인정보의 파기절차 및 방법)</strong><br>
-                 회사는 원칙적으로 개인정보 처리 목적이 달성된 경우에는 지체 없이 해당 개인정보를 파기합니다.<br>
-                 1. 파기절차: 이용자가 입력한 정보는 목적 달성 후 내부 방침 및 기타 관련 법령에 따라 1년간 저장된 후 파기됩니다.<br>
-                 2. 파기방법: 전자적 파일 형태(구글 스프레드시트 등)로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 완전히 삭제합니다.<br><br>
-                 <strong>제5조 (개인정보 처리의 위탁)</strong><br>
-                 - 필수항목: 성명, 연락처, 나이, 희망지역, 창업예산, 유입경로<br>
-                 회사는 원활한 가맹 문의 접수 및 데이터의 안전한 보관을 위하여 아래와 같이 외부 전문 플랫폼에 데이터 관리를 위탁하고 있습니다.<br>
-                 - 수탁업체: Google LLC (구글 폼)<br>
-                 - 위탁업무 내용: 가맹 문의 데이터의 수집 및 클라우드 서버 보관<br><br>
+    // 3. 캐러셀 컨트롤러
+    function setupCarousel(carouselId, prevBtnId, nextBtnId) {
+      const carousel = document.getElementById(carouselId);
+      const prevBtn = document.getElementById(prevBtnId);
+      const nextBtn = document.getElementById(nextBtnId);
+      if (!carousel) return;
 
-                 <strong>제6조 (정보주체의 권리와 그 행사방법)</strong><br>
-                 이용자는 언제든지 회사에 대해 자신의 개인정보 열람, 정정, 삭제, 처리정지 요구 등의 권리를 행사할 수 있습니다. 권리 행사는 제7조에 명시된 개인정보 보호책임자에게 서면, 전화, 이메일 등을 통하여 하실 수 있으며 회사는 이에 대해 지체 없이 조치하겠습니다.<br><br>
+      const scrollAmount = 280;
+      if (prevBtn) prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+      if (nextBtn) nextBtn.addEventListener('click', () => carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
 
-                 <strong>제7조 (개인정보 보호책임자 및 고충 처리 부서)</strong><br>
-                 회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만 처리 및 피해 구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.<br>
-                 - 책임자: 김천구 (대표이사)<br>
-                 - 위탁업무 내용: 가맹 문의 데이터의 수집 및 클라우드 서버 보관<br><br>
+      let isDown = false;
+      let startX, scrollLeft;
+      carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+      });
+      carousel.addEventListener('mouseleave', () => isDown = false);
+      carousel.addEventListener('mouseup', () => isDown = false);
+      carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+    }
 
-                 <strong>제8조 (개인정보처리방침 변경)</strong><br>
-                 이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우에는 가능한 한 시행 7일 전부터 웹사이트 공지사항을 통하여 고지할 것입니다.<br><br>
-                 <center>- 시행일: 2026년 8월 23일 -</center>
-               `;
+    setupCarousel('origCarousel', 'origPrevBtn', 'origNextBtn');
+    setupCarousel('chipCarousel', 'chipPrevBtn', 'chipNextBtn');
 
-               // 2) 이메일무단수집거부 전문 내용
-               const emailContent = `
-                 <strong>이메일 무단 수집 거부</strong><br><br>
-                 본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부합니다.<br><br>
-                 이를 위반할 시 <strong>「정보통신망 이용촉진 및 정보보호 등에 관한 법률」</strong> 제50조의2, 제65조의2 등에 의해 형사처벌됨을 유념하시기 바랍니다.<br><br>
-                  <center><strong>게시일자 :</strong> 2026년 8월 21일</center>
-               `;
+    // 4. COMMUNITY 탭 & 페이지네이션
+    const commCards = Array.from(document.querySelectorAll('.comm-post-card'));
+    const paginationContainer = document.getElementById('commPagination');
+    const commCardGrid = document.getElementById('commCardGrid');
+    const tabAllBtn = document.getElementById('tabAllBtn');
+    const tabNewsBtn = document.getElementById('tabNewsBtn');
+    const tabEventBtn = document.getElementById('tabEventBtn');
 
-               function openModal(title, content) {
-                 modalTitle.innerText = title;
-                 modalBody.innerHTML = content;
-                 policyModal.style.display = 'flex';
-                 document.body.style.overflow = 'hidden'; // 뒤 배경 스크롤 방지
-               }
+    const ITEMS_PER_PAGE = 6;
+    let currentFilter = 'all';
+    let currentPage = 1;
 
-               function closeModal() {
-                 policyModal.style.display = 'none';
-                 document.body.style.overflow = 'auto'; // 스크롤 복구
-               }
+    function getCardDate(card) {
+      const metaSpans = card.querySelectorAll('.comm-post-meta span');
+      for (let span of metaSpans) {
+        const match = span.innerText.trim().match(/(\d{4})[\.\-\/]\s*(\d{1,2})[\.\-\/]\s*(\d{1,2})/);
+        if (match) return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3])).getTime();
+      }
+      return 0;
+    }
 
-               if (openPrivacyBtn) openPrivacyBtn.addEventListener('click', () => openModal('개인정보처리방침', privacyContent));
-               if (openEmailBtn) openEmailBtn.addEventListener('click', () => openModal('이메일무단수집거부', emailContent));
-               if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    function renderCommunity() {
+      let filteredCards = commCards.filter(card => {
+        const type = card.getAttribute('data-type');
+        return currentFilter === 'all' || type === currentFilter;
+      });
 
-               // 모달창 바깥 검은 배경을 클릭해도 닫힘
-               if (policyModal) {
-                 policyModal.addEventListener('click', (e) => {
-                   if (e.target === policyModal) closeModal();
-                 });
-               }
-         </script>
+      filteredCards.sort((a, b) => getCardDate(b) - getCardDate(a));
+
+      if (commCardGrid) {
+        filteredCards.forEach(card => commCardGrid.appendChild(card));
+      }
+
+      const totalPages = Math.ceil(filteredCards.length / ITEMS_PER_PAGE) || 1;
+      if (currentPage > totalPages) currentPage = 1;
+
+      commCards.forEach(card => card.style.display = 'none');
+      const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIdx = startIdx + ITEMS_PER_PAGE;
+      filteredCards.slice(startIdx, endIdx).forEach(card => card.style.display = 'flex');
+
+      if (paginationContainer) {
+        paginationContainer.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+          const pageBtn = document.createElement('span');
+          pageBtn.className = `comm-page-num ${i === currentPage ? 'active' : ''}`;
+          pageBtn.innerText = i;
+          pageBtn.addEventListener('click', () => {
+            currentPage = i;
+            renderCommunity();
+            document.getElementById('community').scrollIntoView({ behavior: 'smooth' });
+          });
+          paginationContainer.appendChild(pageBtn);
+        }
+      }
+    }
+
+    function setTab(type, activeBtn) {
+      currentFilter = type;
+      currentPage = 1;
+      document.querySelectorAll('.comm-tab-btn').forEach(btn => {
+        btn.classList.remove('active', 'tab-red');
+        btn.classList.add('tab-dark');
+      });
+      activeBtn.classList.add('active');
+      if (type === 'news') activeBtn.classList.add('tab-red');
+      renderCommunity();
+    }
+
+    if (tabAllBtn) tabAllBtn.addEventListener('click', () => setTab('all', tabAllBtn));
+    if (tabNewsBtn) tabNewsBtn.addEventListener('click', () => setTab('news', tabNewsBtn));
+    if (tabEventBtn) tabEventBtn.addEventListener('click', () => setTab('event', tabEventBtn));
+    renderCommunity();
+
+    // 5. 가맹 절차 슬라이더
+    const processSlider = document.getElementById('processSlider') || document.querySelector('.process-scroll-container');
+    const prevBtn = document.getElementById('sliderPrevBtn');
+    const nextBtn = document.getElementById('sliderNextBtn');
+
+    if (processSlider) {
+      if (prevBtn) prevBtn.addEventListener('click', () => processSlider.scrollBy({ left: -320, behavior: 'smooth' }));
+      if (nextBtn) nextBtn.addEventListener('click', () => processSlider.scrollBy({ left: 320, behavior: 'smooth' }));
+
+      let pIsDown = false;
+      let pStartX, pScrollLeft;
+      processSlider.addEventListener('mousedown', (e) => {
+        pIsDown = true;
+        pStartX = e.pageX - processSlider.offsetLeft;
+        pScrollLeft = processSlider.scrollLeft;
+      });
+      processSlider.addEventListener('mouseleave', () => pIsDown = false);
+      processSlider.addEventListener('mouseup', () => pIsDown = false);
+      processSlider.addEventListener('mousemove', (e) => {
+        if (!pIsDown) return;
+        e.preventDefault();
+        const x = e.pageX - processSlider.offsetLeft;
+        processSlider.scrollLeft = pScrollLeft - (x - pStartX) * 1.5;
+      });
+    }
+
+// ==========================================================================
+    // ★★★ [스마트 금액 인식] 100만원/50만원/면제 임의 금액 자동 덧셈 계산기 ★★★
+    // ==========================================================================
+    const IS_DISCOUNT_EVENT_ON = true; // ★ true: 할인 이벤트 작동 / false: 정상가
+
+    const costTable = document.getElementById('costTable') || document.querySelector('.cost-tbl');
+    const animPrices = document.querySelectorAll('.anim-price');
+    const animBadges = document.querySelectorAll('.anim-badge');
+
+    // ★ 뱃지 안의 텍스트(예: '100만원', '0원', '면제')에서 실제 할인된 금액을 읽어오는 함수
+    function parseDiscountBadgePrice(badge) {
+      if (!badge) return 0;
+      
+      // data-discount="1000000" 속성이 직접 적혀있다면 최우선 적용
+      const dataAttr = badge.getAttribute('data-discount');
+      if (dataAttr !== null && dataAttr !== '') {
+        return parseInt(dataAttr.replace(/[^0-9]/g, ''), 10) || 0;
+      }
+
+      const text = badge.innerText.trim();
+
+      // 1) '100만원', '50만원' 등 'X만원' 형태 자동 추출
+      const manWonMatch = text.match(/(\d+)\s*만\s*원/);
+      if (manWonMatch) {
+        return parseInt(manWonMatch[1], 10) * 10000;
+      }
+
+      // 2) '1,000,000원' 또는 '(0원)' 형태 추출
+      const wonMatch = text.match(/([0-9,]+)\s*원/);
+      if (wonMatch) {
+        return parseInt(wonMatch[1].replace(/,/g, ''), 10) || 0;
+      }
+
+      // 3) '면제' 단어만 있으면 0원
+      if (text.includes('면제')) {
+        return 0;
+      }
+
+      return 0;
+    }
+
+    // 실시간 자동 덧셈 계산 함수
+    function updateCostTableAuto() {
+      if (!costTable) return;
+
+      const allRows = Array.from(costTable.querySelectorAll('tbody tr'));
+      if (allRows.length === 0) return;
+
+      const itemRows = allRows.slice(0, allRows.length - 1);
+      const totalRow = allRows[allRows.length - 1];
+      const totalCell = totalRow ? totalRow.querySelector('td:last-child') : null;
+
+      let totalSum = 0;
+
+      itemRows.forEach(row => {
+        const priceCell = row.querySelector('td:last-child');
+        if (!priceCell) return;
+
+        const animPrice = priceCell.querySelector('.anim-price');
+        const animBadge = priceCell.querySelector('.anim-badge');
+
+        if (animPrice && animBadge) {
+          // [빨간 뱃지가 달린 할인 대상 항목]
+          if (IS_DISCOUNT_EVENT_ON) {
+            animBadge.style.display = 'inline-block';
+            animBadge.classList.add('active');
+            animPrice.classList.add('active');
+            animPrice.style.textDecoration = 'line-through';
+            animPrice.style.opacity = '0.45';
+            animPrice.style.color = '#aaa';
+
+            // ★ 뱃지에 적힌 할인 금액(예: 100만원, 0원)을 읽어와서 덧셈!
+            const discountedAmount = parseDiscountBadgePrice(animBadge);
+            totalSum += discountedAmount;
+          } else {
+            // 이벤트 OFF: 취소선 해제하고 원래 정상 가격 덧셈
+            animBadge.style.display = 'none';
+            animBadge.classList.remove('active');
+            animPrice.classList.remove('active');
+            animPrice.style.textDecoration = 'none';
+            animPrice.style.opacity = '1';
+            animPrice.style.color = '#111';
+            const originalVal = parseInt(animPrice.innerText.replace(/[^0-9]/g, ''), 10) || 0;
+            totalSum += originalVal;
+          }
+        } else {
+          // [일반 정가 항목: 인테리어, 보증금 등]
+          const regularVal = parseInt(priceCell.innerText.replace(/[^0-9]/g, ''), 10) || 0;
+          totalSum += regularVal;
+        }
+      });
+
+      // 계산된 최종 금액을 총합계 칸에 실시간 입력
+      if (totalCell) {
+        totalCell.innerText = totalSum.toLocaleString('ko-KR') + ' 원';
+      }
+    }
+
+    // 로딩 및 스크롤 시 자동 계산 실행
+    window.addEventListener('load', updateCostTableAuto);
+    document.addEventListener('DOMContentLoaded', updateCostTableAuto);
+    updateCostTableAuto();
+
+    // 8. 연락처 자동 하이픈
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.setAttribute('maxlength', '13');
+      phoneInput.addEventListener('input', (e) => {
+        let val = e.target.value.replace(/[^0-9]/g, '');
+        let formatted = '';
+
+        if (val.startsWith('02')) {
+          if (val.length <= 2) formatted = val;
+          else if (val.length <= 5) formatted = val.substr(0, 2) + '-' + val.substr(2);
+          else if (val.length <= 9) formatted = val.substr(0, 2) + '-' + val.substr(2, 3) + '-' + val.substr(5);
+          else formatted = val.substr(0, 2) + '-' + val.substr(2, 4) + '-' + val.substr(6, 4);
+        } else {
+          if (val.length < 4) formatted = val;
+          else if (val.length < 7) formatted = val.substr(0, 3) + '-' + val.substr(3);
+          else if (val.length <= 10) formatted = val.substr(0, 3) + '-' + val.substr(3, 3) + '-' + val.substr(6);
+          else formatted = val.substr(0, 3) + '-' + val.substr(3, 4) + '-' + val.substr(7, 4);
+        }
+        e.target.value = formatted;
+      });
+    }
+
+    // 9. 구글 시트 폼 전송
+    const GOOGLE_SHEET_MASTER_URL = "https://script.google.com/macros/s/AKfycbxNDfXW3y5fThnNmPVZSejdqeVcu8QkFLSX6Cm0NZmOPanbNHJuiIgnYuOAtXAizG9V/exec";
+    const masterForm = document.getElementById('franchiseFormMaster');
+    const masterSubmitBtn = document.getElementById('submitBtnMaster');
+
+    if (masterForm) {
+      masterForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const agree = document.getElementById('privacyAgreeMaster');
+        if (agree && !agree.checked) {
+          alert('개인정보 수집 및 이용에 동의해주세요.');
+          return;
+        }
+
+        if (masterSubmitBtn) {
+          masterSubmitBtn.disabled = true;
+          masterSubmitBtn.innerText = "전송 중...";
+        }
+
+        const formData = {
+          name: document.getElementById('name') ? document.getElementById('name').value : '',
+          age: document.getElementById('age') ? document.getElementById('age').value : '',
+          phone: document.getElementById('phone') ? document.getElementById('phone').value : '',
+          location: document.getElementById('location') ? document.getElementById('location').value : '',
+          budget: document.getElementById('budget') ? document.getElementById('budget').value : '',
+          channel: document.getElementById('channel') ? document.getElementById('channel').value : '',
+          date: new Date().toLocaleString()
+        };
+
+        try {
+          await fetch(GOOGLE_SHEET_MASTER_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+          alert("가맹 상담 신청이 성공적으로 접수되었습니다. 담당자가 빠른 시일 내에 연락드리겠습니다.");
+          masterForm.reset();
+        } catch (error) {
+          console.error("전송 에러:", error);
+          alert("전송 중 오류가 발생했습니다. 고객센터(0507-1302-6380)로 문의해주세요.");
+        } finally {
+          if (masterSubmitBtn) {
+            masterSubmitBtn.disabled = false;
+            masterSubmitBtn.innerText = "가맹 상담 신청하기";
+          }
+        }
+      });
+    }
+
+    // 10. 약관 팝업 모달 제어
+    const policyModal = document.getElementById('policyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const openPrivacyBtn = document.getElementById('openPrivacyModal');
+    const openEmailBtn = document.getElementById('openEmailModal');
+
+    const privacyContent = `
+      <strong>(주)나이스웨이 개인정보처리방침</strong><br><br>
+      (주)나이스웨이(이하 ‘회사’라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립, 공개합니다.<br><br>
+      <strong>제1조 (개인정보의 처리목적)</strong><br>
+      회사는 다음의 목적을 위하여 개인정보를 처리합니다.<br><br>
+      1. 가맹 상담 및 창업 컨설팅 지원<br>
+      2. 서비스 문의 응대 및 고객 불만 처리<br><br>
+      <strong>제2조 (처리하는 개인정보의 항목)</strong><br>
+      - 필수항목: 성명, 연락처, 나이, 희망지역, 창업예산, 유입경로<br>
+      - 자동수집항목: 접속 IP, 쿠키, 서비스 이용 기록<br><br>
+      <strong>제3조 (개인정보의 보유 및 이용기간)</strong><br>
+      원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 일정 기간 보관합니다. (상담 완료 후 1년)<br><br>
+      <strong>제4조 (개인정보의 파기절차 및 방법)</strong><br>
+      회사는 원칙적으로 개인정보 처리 목적이 달성된 경우에는 지체 없이 해당 개인정보를 파기합니다.<br>
+      1. 파기절차: 이용자가 입력한 정보는 목적 달성 후 내부 방침 및 기타 관련 법령에 따라 1년간 저장된 후 파기됩니다.<br>
+      2. 파기방법: 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 완전히 삭제합니다.<br><br>
+      <strong>제5조 (개인정보 처리의 위탁)</strong><br>
+      회사는 원활한 가맹 문의 접수 및 데이터의 안전한 보관을 위하여 아래와 같이 외부 전문 플랫폼에 데이터 관리를 위탁하고 있습니다.<br>
+      - 수탁업체: Google LLC (구글 폼)<br>
+      - 위탁업무 내용: 가맹 문의 데이터의 수집 및 클라우드 서버 보관<br><br>
+      <strong>제6조 (정보주체의 권리와 그 행사방법)</strong><br>
+      이용자는 언제든지 회사에 대해 자신의 개인정보 열람, 정정, 삭제, 처리정지 요구 등의 권리를 행사할 수 있습니다.<br><br>
+      <strong>제7조 (개인정보 보호책임자)</strong><br>
+      - 책임자: 김천구 (대표이사)<br><br>
+      <center>- 시행일: 2026년 8월 23일 -</center>
+    `;
+
+    const emailContent = `
+      <strong>이메일 무단 수집 거부</strong><br><br>
+      본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부합니다.<br><br>
+      이를 위반할 시 <strong>「정보통신망 이용촉진 및 정보보호 등에 관한 법률」</strong> 제50조의2, 제65조의2 등에 의해 형사처벌됨을 유념하시기 바랍니다.<br><br>
+      <center><strong>게시일자 :</strong> 2026년 8월 21일</center>
+    `;
+
+    function openModal(title, content) {
+      modalTitle.innerText = title;
+      modalBody.innerHTML = content;
+      policyModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      policyModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    if (openPrivacyBtn) openPrivacyBtn.addEventListener('click', () => openModal('개인정보처리방침', privacyContent));
+    if (openEmailBtn) openEmailBtn.addEventListener('click', () => openModal('이메일무단수집거부', emailContent));
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+
+    if (policyModal) {
+      policyModal.addEventListener('click', (e) => {
+        if (e.target === policyModal) closeModal();
+      });
+    }
+  </script>
 </body>
 </html>
